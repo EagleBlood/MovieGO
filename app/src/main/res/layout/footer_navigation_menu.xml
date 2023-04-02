@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:layout_marginBottom="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/black_bg"
+        android:drawableStart="@drawable/ic_round_autorenew_24dp"
+        android:text="@string/menuUpdate"
+        android:textAllCaps="false"
+        android:textColor="#FFF"
+        android:drawableTint="@color/white"
+        android:drawablePadding="15dp"
+        android:paddingStart="25dp"
+        android:gravity="start|center_vertical"
+        tools:targetApi="m" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menuVersionApp"
+        android:textAlignment="center"
+        android:textColor="#757575" />
+
+
+</LinearLayout>
