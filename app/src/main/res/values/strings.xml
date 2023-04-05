@@ -12,4 +12,17 @@
     <string name="menuSettings">Settings</string>
     <string name="menuUpdate">Check for updates</string>
     <string name="menuVersionApp">ver. 0.1.6.9.69.0.2 Movie Go</string>
+
+    <string name="welcomeSign">Hello, </string>
+    <string name="profileNameTitle">Profile name</string>
+    <string name="passTitle">Password</string>
+    <string name="nameTitle">Name</string>
+    <string name="surnameTitle">Surname</string>
+    <string name="emailTitle">Email</string>
+    <string name="phoneTitle">Phone number</string>
+    <string name="addressTitle">Home address</string>
+    <string name="birthTitle">Birth date</string>
+
+    <string name="editText">Edit</string>
+    <string name="showText">Show</string>
 </resources>

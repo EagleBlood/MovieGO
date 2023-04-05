@@ -7,386 +7,432 @@
     android:background="@color/black_bg"
     tools:context=".ui.gallery.GalleryFragment">
 
-    <TextView
-        android:id="@+id/welcomeUserTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="text"
-        android:textColor="@color/white"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TableLayout
-        android:id="@+id/profileLayout"
-        android:layout_width="313dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeUserTxt">
-
-        <TableRow
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/profileTxt"
+                android:id="@+id/welcomeUserTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/white" />
-        </TableRow>
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/welcomeSign"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            <TableLayout
+                android:id="@+id/profileLayout"
+                android:layout_width="330dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="34dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcomeUserTxt">
 
-            <EditText
-                android:id="@+id/editProfileInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:radius="5dp"
-                android:text="Name"
-                android:textColor="@color/grey_text" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/editProfileButton"
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:background="@android:color/transparent"
-                android:text="Button"
-                android:textColor="@color/grey_text" />
-        </TableRow>
+                    <TextView
+                        android:id="@+id/profileTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="6dp"
+                        android:text="@string/profileNameTitle"
+                        android:textColor="@color/white" />
+                </TableRow>
 
-    </TableLayout>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    <TableLayout
-        android:id="@+id/passLayout"
-        android:layout_width="313dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileLayout">
+                    <EditText
+                        android:id="@+id/editProfileInput"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/bg"
+                        android:ems="10"
+                        android:hint="profile name"
+                        android:inputType="textPersonName"
+                        android:paddingStart="10dp"
+                        android:radius="5dp"
+                        android:textColor="@color/grey_text" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/passTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/white" />
-        </TableRow>
+                    <Button
+                        android:id="@+id/editProfileButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="@string/editText"
+                        android:textColor="@color/grey_text" />
+                </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            </TableLayout>
 
-            <EditText
-                android:id="@+id/editPassInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:textColor="@color/grey_text" />
+            <TableLayout
+                android:id="@+id/passLayout"
+                android:layout_width="330dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileLayout">
 
-            <Button
-                android:id="@+id/editPassButton"
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:background="@android:color/transparent"
-                android:text="Button"
-                android:textColor="@color/grey_text" />
-        </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    </TableLayout>
+                    <TextView
+                        android:id="@+id/passTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="6dp"
+                        android:text="@string/passTitle"
+                        android:textColor="@color/white" />
+                </TableRow>
 
-    <TableLayout
-        android:id="@+id/nameLayout"
-        android:layout_width="313dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passLayout">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/editPassInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/bg"
+                        android:ems="10"
+                        android:hint="password"
+                        android:inputType="textPersonName"
+                        android:paddingStart="10dp"
+                        android:radius="5dp"
+                        android:textColor="@color/grey_text" />
 
-            <TextView
-                android:id="@+id/nameTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/white" />
-        </TableRow>
+                    <Button
+                        android:id="@+id/editPassButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="@string/showText"
+                        android:textColor="@color/grey_text" />
+                </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            </TableLayout>
 
-            <EditText
-                android:id="@+id/editNameInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:textColor="@color/grey_text" />
+            <TableLayout
+                android:id="@+id/nameLayout"
+                android:layout_width="330dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passLayout">
 
-            <Button
-                android:id="@+id/editNameButton"
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:background="@android:color/transparent"
-                android:text="Button"
-                android:textColor="@color/grey_text" />
-        </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    </TableLayout>
+                    <TextView
+                        android:id="@+id/nameTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="6dp"
+                        android:text="@string/nameTitle"
+                        android:textColor="@color/white" />
+                </TableRow>
 
-    <TableLayout
-        android:id="@+id/surenameLayout"
-        android:layout_width="313dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameLayout">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/editNameInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/bg"
+                        android:ems="10"
+                        android:hint="name"
+                        android:inputType="textPersonName"
+                        android:paddingStart="10dp"
+                        android:radius="5dp"
+                        android:textColor="@color/grey_text" />
 
-            <TextView
-                android:id="@+id/surenameTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/white" />
-        </TableRow>
+                    <Button
+                        android:id="@+id/editNameButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="@string/editText"
+                        android:textColor="@color/grey_text" />
+                </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            </TableLayout>
 
-            <EditText
-                android:id="@+id/editSurenameInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:textColor="@color/grey_text" />
+            <TableLayout
+                android:id="@+id/surnameLayout"
+                android:layout_width="330dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameLayout">
 
-            <Button
-                android:id="@+id/editSurenameButton"
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:background="@android:color/transparent"
-                android:text="Button"
-                android:textColor="@color/grey_text" />
-        </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    </TableLayout>
+                    <TextView
+                        android:id="@+id/surnameTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="6dp"
+                        android:text="@string/surnameTitle"
+                        android:textColor="@color/white" />
+                </TableRow>
 
-    <TableLayout
-        android:id="@+id/emailLayout"
-        android:layout_width="313dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surenameLayout">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/editSurnameInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/bg"
+                        android:ems="10"
+                        android:hint="surname"
+                        android:inputType="textPersonName"
+                        android:paddingStart="10dp"
+                        android:radius="5dp"
+                        android:textColor="@color/grey_text" />
 
-            <TextView
-                android:id="@+id/emailTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/white" />
-        </TableRow>
+                    <Button
+                        android:id="@+id/editSurnameButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="@string/editText"
+                        android:textColor="@color/grey_text" />
+                </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            </TableLayout>
 
-            <EditText
-                android:id="@+id/editEmailInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:textColor="@color/grey_text" />
+            <TableLayout
+                android:id="@+id/emailLayout"
+                android:layout_width="330dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/surnameLayout">
 
-            <Button
-                android:id="@+id/editEmailButton"
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:background="@android:color/transparent"
-                android:text="Button"
-                android:textColor="@color/grey_text" />
-        </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    </TableLayout>
+                    <TextView
+                        android:id="@+id/emailTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="6dp"
+                        android:text="@string/emailTitle"
+                        android:textColor="@color/white" />
+                </TableRow>
 
-    <TableLayout
-        android:id="@+id/phoneLayout"
-        android:layout_width="313dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailLayout">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/editEmailInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/bg"
+                        android:ems="10"
+                        android:hint="email"
+                        android:inputType="textPersonName"
+                        android:paddingStart="10dp"
+                        android:radius="5dp"
+                        android:textColor="@color/grey_text" />
 
-            <TextView
-                android:id="@+id/phoneTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/white" />
-        </TableRow>
+                    <Button
+                        android:id="@+id/editEmailButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="@string/editText"
+                        android:textColor="@color/grey_text" />
+                </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            </TableLayout>
 
-            <EditText
-                android:id="@+id/editPhoneInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:textColor="@color/grey_text" />
+            <TableLayout
+                android:id="@+id/phoneLayout"
+                android:layout_width="330dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emailLayout">
 
-            <Button
-                android:id="@+id/editPhoneButton"
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:background="@android:color/transparent"
-                android:text="Button"
-                android:textColor="@color/grey_text" />
-        </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    </TableLayout>
+                    <TextView
+                        android:id="@+id/phoneTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="6dp"
+                        android:text="@string/phoneTitle"
+                        android:textColor="@color/white" />
+                </TableRow>
 
-    <TableLayout
-        android:id="@+id/addrLayout"
-        android:layout_width="313dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneLayout">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/editPhoneInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/bg"
+                        android:ems="10"
+                        android:hint="phone number"
+                        android:inputType="textPersonName"
+                        android:paddingStart="10dp"
+                        android:radius="5dp"
+                        android:textColor="@color/grey_text" />
 
-            <TextView
-                android:id="@+id/addrTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/white" />
-        </TableRow>
+                    <Button
+                        android:id="@+id/editPhoneButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="@string/editText"
+                        android:textColor="@color/grey_text" />
+                </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            </TableLayout>
 
-            <EditText
-                android:id="@+id/editAddrInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:textColor="@color/grey_text" />
+            <TableLayout
+                android:id="@+id/addrLayout"
+                android:layout_width="330dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phoneLayout">
 
-            <Button
-                android:id="@+id/editAddrButton"
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:background="@android:color/transparent"
-                android:text="Button"
-                android:textColor="@color/grey_text" />
-        </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    </TableLayout>
+                    <TextView
+                        android:id="@+id/addrTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="6dp"
+                        android:text="@string/addressTitle"
+                        android:textColor="@color/white" />
+                </TableRow>
 
-    <TableLayout
-        android:id="@+id/birthLayout"
-        android:layout_width="313dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addrLayout">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/editAddrInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/bg"
+                        android:ems="10"
+                        android:hint="address"
+                        android:inputType="textPersonName"
+                        android:paddingStart="10dp"
+                        android:radius="5dp"
+                        android:textColor="@color/grey_text" />
 
-            <TextView
-                android:id="@+id/birthTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/white" />
-        </TableRow>
+                    <Button
+                        android:id="@+id/editAddrButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="@string/editText"
+                        android:textColor="@color/grey_text" />
+                </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            </TableLayout>
 
-            <EditText
-                android:id="@+id/editBirthInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:textColor="@color/grey_text" />
+            <TableLayout
+                android:id="@+id/birthLayout"
+                android:layout_width="330dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addrLayout">
 
-            <Button
-                android:id="@+id/editBirthButton"
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:background="@android:color/transparent"
-                android:text="Button"
-                android:textColor="@color/grey_text" />
-        </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    </TableLayout>
+                    <TextView
+                        android:id="@+id/birthTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="6dp"
+                        android:text="@string/birthTitle"
+                        android:textColor="@color/white" />
+                </TableRow>
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/editBirthInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/bg"
+                        android:ems="10"
+                        android:hint="birth date"
+                        android:inputType="textPersonName"
+                        android:paddingStart="10dp"
+                        android:radius="5dp"
+                        android:textColor="@color/grey_text" />
+
+                    <Button
+                        android:id="@+id/editBirthButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="@string/editText"
+                        android:textColor="@color/grey_text" />
+                </TableRow>
+
+            </TableLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
