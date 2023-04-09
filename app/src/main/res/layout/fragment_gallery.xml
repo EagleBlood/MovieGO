@@ -20,14 +20,14 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/welcomeUserTxt"
+                android:id="@+id/welcomeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="30dp"
                 android:text="@string/welcomeSign"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="34dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/welcomeUserTxt">
+                app:layout_constraintTop_toBottomOf="@+id/welcomeTxt">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -61,14 +61,16 @@
                         android:id="@+id/editProfileInput"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="2"
+                        android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
-                        android:hint="profile name"
+                        android:hint="@string/editProfileHint"
                         android:inputType="textPersonName"
                         android:paddingStart="10dp"
                         android:radius="5dp"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textColorHint="@color/grey_text"
+                        android:textSize="15sp" />
 
 
                     <Button
@@ -76,7 +78,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="@string/editText"
+                        android:text="@string/editButtonText"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 
@@ -110,23 +112,25 @@
 
                     <EditText
                         android:id="@+id/editPassInput"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="2"
+                        android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
-                        android:hint="password"
+                        android:hint="@string/editPassHint"
                         android:inputType="textPersonName"
                         android:paddingStart="10dp"
                         android:radius="5dp"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textColorHint="@color/grey_text"
+                        android:textSize="15sp" />
 
                     <Button
                         android:id="@+id/editPassButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="@string/showText"
+                        android:text="@string/showButtonText"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 
@@ -160,23 +164,25 @@
 
                     <EditText
                         android:id="@+id/editNameInput"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="2"
+                        android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
-                        android:hint="name"
+                        android:hint="@string/editNameHint"
                         android:inputType="textPersonName"
                         android:paddingStart="10dp"
                         android:radius="5dp"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textColorHint="@color/grey_text"
+                        android:textSize="15sp" />
 
                     <Button
                         android:id="@+id/editNameButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="@string/editText"
+                        android:text="@string/editButtonText"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 
@@ -210,23 +216,25 @@
 
                     <EditText
                         android:id="@+id/editSurnameInput"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="2"
+                        android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
-                        android:hint="surname"
+                        android:hint="@string/editSurnameHint"
                         android:inputType="textPersonName"
                         android:paddingStart="10dp"
                         android:radius="5dp"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textColorHint="@color/grey_text"
+                        android:textSize="15sp" />
 
                     <Button
                         android:id="@+id/editSurnameButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="@string/editText"
+                        android:text="@string/editButtonText"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 
@@ -260,23 +268,25 @@
 
                     <EditText
                         android:id="@+id/editEmailInput"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="2"
+                        android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
-                        android:hint="email"
+                        android:hint="@string/editEmailHint"
                         android:inputType="textPersonName"
                         android:paddingStart="10dp"
                         android:radius="5dp"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textColorHint="@color/grey_text"
+                        android:textSize="15sp" />
 
                     <Button
                         android:id="@+id/editEmailButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="@string/editText"
+                        android:text="@string/editButtonText"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 
@@ -310,23 +320,25 @@
 
                     <EditText
                         android:id="@+id/editPhoneInput"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="2"
+                        android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
-                        android:hint="phone number"
+                        android:hint="@string/editPhoneHint"
                         android:inputType="textPersonName"
                         android:paddingStart="10dp"
                         android:radius="5dp"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textColorHint="@color/grey_text"
+                        android:textSize="15sp" />
 
                     <Button
                         android:id="@+id/editPhoneButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="@string/editText"
+                        android:text="@string/editButtonText"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 
@@ -360,23 +372,25 @@
 
                     <EditText
                         android:id="@+id/editAddrInput"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="2"
+                        android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
-                        android:hint="address"
+                        android:hint="@string/editAddressHint"
                         android:inputType="textPersonName"
                         android:paddingStart="10dp"
                         android:radius="5dp"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textColorHint="@color/grey_text"
+                        android:textSize="15sp" />
 
                     <Button
                         android:id="@+id/editAddrButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="@string/editText"
+                        android:text="@string/editButtonText"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 
@@ -410,23 +424,25 @@
 
                     <EditText
                         android:id="@+id/editBirthInput"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="2"
+                        android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
-                        android:hint="birth date"
+                        android:hint="@string/editBirthHint"
                         android:inputType="textPersonName"
                         android:paddingStart="10dp"
                         android:radius="5dp"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textColorHint="@color/grey_text"
+                        android:textSize="15sp" />
 
                     <Button
                         android:id="@+id/editBirthButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="@string/editText"
+                        android:text="@string/editButtonText"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 

@@ -7,12 +7,14 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    // For left menu
     <string name="menuLogin">Login</string>
     <string name="menuForm">Form</string>
     <string name="menuSettings">Settings</string>
     <string name="menuUpdate">Check for updates</string>
     <string name="menuVersionApp">ver. 0.1.6.9.69.0.2 Movie Go</string>
 
+    // For fragment_gallery.xml
     <string name="welcomeSign">Hello, </string>
     <string name="profileNameTitle">Profile name</string>
     <string name="passTitle">Password</string>
@@ -23,6 +25,27 @@
     <string name="addressTitle">Home address</string>
     <string name="birthTitle">Birth date</string>
 
-    <string name="editText">Edit</string>
-    <string name="showText">Show</string>
+    <string name="editProfileHint">Profile name</string>
+    <string name="editPassHint">*******************</string>
+    <string name="editNameHint">Name</string>
+    <string name="editSurnameHint">Surname</string>
+    <string name="editEmailHint">Email address</string>
+    <string name="editPhoneHint">Phone number</string>
+    <string name="editAddressHint">Home address</string>
+    <string name="editBirthHint">Birth date</string>
+
+    <string name="editButtonText">Edit</string>
+    <string name="showButtonText">Show</string>
+
+    // For fragment_home.xml
+    <string name="welcomeSign2">Welcome</string>
+    <string name="text1">Please log in</string>
+    <string name="emailLoginTryHint">Email address</string>
+    <string name="passLoginTryHint">Password</string>
+    <string name="forgotPassLink">Forgot password?</string>
+    <string name="checkboxText">Stay signed in</string>
+    <string name="logButtonText">Log in</string>
+
+
+
 </resources>

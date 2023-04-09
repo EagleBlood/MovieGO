@@ -4,19 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    android:background="@color/black_bg"
+    tools:context=".ui.gallery.GalleryFragment">
+
+    <EditText
+        android:id="@+id/passLoginTryInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/bg"
+        android:ems="10"
+        android:hint="@string/passLoginTryHint"
+        android:inputType="textPersonName"
+        android:maxWidth="400dp"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:radius="5dp"
+        android:textColor="@color/grey_text"
+        android:textColorHint="@color/grey_text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/passEmailTryInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg"
+        android:ems="10"
+        android:hint="@string/emailLoginTryHint"
+        android:inputType="textPersonName"
+        android:maxWidth="400dp"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:radius="5dp"
+        android:textColor="@color/grey_text"
+        android:textColorHint="@color/grey_text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/passLoginTryInput"
+        app:layout_constraintStart_toStartOf="@+id/passLoginTryInput"
+        app:layout_constraintTop_toBottomOf="@+id/passLoginTryInput" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="26dp"
+        android:textColor="@color/grey_text"
+        android:textColorHint="@color/grey_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/passEmailTryInput"
+        app:layout_constraintTop_toBottomOf="@+id/passEmailTryInput" />
 
     <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="9dp"
+        android:text="@string/text1"
+        android:textColor="@color/grey_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="28dp"
+        android:text="@string/forgotPassLink"
+        android:textColor="@color/grey_text"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passEmailTryInput" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="27dp"
+        android:text="@string/checkboxText"
+        android:textColor="@color/grey_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/passEmailTryInput" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/welcomeSign2"
+        android:textColor="@color/white"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="@string/logButtonText"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
