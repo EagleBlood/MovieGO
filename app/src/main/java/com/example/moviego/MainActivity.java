@@ -1,10 +1,15 @@
 package com.example.moviego;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.Menu;
 
+import com.example.moviego.ui.home.HomeFragment;
+import com.example.moviego.ui.profile.ProfileFragment;
+import com.example.moviego.ui.ticket.TicketFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,8 +22,11 @@ import com.example.moviego.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityMainBinding binding;
+    ActivityMainBinding binding;
+    BottomNavigationView bottomNavigationView;
 
+
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,22 +38,35 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_login, R.id.nav_slideshow)
+                R.id.navHome, R.id.navProfile, R.id.navForm, R.id.navSettings)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+
+        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.nav_profile:
+                    replaceFragment(new ProfileFragment());
+                    break;
+
+                case R.id.nav_home:
+                    replaceFragment(new HomeFragment());
+                    break;
+
+                case R.id.nav_tickets:
+                    replaceFragment(new TicketFragment());
+                    break;
+            }
+            return true;
+        });
+
     }
 
     @Override
@@ -54,4 +75,13 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    private void replaceFragment (Fragment fragment){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.nav_host_fragment_content_main, fragment)
+                .commit();
+    }
+
+
 }

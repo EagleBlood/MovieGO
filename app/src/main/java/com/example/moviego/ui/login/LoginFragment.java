@@ -1,4 +1,4 @@
-package com.example.moviego.ui.home;
+package com.example.moviego.ui.login;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,17 +7,18 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.example.moviego.databinding.FragmentHomeBinding;
+import com.example.moviego.databinding.FragmentLoginBinding;
 
-public class HomeFragment extends Fragment {
+public class LoginFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentLoginBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentLoginBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         return root;

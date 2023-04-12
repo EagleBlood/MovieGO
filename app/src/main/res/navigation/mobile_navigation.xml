@@ -3,23 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
-
+    app:startDestination="@id/navHome">
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/navTicket"
+        android:name="com.example.moviego.ui.ticket.TicketFragment"
+        android:label="fragment_ticket"
+        tools:layout="@layout/fragment_ticket" >
+        <action
+            android:id="@+id/action_navTicket_to_navHome"
+            app:destination="@id/navHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/navForm"
+        android:name="com.example.moviego.ui.form.FormFragment"
+        android:label="fragment_form"
+        tools:layout="@layout/fragment_form" />
+    <fragment
+        android:id="@+id/navHome"
         android:name="com.example.moviego.ui.home.HomeFragment"
-        android:label="@string/menuLogin"
+        android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
-        android:id="@+id/nav_login"
-        android:name="com.example.moviego.ui.gallery.GalleryFragment"
-        android:label="@string/menuForm"
-        tools:layout="@layout/fragment_gallery" />
-
+        android:id="@+id/navSettings"
+        android:name="com.example.moviego.ui.other.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.moviego.ui.slideshow.SlideshowFragment"
-        android:label="@string/menuSettings"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/navLogin"
+        android:name="com.example.moviego.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/navProfile"
+        android:name="com.example.moviego.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -1,24 +1,28 @@
-package com.example.moviego.ui.home;
+package com.example.moviego.ui.form;
+
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.moviego.databinding.FragmentHomeBinding;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class HomeFragment extends Fragment {
+import com.example.moviego.databinding.FragmentFormBinding;
 
-    private FragmentHomeBinding binding;
+public class FormFragment extends Fragment {
+
+    private FragmentFormBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentFormBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
 
         return root;
     }
@@ -28,4 +32,5 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 }

@@ -14,6 +14,12 @@
     <string name="menuUpdate">Check for updates</string>
     <string name="menuVersionApp">ver. 0.1.6.9.69.0.2 Movie Go</string>
 
+    // For bottom menu
+
+    <string name="bottomHome">Home</string>
+    <string name="bottomProfile">Profile</string>
+    <string name="bottomTickets">Tickets</string>
+
     // For fragment_gallery.xml
     <string name="welcomeSign">Hello, </string>
     <string name="profileNameTitle">Profile name</string>
@@ -45,7 +51,8 @@
     <string name="forgotPassLink">Forgot password?</string>
     <string name="checkboxText">Stay signed in</string>
     <string name="logButtonText">Log in</string>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

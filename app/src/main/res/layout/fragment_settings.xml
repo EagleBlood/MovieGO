@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black_bg"
-    tools:context=".ui.home.HomeFragment">
-
+    tools:context=".ui.other.SettingsFragment">
 
     <TextView
         android:id="@+id/text_slideshow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HOME"
+        android:text="SETTINGS"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="35sp"
@@ -20,6 +19,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
