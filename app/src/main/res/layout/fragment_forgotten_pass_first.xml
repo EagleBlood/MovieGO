@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_bg"
     tools:context=".ui.login.ForgottenPassFirstFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/placeHolder2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fpFirst_EmailInput" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/fpFirst_EmailInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/bg"
+        android:ems="10"
+        android:hint="@string/fpFirst_EmailInputHint"
+        android:inputType="textPersonName"
+        android:maxWidth="400dp"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:radius="5dp"
+        android:textColor="@color/grey_text"
+        android:textColorHint="@color/grey_text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/fpFirst_Text2"
+        app:layout_constraintStart_toStartOf="@+id/fpFirst_Text2"
+        app:layout_constraintTop_toBottomOf="@+id/fpFirst_Text2" />
+
+    <TextView
+        android:id="@+id/fpFirst_Text2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="@string/fpFirst_Text2"
+        android:textColor="@color/grey_text"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/placeHolder2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/fpFirst_Text1"
+        app:layout_constraintTop_toBottomOf="@+id/fpFirst_Text1" />
+
+    <TextView
+        android:id="@+id/fpFirst_Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/fpFirst_Text1"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/fpFirst_ResetPassButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="@string/fpFirst_ResetPassButton"
+        app:layout_constraintEnd_toEndOf="@+id/placeHolder2"
+        app:layout_constraintStart_toStartOf="@+id/fpFirst_EmailInput"
+        app:layout_constraintTop_toBottomOf="@+id/fpFirst_EmailInput" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
