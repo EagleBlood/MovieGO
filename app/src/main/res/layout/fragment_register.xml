@@ -1,14 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.RegisterFragment">
+    android:background="@color/black_bg"
+    tools:context=".ui.login.LoginFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/reg_PassInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg"
+        android:ems="10"
+        android:hint="@string/reg_PassInputHint"
+        android:inputType="textPersonName"
+        android:maxWidth="400dp"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:radius="5dp"
+        android:textColor="@color/grey_text"
+        android:textColorHint="@color/grey_text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/reg_EmailInput"
+        app:layout_constraintStart_toStartOf="@+id/reg_EmailInput"
+        app:layout_constraintTop_toBottomOf="@+id/reg_EmailInput" />
+
+    <EditText
+        android:id="@+id/reg_ConfirmPassInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg"
+        android:ems="10"
+        android:hint="@string/reg_ConfirmPassInputHint"
+        android:inputType="textPersonName"
+        android:maxWidth="400dp"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:radius="5dp"
+        android:textColor="@color/grey_text"
+        android:textColorHint="@color/grey_text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/reg_PassInput"
+        app:layout_constraintStart_toStartOf="@+id/reg_PassInput"
+        app:layout_constraintTop_toBottomOf="@+id/reg_PassInput" />
+
+    <EditText
+        android:id="@+id/reg_LoginInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/bg"
+        android:ems="10"
+        android:hint="@string/reg_LoginInputHint"
+        android:inputType="textPersonName"
+        android:maxWidth="400dp"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:radius="5dp"
+        android:textColor="@color/grey_text"
+        android:textColorHint="@color/grey_text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/placeHolder"
+        app:layout_constraintStart_toStartOf="@+id/reg_Text1"
+        app:layout_constraintTop_toBottomOf="@+id/reg_Text1" />
+
+    <EditText
+        android:id="@+id/reg_EmailInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg"
+        android:ems="10"
+        android:hint="@string/reg_EmailInputHint"
+        android:inputType="textPersonName"
+        android:maxWidth="400dp"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:radius="5dp"
+        android:textColor="@color/grey_text"
+        android:textColorHint="@color/grey_text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/reg_LoginInput"
+        app:layout_constraintStart_toStartOf="@+id/reg_LoginInput"
+        app:layout_constraintTop_toBottomOf="@+id/reg_LoginInput" />
+
+    <CheckBox
+        android:id="@+id/reg_CheckBox"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="26dp"
+        android:textColor="@color/grey_text"
+        android:textColorHint="@color/grey_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/reg_ConfirmPassInput"
+        app:layout_constraintTop_toBottomOf="@+id/reg_ConfirmPassInput" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/placeHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:textColor="@color/grey_text"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_ConfirmPassInput" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/reg_Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/reg_Text1"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/reg_CreateAccButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/reg_CreateAccButton"
+        app:layout_constraintEnd_toEndOf="@+id/placeHolder"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/reg_ConfirmPassInput"
+        app:layout_constraintTop_toBottomOf="@+id/reg_UsrAgr" />
+
+    <TextView
+        android:id="@+id/reg_bottomText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/bottomCreatedAccText"
+        android:textColor="@color/grey_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/reg_UsrAgr"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="27dp"
+        android:text="@string/reg_UsrAgr"
+        android:textColor="@color/grey_text"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/reg_ConfirmPassInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/reg_CheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/reg_ConfirmPassInput" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,16 +8,114 @@
     tools:context=".ui.form.FormFragment">
 
     <TextView
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
+        android:id="@+id/placeHolder3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FORM"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="28dp"
+        android:textColor="@color/grey_text"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="503dp" />
+
+    <EditText
+        android:id="@+id/form_NameInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/bg"
+        android:ems="10"
+        android:hint="@string/form_NameInputHint"
+        android:inputType="textPersonName"
+        android:maxWidth="400dp"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:radius="5dp"
+        android:textColor="@color/grey_text"
+        android:textColorHint="@color/grey_text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/placeHolder3"
+        app:layout_constraintStart_toStartOf="@+id/form_Text2"
+        app:layout_constraintTop_toBottomOf="@+id/form_Text2" />
+
+    <EditText
+        android:id="@+id/form_NameInput2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg"
+        android:ems="10"
+        android:hint="@string/form_EmailInputHint"
+        android:inputType="textPersonName"
+        android:maxWidth="400dp"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:radius="5dp"
+        android:textColor="@color/grey_text"
+        android:textColorHint="@color/grey_text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/form_NameInput"
+        app:layout_constraintStart_toStartOf="@+id/form_Text2"
+        tools:layout_editor_absoluteY="174dp" />
+
+    <TextView
+        android:id="@+id/form_Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/form_Text1"
+        android:textColor="@color/white"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/form_Text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="@string/form_Text2"
+        android:textColor="@color/grey_text"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/form_Text1"
+        app:layout_constraintTop_toBottomOf="@+id/form_Text1" />
+
+    <Button
+        android:id="@+id/form_SubjectButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="85dp"
+        android:text="@string/form_SubjectButton"
+        app:layout_constraintBottom_toTopOf="@+id/form_bottomText"
+        app:layout_constraintEnd_toEndOf="@+id/placeHolder3"
+        app:layout_constraintStart_toStartOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/form_bottomText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/bottomCreateAccText"
+        android:textColor="@color/grey_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/bg"
+        android:hint="@string/form_IssueInputHint"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey_text"
+        app:layout_constraintBottom_toTopOf="@+id/form_SubjectButton"
+        app:layout_constraintEnd_toEndOf="@+id/placeHolder3"
+        app:layout_constraintStart_toStartOf="@+id/form_NameInput2"
+        app:layout_constraintTop_toBottomOf="@+id/form_NameInput2"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

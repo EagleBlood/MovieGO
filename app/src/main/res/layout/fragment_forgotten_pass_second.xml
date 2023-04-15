@@ -31,7 +31,7 @@
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/fpSec_Text2"
+        app:layout_constraintEnd_toStartOf="@+id/placeHolder"
         app:layout_constraintStart_toStartOf="@+id/fpSec_Text2"
         app:layout_constraintTop_toBottomOf="@+id/fpSec_Text2" />
 
@@ -63,7 +63,6 @@
         android:text="@string/fpSec_Text2"
         android:textColor="@color/grey_text"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/placeHolder"
         app:layout_constraintStart_toStartOf="@+id/fpSec_Text1"
         app:layout_constraintTop_toBottomOf="@+id/fpSec_Text1" />
 

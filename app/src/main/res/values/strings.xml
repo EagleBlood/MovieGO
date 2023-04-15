@@ -9,7 +9,8 @@
 
     //global
     <string name="globalTitle">MovieGO</string>
-    <string name="bottomCreateAccText">Don’t have a MovieGO account? Create account</string>
+    <string name="bottomCreateAccText">Don’t have a <font color="#FC094B">MovieGO</font> account? <b>Create account</b></string>
+    <string name="bottomCreatedAccText">Already have a <font color="#FC094B">MovieGO</font> account? <b>Log in</b></string>
 
     // For left menu
     <string name="menuLogin">Login</string>
@@ -68,6 +69,23 @@
     <string name="fpSec_PassInputHint">New password</string>
     <string name="fpSec_ConfirmPassInputHint">Confirm new password</string>
     <string name="fpSec_ChangePassButton">Change password</string>
+
+    // For fragment_register.xml
+    <string name="reg_Text1">Create your <b><font color="#FC094B">MovieGO</font></b> account</string>
+    <string name="reg_LoginInputHint">Login</string>
+    <string name="reg_EmailInputHint">Email address</string>
+    <string name="reg_PassInputHint">Password</string>
+    <string name="reg_ConfirmPassInputHint">Confirm password</string>
+    <string name="reg_UsrAgr">I would like to receive newsletters and other promotional information as well giving out my kidney for funding further development of app.</string>
+    <string name="reg_CreateAccButton">Sign up</string>
+
+    // For fragment_form.xml
+    <string name="form_Text1">Welcome</string>
+    <string name="form_Text2">What’s your issue?</string>
+    <string name="form_IssueInputHint">What seems to be an issue? Please describe your problem in detail here.</string>
+    <string name="form_NameInputHint">Name</string>
+    <string name="form_EmailInputHint">Email Address</string>
+    <string name="form_SubjectButton">Send ticket</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
