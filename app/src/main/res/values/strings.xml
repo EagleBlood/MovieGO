@@ -11,6 +11,7 @@
     <string name="globalTitle">MovieGO</string>
     <string name="bottomCreateAccText">Don’t have a <font color="#FC094B">MovieGO</font> account? <b>Create account</b></string>
     <string name="bottomCreatedAccText">Already have a <font color="#FC094B">MovieGO</font> account? <b>Log in</b></string>
+    <string name="welcomeSign">Hello, </string>
 
     // For left menu
     <string name="menuLogin">Login</string>
@@ -25,7 +26,6 @@
     <string name="bottomTickets">Tickets</string>
 
     // For fragment_gallery.xml
-    <string name="welcomeSign">Hello, </string>
     <string name="profileNameTitle">Profile name</string>
     <string name="passTitle">Password</string>
     <string name="nameTitle">Name</string>
@@ -86,6 +86,13 @@
     <string name="form_NameInputHint">Name</string>
     <string name="form_EmailInputHint">Email Address</string>
     <string name="form_SubjectButton">Send ticket</string>
+
+    // For fragment_home.xml
+    <string name="home_Text1">Want to go see a movie? Get your ticket today</string>
+    <string name="home_Text2">11 AM</string>
+    <string name="home_Text3">3 PM</string>
+    <string name="home_Text4">5 PM</string>
+    <string name="home_Text5">7 PM</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
