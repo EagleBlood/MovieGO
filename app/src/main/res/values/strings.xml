@@ -12,6 +12,8 @@
     <string name="bottomCreateAccText">Don’t have a <font color="#FC094B">MovieGO</font> account? <b>Create account</b></string>
     <string name="bottomCreatedAccText">Already have a <font color="#FC094B">MovieGO</font> account? <b>Log in</b></string>
     <string name="welcomeSign">Hello, </string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
     // For left menu
     <string name="menuLogin">Login</string>
@@ -96,6 +98,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navText">Navigation</string>
 
 
 </resources>

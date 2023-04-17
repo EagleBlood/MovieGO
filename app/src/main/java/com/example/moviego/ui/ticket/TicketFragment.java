@@ -3,6 +3,8 @@ package com.example.moviego.ui.ticket;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -21,6 +23,10 @@ public class TicketFragment extends Fragment {
         binding = FragmentTicketBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         return root;
     }

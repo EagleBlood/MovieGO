@@ -3,6 +3,8 @@ package com.example.moviego.ui.login;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -22,6 +24,11 @@ public class ForgottenPassSecondFragment extends Fragment {
 
         binding = FragmentForgottenPassSecondBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         return root;
     }
