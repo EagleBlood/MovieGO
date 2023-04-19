@@ -31,20 +31,12 @@
         android:id="@+id/navSettings"
         android:name="com.example.moviego.ui.other.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" >
-        <action
-            android:id="@+id/action_navSettings_to_navHome"
-            app:destination="@id/navHome" />
-    </fragment>
+        tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/navLogin"
         android:name="com.example.moviego.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_navLogin_to_navHome"
-            app:destination="@id/navHome" />
-    </fragment>
+        tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/navProfile"
         android:name="com.example.moviego.ui.profile.ProfileFragment"

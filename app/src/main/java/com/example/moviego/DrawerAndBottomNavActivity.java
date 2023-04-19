@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.moviego.databinding.ActivityDrawerAndBottomNavBinding;
 import com.example.moviego.ui.form.FormFragment;
@@ -22,6 +23,8 @@ import com.example.moviego.ui.profile.ProfileFragment;
 import com.example.moviego.ui.ticket.TicketFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+
+import java.time.LocalTime;
 
 public class DrawerAndBottomNavActivity extends AppCompatActivity {
 
@@ -59,12 +62,15 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity {
                     case R.id.navLogin:
                         fragment = new LoginFragment();
                         binding.drawer.closeDrawer(GravityCompat.START);
+                        binding.bottomNavigationView.setVisibility(View.GONE);
+                        getSupportActionBar().setTitle("Login");
                         callFragment(fragment);
                         break;
 
                     case R.id.navForm:
                         fragment = new FormFragment();
                         binding.drawer.closeDrawer(GravityCompat.START);
+                        binding.bottomNavigationView.setVisibility(View.GONE);
                         getSupportActionBar().setTitle("Contact US");
                         callFragment(fragment);
                         break;
@@ -72,6 +78,7 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity {
                     case R.id.navSettings:
                         fragment = new SettingsFragment();
                         binding.drawer.closeDrawer(GravityCompat.START);
+                        binding.bottomNavigationView.setVisibility(View.GONE);
                         getSupportActionBar().setTitle("Settings");
                         callFragment(fragment);
                         break;
@@ -121,19 +128,25 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity {
         } else {
             FragmentManager fm = getSupportFragmentManager();
             int backStackCount = fm.getBackStackEntryCount();
+            System.out.println(backStackCount);
 
             if (backStackCount > 0) {
-                fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                binding.bottomNavigationView.setSelectedItemId(R.id.nav_home);
+                FragmentManager.BackStackEntry backStackEntry = fm.getBackStackEntryAt(backStackCount - 1);
+                if (backStackEntry.getName() != null && backStackEntry.getName().equals("login")) {
+
+                    binding.bottomNavigationView.setVisibility(View.GONE);
+                    fm.popBackStack("login", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                } else {
+
+                    binding.bottomNavigationView.setSelectedItemId(R.id.nav_home);
+                    binding.bottomNavigationView.setVisibility(View.VISIBLE);
+                    fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                }
+
             } else {
                 super.onBackPressed();
             }
         }
-    }
-
-
-    public void setBottomNavigationVisibility(int visibility) {
-        binding.bottomNavigationView.setVisibility(visibility);
     }
 
     @Override

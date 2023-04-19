@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/grey_menu</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/black_bg</item>
     </style>
 
     <style name="Theme.MovieGO.NoActionBar">

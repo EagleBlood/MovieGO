@@ -23,9 +23,10 @@
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/login_forgotPassword"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/passEmailTryInput"
@@ -45,7 +46,8 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/passLoginTryInput"
         app:layout_constraintStart_toStartOf="@+id/passLoginTryInput"
-        app:layout_constraintTop_toBottomOf="@+id/passLoginTryInput" />
+        app:layout_constraintTop_toBottomOf="@+id/passLoginTryInput"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -56,7 +58,8 @@
         android:textColorHint="@color/grey_text"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/passEmailTryInput"
-        app:layout_constraintTop_toBottomOf="@+id/passEmailTryInput" />
+        app:layout_constraintTop_toBottomOf="@+id/passEmailTryInput"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/textView"
@@ -70,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/login_forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
@@ -106,24 +109,41 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/login_logIn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="@string/logButtonText"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/login_forgotPassword"
         app:layout_constraintStart_toStartOf="@+id/checkBox"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/login_createAccountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="28dp"
         android:text="@string/bottomCreateAccText"
         android:textColor="@color/grey_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/login_createAccountButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_createAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:elevation="0dp"
+        android:text="Create account"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/login_createAccountText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/login_createAccountText"
+        tools:ignore="TouchTargetSizeCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
