@@ -43,17 +43,17 @@ public class LoginFragment extends Fragment {
 //            actionBar.hide();
 //        }
 
-        Button button = root.findViewById(R.id.login_createAccountButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.frameLayout, new RegisterFragment());
-                fragmentTransaction.addToBackStack("login");
-                fragmentTransaction.commit();
-            }
-        });
+//        Button button = root.findViewById(R.id.login_createAccountButton);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FragmentManager fragmentManager = getParentFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.frameLayout, new RegisterFragment());
+//                fragmentTransaction.addToBackStack("login");
+//                fragmentTransaction.commit();
+//            }
+//        });
 
         return root;
     }

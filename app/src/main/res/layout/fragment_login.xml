@@ -49,18 +49,6 @@
         app:layout_constraintTop_toBottomOf="@+id/passLoginTryInput"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="26dp"
-        android:textColor="@color/grey_text"
-        android:textColorHint="@color/grey_text"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/passEmailTryInput"
-        app:layout_constraintTop_toBottomOf="@+id/passEmailTryInput"
-        tools:ignore="TouchTargetSizeCheck" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -88,7 +76,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="9dp"
         android:layout_marginTop="27dp"
         android:text="@string/checkboxText"
         android:textColor="@color/grey_text"
@@ -113,9 +101,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
+        android:background="@drawable/button_bg"
         android:text="@string/logButtonText"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/login_forgotPassword"
-        app:layout_constraintStart_toStartOf="@+id/checkBox"
+        app:layout_constraintStart_toStartOf="@+id/passEmailTryInput"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
@@ -126,24 +116,19 @@
         android:text="@string/bottomCreateAccText"
         android:textColor="@color/grey_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/login_createAccountButton"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_createAccountButton"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:background="@android:color/transparent"
-        android:elevation="0dp"
-        android:text="Create account"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/login_createAccountText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/login_createAccountText"
-        tools:ignore="TouchTargetSizeCheck" />
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/bg"
+        android:button="@color/yellow_star"
+        android:checked="true"
+        app:layout_constraintStart_toStartOf="@+id/passEmailTryInput"
+        app:layout_constraintTop_toBottomOf="@+id/passEmailTryInput" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -85,7 +85,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="85dp"
+        android:background="@drawable/button_bg"
         android:text="@string/form_SubjectButton"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/form_bottomText"
         app:layout_constraintEnd_toEndOf="@+id/placeHolder3"
         app:layout_constraintStart_toStartOf="@+id/textView5" />

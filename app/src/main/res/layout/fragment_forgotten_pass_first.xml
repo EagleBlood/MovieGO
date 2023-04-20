@@ -65,7 +65,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
+        android:background="@drawable/button_bg"
         android:text="@string/fpFirst_ResetPassButton"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/placeHolder2"
         app:layout_constraintStart_toStartOf="@+id/fpFirst_EmailInput"
         app:layout_constraintTop_toBottomOf="@+id/fpFirst_EmailInput" />
