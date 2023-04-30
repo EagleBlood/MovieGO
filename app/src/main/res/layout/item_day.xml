@@ -6,30 +6,32 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:paddingLeft="10dp"
+    android:paddingLeft="12dp"
     android:paddingTop="8dp"
-    android:paddingRight="10dp"
+    android:paddingRight="12dp"
     android:paddingBottom="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_day_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/itemBG"
-            android:layout_width="40dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/button_bg" />
+            app:srcCompat="@drawable/calendar_bg" />
 
         <TextView
             android:id="@+id/itemWeek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:text="Mon"
             android:textColor="@color/white"
             android:textSize="10sp"
@@ -40,7 +42,7 @@
         <TextView
             android:id="@+id/itemDay"
             android:layout_width="wrap_content"
-            android:layout_height="19dp"
+            android:layout_height="wrap_content"
             android:text="1"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -49,7 +51,7 @@
             app:layout_constraintEnd_toEndOf="@id/itemBG"
             app:layout_constraintStart_toStartOf="@id/itemBG"
             app:layout_constraintTop_toTopOf="@+id/itemBG"
-            app:layout_constraintVertical_bias="0.65" />
+            app:layout_constraintVertical_bias="0.71000004" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
