@@ -100,5 +100,17 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="navText">Navigation</string>
 
+    // For fragment_movie_details.xml
+    <string name="movie_imageDescription">Image of the current movie</string>
+    <string name="movie_averageScore">Average score</string>
+    <string name="movie_bookYourSeat">Book your seat</string>
+    <string name="movie_type">Type</string>
+    <string name="movie_duration">123 min</string>
+    <string name="movie_score">7.43</string>
+    <string name="movie_title">Filip</string>
+    <string name="movie_description">The action of the film takes place in 1943. The title character is a cosmopolitan and incapable of deeper feelings seducer. In Poland, he lost his entire family. Alone - being in the heart of Nazi Germany - he hides his Jewish origins and often eludes death.</string>
+    <string name="movie_star">star</string>
+    <string name="movie_like">like</string>
+
 
 </resources>
