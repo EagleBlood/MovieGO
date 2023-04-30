@@ -1,6 +1,8 @@
 package com.example.moviego.ui.home;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.media.metrics.Event;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,11 +21,18 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviego.R;
-import com.example.moviego.databinding.FragmentFormBinding;
 import com.example.moviego.databinding.FragmentHomeBinding;
-import com.google.android.material.navigation.NavigationView;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 
@@ -40,6 +49,31 @@ public class HomeFragment extends Fragment {
             actionBar.show();
             actionBar.setTitle("Home");
         }
+
+
+        // Calendar
+        RecyclerView recyclerView = root.findViewById(R.id.home_calendarRecyclerView);
+        List<String> daysList = new ArrayList<>();
+
+        CalendarAdapter calendarAdapter = new CalendarAdapter(daysList);
+        recyclerView.setAdapter(calendarAdapter);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        // Get the calendar instance and set it to the first day of the week
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+
+        // Add the days of the week to the daysList
+        for (int i = 0; i < 7; i++) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd", Locale.getDefault());
+            String dayNumber = dateFormat.format(calendar.getTime());
+            String dayName = new SimpleDateFormat("E", Locale.getDefault()).format(calendar.getTime());
+            daysList.add(dayNumber + "," + dayName);
+            calendar.add(Calendar.DATE, 1);
+        }
+        calendarAdapter.notifyDataSetChanged();
 
         return root;
     }
