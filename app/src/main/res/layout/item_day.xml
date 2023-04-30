@@ -9,7 +9,7 @@
     android:paddingLeft="12dp"
     android:paddingTop="8dp"
     android:paddingRight="12dp"
-    android:paddingBottom="8dp">
+    android:paddingBottom="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_day_layout"

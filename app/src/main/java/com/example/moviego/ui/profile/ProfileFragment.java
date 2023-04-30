@@ -23,10 +23,10 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
+        //ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+        //if (actionBar != null) {
+        //    actionBar.hide();
+        //}
 
         return root;
     }

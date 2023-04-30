@@ -8,6 +8,7 @@
 
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -15,20 +16,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginBottom="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/moviePoster"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="569dp"
+                android:layout_marginBottom="5dp"
                 android:contentDescription="@string/movie_imageDescription"
+                android:foreground="@drawable/trending_gradient_shape"
                 android:scaleType="centerCrop"
                 android:src="@drawable/filip_b1_b_cut_f762836d12_3"
-                android:foreground="@drawable/trending_gradient_shape"
+                app:layout_constraintBottom_toTopOf="@+id/movieTitle"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ImageContrastCheck" />
@@ -67,27 +77,27 @@
                 android:id="@+id/movieDescription"
                 android:layout_width="0dp"
                 android:layout_height="65dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
                 android:text="@string/movie_description"
                 android:textAlignment="center"
                 android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/rate"
-                app:layout_constraintStart_toStartOf="@+id/movieTitle"
-                app:layout_constraintTop_toBottomOf="@+id/movieType" />
+                app:layout_constraintStart_toStartOf="@+id/movieTitle" />
 
             <TextView
                 android:id="@+id/movieTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/movie_title"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="27sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/moviePoster" />
+                app:layout_constraintBottom_toTopOf="@+id/bookSeat"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/rate"
@@ -121,48 +131,43 @@
 
             <Button
                 android:id="@+id/bookSeat"
-                android:layout_width="134dp"
+                android:layout_width="136dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginBottom="12dp"
                 android:background="@drawable/button_bg"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/movie_bookYourSeat"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/movieType"
                 app:layout_constraintEnd_toEndOf="@+id/rate"
                 app:layout_constraintStart_toStartOf="@+id/movieTitle"
-                app:layout_constraintTop_toBottomOf="@+id/movieTitle"
                 tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/movieType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="-30dp"
+                android:layout_marginBottom="12dp"
                 android:text="@string/movie_type"
                 android:textColor="@color/white"
-                app:layout_constraintEnd_toStartOf="@+id/bookSeat"
-                app:layout_constraintTop_toBottomOf="@+id/bookSeat" />
+                app:layout_constraintBottom_toTopOf="@+id/movieDescription"
+                app:layout_constraintStart_toStartOf="@+id/bookSeat" />
 
             <TextView
                 android:id="@+id/duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="-30dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="12dp"
                 android:text="@string/movie_duration"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toEndOf="@+id/bookSeat"
-                app:layout_constraintTop_toTopOf="@+id/movieType" />
-
-
+                app:layout_constraintBottom_toTopOf="@+id/movieDescription"
+                app:layout_constraintEnd_toEndOf="@+id/bookSeat" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
