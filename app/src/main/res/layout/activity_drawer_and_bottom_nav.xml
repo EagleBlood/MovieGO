@@ -40,7 +40,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:menu="@menu/bottom_nav_menu"/>
+                app:menu="@menu/bottom_nav_menu"
+                android:theme="@style/MyBottomNavigationTheme"/>
 
         </RelativeLayout>
 
@@ -49,17 +50,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
+            android:background="@color/black_bg"
+            android:fitsSystemWindows="true"
             android:paddingVertical="20dp"
             app:headerLayout="@layout/nav_header_main"
-            app:menu="@menu/activity_main_drawer"
             app:itemHorizontalPadding="40dp"
             app:itemIconPadding="30dp"
             app:itemIconSize="20dp"
-            app:itemTextAppearance="?android:attr/textAppearanceSmallInverse"
             app:itemIconTint="@color/white"
+            app:itemTextAppearance="?android:attr/textAppearanceSmallInverse"
             app:itemTextColor="@color/white"
-            android:fitsSystemWindows="true"
-            android:background="@color/black_bg"/>
+            app:menu="@menu/activity_main_drawer" />
 
     </androidx.drawerlayout.widget.DrawerLayout>
 

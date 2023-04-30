@@ -13,11 +13,18 @@
         <item name="android:statusBarColor">@color/grey_menu</item>
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/black_bg</item>
+
+
     </style>
 
     <style name="Theme.MovieGO.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MyBottomNavigationTheme" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorOnSurface">@color/grey_text</item>
     </style>
 
     <style name="Theme.MovieGO.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
