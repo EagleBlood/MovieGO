@@ -3,6 +3,7 @@ package com.example.moviego.ui.home;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +38,13 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
         String[] day = daysList.get(position).split(",");
         holder.itemDay.setText(day[0]);
         holder.itemWeek.setText(day[1]);
+
+        String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
+        if (day[0].equals(currentDate)) {
+            holder.itemBG.setImageResource(R.drawable.calendar_bg_active);
+        } else {
+            holder.itemBG.setImageResource(R.drawable.calendar_bg);
+        }
     }
 
     @Override
@@ -45,6 +53,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView itemBG;
         TextView itemDay;
         TextView itemWeek;
 
@@ -52,6 +61,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
             super(itemView);
             itemDay = itemView.findViewById(R.id.itemDay);
             itemWeek = itemView.findViewById(R.id.itemWeek);
+            itemBG = itemView.findViewById(R.id.itemBG);
         }
     }
 }

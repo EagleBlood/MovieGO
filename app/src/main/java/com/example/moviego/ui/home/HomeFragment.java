@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
         calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
 
         // Add the days of the week to the daysList
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 14; i++) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd", Locale.getDefault());
             String dayNumber = dateFormat.format(calendar.getTime());
             String dayName = new SimpleDateFormat("E", Locale.getDefault()).format(calendar.getTime());
