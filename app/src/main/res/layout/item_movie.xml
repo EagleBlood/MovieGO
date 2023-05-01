@@ -13,5 +13,50 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="150dp"
+            android:layout_height="229dp"
+            app:cardBackgroundColor="#00000000"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/itemImgCard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="@drawable/trending_gradient_shape"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/filip_b1_b_cut_f762836d12_3" />
+
+            <TextView
+                android:id="@+id/itemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:paddingStart="5dp"
+                android:paddingBottom="5dp"
+                android:text="Title"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/itemScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:paddingEnd="5dp"
+                android:paddingBottom="5dp"
+                android:text="Score"
+                android:textColor="@color/white" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
