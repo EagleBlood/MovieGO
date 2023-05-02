@@ -33,7 +33,7 @@
                 android:layout_height="569dp"
                 android:layout_marginBottom="5dp"
                 android:contentDescription="@string/movie_imageDescription"
-                android:foreground="@drawable/trending_gradient_shape"
+                android:foreground="@drawable/movie_fg"
                 android:scaleType="centerCrop"
                 android:src="@drawable/filip_b1_b_cut_f762836d12_3"
                 app:layout_constraintBottom_toTopOf="@+id/movieTitle"

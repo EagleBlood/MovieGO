@@ -79,7 +79,7 @@ public class HomeFragment extends Fragment {
         movieList.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 2", 8.0f));
         movieList.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 3", 6.5f));
 
-        movieAdapter = new MovieAdapter(movieList);
+        movieAdapter = new MovieAdapter(getContext(), movieList);
         recyclerViewMovie1.setAdapter(movieAdapter);
 
         RecyclerView.LayoutManager layoutManagerMovie1 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -96,7 +96,7 @@ public class HomeFragment extends Fragment {
         //movieList2.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 2", 8.0f));
         //movieList2.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 3", 6.5f));
 
-        movieAdapter = new MovieAdapter(movieList);
+        movieAdapter = new MovieAdapter(getContext(), movieList);
         recyclerViewMovie2.setAdapter(movieAdapter);
 
         RecyclerView.LayoutManager layoutManagerMovie2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -113,7 +113,7 @@ public class HomeFragment extends Fragment {
         //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 2", 8.0f));
         //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 3", 6.5f));
 
-        movieAdapter = new MovieAdapter(movieList);
+        movieAdapter = new MovieAdapter(getContext(),movieList);
         recyclerViewMovie3.setAdapter(movieAdapter);
 
         RecyclerView.LayoutManager layoutManagerMovie3 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -130,7 +130,7 @@ public class HomeFragment extends Fragment {
         //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 2", 8.0f));
         //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 3", 6.5f));
 
-        movieAdapter = new MovieAdapter(movieList);
+        movieAdapter = new MovieAdapter(getContext(),movieList);
         recyclerViewMovie4.setAdapter(movieAdapter);
 
         RecyclerView.LayoutManager layoutManagerMovie4 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);

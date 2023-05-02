@@ -30,7 +30,7 @@
                 android:id="@+id/itemImgCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:foreground="@drawable/trending_gradient_shape"
+                android:foreground="@drawable/movie_fg"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/filip_b1_b_cut_f762836d12_3" />
 
