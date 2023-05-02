@@ -42,4 +42,9 @@
         android:name="com.example.moviego.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/navHall"
+        android:name="com.example.moviego.ui.movie.MovieHallFragment"
+        android:label="fragment_movie_hall"
+        tools:layout="@layout/fragment_movie_hall" />
 </navigation>

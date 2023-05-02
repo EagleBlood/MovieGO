@@ -14,4 +14,5 @@
     <color name="grey_text">#B8B8B8</color>
     <color name="black">#000000</color>
     <color name="black_bg">#141217</color>
+    <color name="grey_fill_border">#ADADAD</color>
 </resources>

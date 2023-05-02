@@ -1,0 +1,134 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemTicketContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingLeft="12dp"
+    android:paddingTop="8dp"
+    android:paddingRight="12dp"
+    android:paddingBottom="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            app:cardBackgroundColor="@color/grey_fill_bg"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp"
+            app:contentPadding="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                >
+
+                <TextView
+                    android:id="@+id/itemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ticket_title"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/itemRNt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/ticket_reservationNumber"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="@+id/itemTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/itemTitle"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/itemReservation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/ticket_RN"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/itemRNt"
+                    app:layout_constraintTop_toTopOf="@+id/itemRNt"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/itemBDt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ticket_bookingDateText"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="@+id/itemRNt"
+                    app:layout_constraintTop_toBottomOf="@+id/itemRNt"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/itemBooking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/ticket_date"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/itemBDt"
+                    app:layout_constraintTop_toTopOf="@+id/itemBDt"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/itemSt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ticket_seatsText"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="@+id/itemBDt"
+                    app:layout_constraintTop_toBottomOf="@+id/itemBDt"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/itemSeats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/ticket_seats"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/itemSt"
+                    app:layout_constraintTop_toTopOf="@+id/itemSt"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/itemMoreInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ticket_moreInformation"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="TextContrastCheck" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

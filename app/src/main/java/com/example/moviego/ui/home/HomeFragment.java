@@ -1,25 +1,13 @@
 package com.example.moviego.ui.home;
 
-import android.annotation.SuppressLint;
-import android.graphics.Color;
-import android.media.metrics.Event;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,14 +18,12 @@ import com.example.moviego.databinding.FragmentHomeBinding;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private RecyclerView recyclerView;
     private RecyclerView recyclerViewMovie1;
     private RecyclerView recyclerViewMovie2;
     private RecyclerView recyclerViewMovie3;
@@ -58,7 +44,7 @@ public class HomeFragment extends Fragment {
 
 
         // Calendar
-        recyclerView = root.findViewById(R.id.home_calendarRecyclerView);
+        RecyclerView recyclerView = root.findViewById(R.id.home_calendarRecyclerView);
         List<String> daysList = new ArrayList<>();
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(daysList);

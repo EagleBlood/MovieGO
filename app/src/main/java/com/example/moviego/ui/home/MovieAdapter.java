@@ -50,7 +50,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         public MovieViewHolder(@NonNull View itemView) {
             super(itemView);
             itemTitle = itemView.findViewById(R.id.itemTitle);
-            itemScore = itemView.findViewById(R.id.itemScore);
+            itemScore = itemView.findViewById(R.id.itemRNt);
             itemImgCard = itemView.findViewById(R.id.itemImgCard);
         }
     }

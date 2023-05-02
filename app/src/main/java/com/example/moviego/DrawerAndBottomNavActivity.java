@@ -18,6 +18,7 @@ import com.example.moviego.databinding.ActivityDrawerAndBottomNavBinding;
 import com.example.moviego.ui.form.FormFragment;
 import com.example.moviego.ui.home.HomeFragment;
 import com.example.moviego.ui.login.LoginFragment;
+import com.example.moviego.ui.movie.MovieHallFragment;
 import com.example.moviego.ui.other.SettingsFragment;
 import com.example.moviego.ui.profile.ProfileFragment;
 import com.example.moviego.ui.ticket.TicketFragment;
@@ -75,11 +76,11 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity {
                         callFragment(fragment);
                         break;
 
-                    case R.id.navSettings:
-                        fragment = new SettingsFragment();
+                    case R.id.navHall:
+                        fragment = new MovieHallFragment();
                         binding.drawer.closeDrawer(GravityCompat.START);
                         binding.bottomNavigationView.setVisibility(View.GONE);
-                        getSupportActionBar().setTitle("Settings");
+//                        getSupportActionBar().setTitle("Settings");
                         callFragment(fragment);
                         break;
 

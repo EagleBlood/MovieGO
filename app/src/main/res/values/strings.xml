@@ -104,13 +104,22 @@
     <string name="movie_imageDescription">Image of the current movie</string>
     <string name="movie_averageScore">Average score</string>
     <string name="movie_bookYourSeat">Book your seat</string>
-    <string name="movie_type">Type</string>
+    <string name="movie_type">Dokumentalny</string>
     <string name="movie_duration">123 min</string>
     <string name="movie_score">7.43</string>
     <string name="movie_title">Filip</string>
     <string name="movie_description">The action of the film takes place in 1943. The title character is a cosmopolitan and incapable of deeper feelings seducer. In Poland, he lost his entire family. Alone - being in the heart of Nazi Germany - he hides his Jewish origins and often eludes death.</string>
     <string name="movie_star">star</string>
     <string name="movie_like">like</string>
+    <string name="ticket_title">Title</string>
+    <string name="ticket_reservationNumber">Reservation number:</string>
+    <string name="ticket_bookingDateText">Booking date:</string>
+    <string name="ticket_seatsText">Seats:</string>
+    <string name="ticket_moreInformation">More information</string>
+    <string name="ticket_RN">0014423</string>
+    <string name="ticket_date">03.10.2023</string>
+    <string name="ticket_seats">2</string>
+    <string name="ticket_scrollView">Tickets</string>
 
 
 </resources>

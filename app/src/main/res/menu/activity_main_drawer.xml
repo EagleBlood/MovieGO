@@ -14,9 +14,9 @@
             android:icon="@drawable/ic_form_24dp"
             android:title="@string/menuForm" />
         <item
-            android:id="@+id/navSettings"
+            android:id="@+id/navHall"
             android:icon="@drawable/ic_setting"
-            android:title="@string/menuSettings" />
+            android:title="Movie hall" />
     </group>
 
     <group
