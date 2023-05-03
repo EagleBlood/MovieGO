@@ -26,35 +26,54 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/itemImgCard"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:foreground="@drawable/movie_fg"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/filip_b1_b_cut_f762836d12_3" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/itemTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:paddingStart="5dp"
-                android:paddingBottom="5dp"
-                android:text="Title"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/itemImgCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:foreground="@drawable/movie_fg_recycler"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/filip_b1_b_cut_f762836d12_3" />
 
-            <TextView
-                android:id="@+id/itemRNt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:paddingEnd="5dp"
-                android:paddingBottom="5dp"
-                android:text="Score"
-                android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/itemScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Score"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/itemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Title"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/itemImgCard"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    app:layout_constraintBottom_toBottomOf="@+id/itemScore"
+                    app:layout_constraintEnd_toStartOf="@+id/itemScore"
+                    app:layout_constraintTop_toTopOf="@+id/itemScore"
+                    app:srcCompat="@drawable/ic_star_rate" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 

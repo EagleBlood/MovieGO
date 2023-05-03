@@ -46,7 +46,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/itemRNt"
+                    android:id="@+id/itemScore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -64,8 +64,8 @@
                     android:text="@string/ticket_RN"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/itemRNt"
-                    app:layout_constraintTop_toTopOf="@+id/itemRNt"
+                    app:layout_constraintStart_toEndOf="@+id/itemScore"
+                    app:layout_constraintTop_toTopOf="@+id/itemScore"
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
@@ -74,8 +74,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/ticket_bookingDateText"
                     android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="@+id/itemRNt"
-                    app:layout_constraintTop_toBottomOf="@+id/itemRNt"
+                    app:layout_constraintStart_toStartOf="@+id/itemScore"
+                    app:layout_constraintTop_toBottomOf="@+id/itemScore"
                     tools:ignore="TextContrastCheck" />
 
                 <TextView

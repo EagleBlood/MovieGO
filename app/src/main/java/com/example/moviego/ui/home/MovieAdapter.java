@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -58,7 +57,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         public MovieViewHolder(@NonNull View itemView) {
             super(itemView);
             itemTitle = itemView.findViewById(R.id.itemTitle);
-            itemScore = itemView.findViewById(R.id.itemRNt);
+            itemScore = itemView.findViewById(R.id.itemScore);
             itemImgCard = itemView.findViewById(R.id.itemImgCard);
             itemView.setOnClickListener(this);
         }
@@ -66,7 +65,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         @Override
         public void onClick(View v) {
             // Open a new fragment with the movie details
-            Movie movie = movies.get(getAdapterPosition());
             FragmentManager fragmentManager = ((FragmentActivity)context).getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.frameLayout, new MovieDetailsFragment());
