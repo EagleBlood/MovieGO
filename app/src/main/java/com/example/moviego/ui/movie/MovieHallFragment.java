@@ -1,5 +1,6 @@
 package com.example.moviego.ui.movie;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -34,9 +35,10 @@ public class MovieHallFragment extends Fragment {
         }
 
         int numRows = 8; // number of rows in the table
-        int numColumns = 6; // number of columns in the table
+        int numColumns = 9; // number of columns in the table
 
         TableLayout tableLayout = root.findViewById(R.id.movieHall_TableLayout);
+        int middleColIndex = numColumns / 2;
 
         for (int i = 0; i < numRows; i++) { // loop through rows
             TableRow tableRow = new TableRow(getContext());
@@ -44,11 +46,18 @@ public class MovieHallFragment extends Fragment {
                     TableLayout.LayoutParams.WRAP_CONTENT));
             for (int j = 0; j < numColumns; j++) { // loop through columns
                 ImageView imageView = new ImageView(getContext());
-                TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(0,
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        1f);
+                TableRow.LayoutParams layoutParams;
+                if (j == middleColIndex) { // set smaller width for middle column
+                    layoutParams = new TableRow.LayoutParams(0,
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            0.7f);
+                } else {
+                    layoutParams = new TableRow.LayoutParams(0,
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            1f);
+                }
                 imageView.setLayoutParams(layoutParams);
-                imageView.setPadding(8, 8, 8, 8);
+                imageView.setPadding(10, 10, 10, 10);
                 imageView.setImageResource(R.drawable.seat_available);
 
                 // set a tag to identify the element later
@@ -59,18 +68,25 @@ public class MovieHallFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         String tag = view.getTag().toString();
-                        // handle click event for the element identified by the tag
+                        imageView.setImageResource(R.drawable.seat_selected);
                     }
                 });
 
                 // add the element to the row
                 tableRow.addView(imageView);
             }
+            // hide the corner elements
+            if (i == 0 || i == numRows - 1) {
+                tableRow.getChildAt(0).setVisibility(View.INVISIBLE);
+                tableRow.getChildAt(numColumns - 1).setVisibility(View.INVISIBLE);
+            }
+
+            // make middle column invisible
+            tableRow.getChildAt(middleColIndex).setVisibility(View.INVISIBLE);
+
             // add the row to the table
             tableLayout.addView(tableRow);
         }
-
-
 
         return root;
     }

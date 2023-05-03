@@ -122,4 +122,13 @@
     <string name="ticket_scrollView">Tickets</string>
 
 
+    // For fragment_movie_hall.xml
+    <string name="movieHall_SelectedText">Selected</string>
+    <string name="movieHall_AvailableText">Available</string>
+    <string name="movieHall_ReservedText">Reserved</string>
+    <string name="movieHall_SelectSpotText">Select your Spot</string>
+    <string name="movieHall_PriceText">price: </string>
+    <string name="movieHall_BookButtonText">Book Now</string>
+
+
 </resources>
