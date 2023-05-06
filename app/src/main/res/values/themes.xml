@@ -14,6 +14,13 @@
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/black_bg</item>
 
+        <item name="textAppearanceCaption">@style/TextAppearance.MaterialComponents.Caption</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MaterialComponents.SmallComponent</item>
+
+
+        <item name="colorSurface">@color/white</item>
+
 
     </style>
 

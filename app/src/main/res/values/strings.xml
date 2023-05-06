@@ -136,6 +136,11 @@
     <string name="movieHall_SelectSpotText">Select your Spot</string>
     <string name="movieHall_PriceText">price: </string>
     <string name="movieHall_BookButtonText">Book Now</string>
+    <string-array name="movieHall_TicketValues">
+        <item>Normal</item>
+        <item>Half</item>
+    </string-array>
+
 
 
 
