@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.moviego.databinding.FragmentProfileBinding;
 
@@ -23,10 +22,10 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
-        //if (actionBar != null) {
-        //    actionBar.hide();
-        //}
+        ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("Hello, ...");
+        }
 
         return root;
     }

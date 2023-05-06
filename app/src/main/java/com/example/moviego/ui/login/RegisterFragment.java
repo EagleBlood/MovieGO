@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
@@ -31,6 +33,18 @@ public class RegisterFragment extends Fragment {
         if (actionBar != null) {
             actionBar.hide();
         }
+
+        Button signUp = root.findViewById(R.id.reg_CreateAccButton);
+        signUp.setOnClickListener(v->{
+            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+            fragmentManager.popBackStack("login", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        });
+
+        TextView logIn = root.findViewById(R.id.reg_bottomText);
+        logIn.setOnClickListener(v->{
+            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+            fragmentManager.popBackStack("login", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        });
 
         return root;
     }

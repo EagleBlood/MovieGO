@@ -6,10 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentForgottenPassSecondBinding;
@@ -29,6 +31,12 @@ public class ForgottenPassSecondFragment extends Fragment {
         if (actionBar != null) {
             actionBar.hide();
         }
+
+        Button changePass = root.findViewById(R.id.fpSec_ChangePassButton);
+        changePass.setOnClickListener(v-> {
+            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+            fragmentManager.popBackStack("login", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        });
 
         return root;
     }

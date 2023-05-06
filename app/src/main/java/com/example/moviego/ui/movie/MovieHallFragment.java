@@ -1,13 +1,6 @@
 package com.example.moviego.ui.movie;
 
-import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +8,13 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import com.example.moviego.R;
-import com.example.moviego.databinding.FragmentLoginBinding;
 import com.example.moviego.databinding.FragmentMovieHallBinding;
 
 public class MovieHallFragment extends Fragment {
@@ -64,13 +62,7 @@ public class MovieHallFragment extends Fragment {
                 imageView.setTag(i + "," + j);
 
                 // set a click listener to handle click events
-                imageView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String tag = view.getTag().toString();
-                        imageView.setImageResource(R.drawable.seat_selected);
-                    }
-                });
+                imageView.setOnClickListener(view -> imageView.setImageResource(R.drawable.seat_selected));
 
                 // add the element to the row
                 tableRow.addView(imageView);
@@ -87,6 +79,10 @@ public class MovieHallFragment extends Fragment {
             // add the row to the table
             tableLayout.addView(tableRow);
         }
+
+        ImageView backButton = root.findViewById(R.id.movieHall_ReturnImg);
+        backButton.setOnClickListener(v -> getParentFragmentManager().popBackStack("hall", FragmentManager.POP_BACK_STACK_INCLUSIVE));
+
 
         return root;
     }

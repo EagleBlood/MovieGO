@@ -1,36 +1,34 @@
 package com.example.moviego;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-
 import com.example.moviego.databinding.ActivityDrawerAndBottomNavBinding;
 import com.example.moviego.ui.form.FormFragment;
 import com.example.moviego.ui.home.HomeFragment;
 import com.example.moviego.ui.login.LoginFragment;
-import com.example.moviego.ui.movie.MovieHallFragment;
-import com.example.moviego.ui.other.SettingsFragment;
 import com.example.moviego.ui.profile.ProfileFragment;
 import com.example.moviego.ui.ticket.TicketFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-import java.time.LocalTime;
-
-public class DrawerAndBottomNavActivity extends AppCompatActivity {
+public class DrawerAndBottomNavActivity extends AppCompatActivity implements BottomNavigation {
 
     private ActivityDrawerAndBottomNavBinding binding;
-    private ActionBarDrawerToggle toggle;
+    public ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,38 +49,32 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity {
 
         toggle = new ActionBarDrawerToggle(this, binding.drawer, binding.toolbar, R.string.open, R.string.close);
         binding.drawer.addDrawerListener(toggle);
-        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
+        toggle.getDrawerArrowDrawable().setColor(ContextCompat.getColor(this, R.color.white));
         toggle.syncState();
 
 
         binding.navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             Fragment fragment = null;
             @Override
-            public boolean onNavigationItemSelected( MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.navLogin:
-                        fragment = new LoginFragment();
-                        binding.drawer.closeDrawer(GravityCompat.START);
-                        binding.bottomNavigationView.setVisibility(View.GONE);
-                        getSupportActionBar().setTitle("Login");
-                        callFragment(fragment);
-                        break;
-
-                    case R.id.navForm:
-                        fragment = new FormFragment();
-                        binding.drawer.closeDrawer(GravityCompat.START);
-                        binding.bottomNavigationView.setVisibility(View.GONE);
-                        getSupportActionBar().setTitle("Contact US");
-                        callFragment(fragment);
-                        break;
-
-                    case R.id.navHall:
-                        fragment = new MovieHallFragment();
-                        binding.drawer.closeDrawer(GravityCompat.START);
-                        binding.bottomNavigationView.setVisibility(View.GONE);
-//                        getSupportActionBar().setTitle("Settings");
-                        callFragment(fragment);
-                        break;
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+                ActionBar actionBar = getSupportActionBar();
+                if (itemId == R.id.navLogin) {
+                    fragment = new LoginFragment();
+                    binding.drawer.closeDrawer(GravityCompat.START);
+                    binding.bottomNavigationView.setVisibility(View.GONE);
+                    if (actionBar != null ) actionBar.setTitle("Login");
+                    callFragment(fragment);
+                } else if (itemId == R.id.navForm){
+                    fragment = new FormFragment();
+                    binding.drawer.closeDrawer(GravityCompat.START);
+                    binding.bottomNavigationView.setVisibility(View.GONE);
+                    if (actionBar != null ) actionBar.setTitle("Contact Us");
+                    callFragment(fragment);
+                } else if (itemId == R.id.navHomeDrawer){
+                    binding.bottomNavigationView.setVisibility(View.VISIBLE);
+                    binding.drawer.closeDrawer(GravityCompat.START);
+                    getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                 }
                 return true;
@@ -91,25 +83,22 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity {
 
 
         binding.bottomNavigationView.setSelectedItemId(R.id.nav_home);
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.nav_home:
-                        callFragment(new HomeFragment());
-                        break;
-                    case R.id.nav_profile:
-                        callFragment(new ProfileFragment());
-                        break;
-                    case R.id.nav_tickets:
-                        callFragment(new TicketFragment());
-                        break;
-                }
-                return true;
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.nav_home){
+                toggle.setDrawerIndicatorEnabled(true);
+                getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            } else if (itemId == R.id.nav_profile){
+                toggle.setDrawerIndicatorEnabled(false);
+                callFragment(new ProfileFragment());
+            } else if (itemId == R.id.nav_tickets){
+                toggle.setDrawerIndicatorEnabled(false);
+                callFragment(new TicketFragment());
             }
+            return false;
         });
     }
-
 
     private void callFragment(Fragment fragment){
         FragmentManager manager = getSupportFragmentManager();
@@ -137,6 +126,14 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity {
 
                     binding.bottomNavigationView.setVisibility(View.GONE);
                     fm.popBackStack("login", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                } else if (backStackEntry.getName() != null && backStackEntry.getName().equals("hall")) {
+
+                    binding.bottomNavigationView.setVisibility(View.GONE);
+                    fm.popBackStack("hall", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                } else if (backStackEntry.getName() != null && backStackEntry.getName().equals("resetPass")) {
+
+                    binding.bottomNavigationView.setVisibility(View.GONE);
+                    fm.popBackStack("resetPass", FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 } else {
 
                     binding.bottomNavigationView.setSelectedItemId(R.id.nav_home);
@@ -148,6 +145,19 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity {
                 super.onBackPressed();
             }
         }
+    }
+
+    public void reloadApp() {
+        Intent intent = getIntent();
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        finish();
+        startActivity(intent);
+        overridePendingTransition(0, 0);
+    }
+
+    @Override
+    public void hideElement() {
+        binding.bottomNavigationView.setVisibility(View.GONE);
     }
 
     @Override

@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
         ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
         if (actionBar != null) {
             actionBar.show();
-            actionBar.setTitle("Home");
+            actionBar.setTitle("Hello, ...");
         }
 
 

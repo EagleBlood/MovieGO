@@ -20,8 +20,8 @@ import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    private List<Movie> movies;
-    private Context context;
+    private final List<Movie> movies;
+    private final Context context;
 
     public MovieAdapter(Context context, List<Movie> movies) {
         this.context = context;
@@ -72,4 +72,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             fragmentTransaction.commit();
         }
     }
+
+
 }

@@ -1,11 +1,6 @@
 package com.example.moviego.ui.login;
 
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.TextPaint;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.moviego.DrawerAndBottomNavActivity;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentLoginBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 
 public class LoginFragment extends Fragment {
 
@@ -38,22 +28,31 @@ public class LoginFragment extends Fragment {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-//        ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
-//        if (actionBar != null) {
-//            actionBar.hide();
-//        }
+        ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.show();
+        }
 
-//        Button button = root.findViewById(R.id.login_createAccountButton);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FragmentManager fragmentManager = getParentFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                fragmentTransaction.replace(R.id.frameLayout, new RegisterFragment());
-//                fragmentTransaction.addToBackStack("login");
-//                fragmentTransaction.commit();
-//            }
-//        });
+        TextView createAccount = root.findViewById(R.id.login_createAccountText);
+        createAccount.setOnClickListener(v -> {
+            FragmentManager fragmentManager = getParentFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.frameLayout, new RegisterFragment());
+            fragmentTransaction.addToBackStack("login");
+            fragmentTransaction.commit();
+        });
+
+        TextView forgotPassword = root.findViewById(R.id.login_forgotPassword);
+        forgotPassword.setOnClickListener(v->{
+            FragmentManager fragmentManager = getParentFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.frameLayout, new ForgottenPassFirstFragment());
+            fragmentTransaction.addToBackStack("login");
+            fragmentTransaction.commit();
+        });
+
+        Button logIn = root.findViewById(R.id.login_logIn);
+        logIn.setOnClickListener(v -> ((DrawerAndBottomNavActivity) getActivity()).reloadApp());
 
         return root;
     }
