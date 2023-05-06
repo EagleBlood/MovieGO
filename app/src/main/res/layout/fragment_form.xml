@@ -15,7 +15,7 @@
         android:textColor="@color/grey_text"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="503dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/form_NameInput"
@@ -27,8 +27,8 @@
         android:hint="@string/form_NameInputHint"
         android:inputType="textPersonName"
         android:maxWidth="400dp"
+        android:minHeight="48dp"
         android:padding="10dp"
-        android:paddingStart="10dp"
         android:radius="5dp"
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
@@ -47,8 +47,8 @@
         android:hint="@string/form_EmailInputHint"
         android:inputType="textPersonName"
         android:maxWidth="400dp"
+        android:minHeight="48dp"
         android:padding="10dp"
-        android:paddingStart="10dp"
         android:radius="5dp"
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
@@ -62,10 +62,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="10dp"
         android:text="@string/form_Text1"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,7 +73,7 @@
         android:id="@+id/form_Text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="10dp"
         android:text="@string/form_Text2"
         android:textColor="@color/grey_text"
         android:textSize="10sp"
@@ -83,39 +83,28 @@
     <Button
         android:id="@+id/form_SubjectButton"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="85dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/button_bg"
         android:text="@string/form_SubjectButton"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/form_bottomText"
-        app:layout_constraintEnd_toEndOf="@+id/placeHolder3"
-        app:layout_constraintStart_toStartOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/form_bottomText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="@string/bottomCreateAccText"
-        android:textColor="@color/grey_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/placeHolder3"
+        app:layout_constraintStart_toStartOf="@+id/form_messageInput" />
 
-    <TextView
-        android:id="@+id/textView5"
+    <EditText
+        android:id="@+id/form_messageInput"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="52dp"
         android:background="@drawable/bg"
+        android:gravity="top"
         android:hint="@string/form_IssueInputHint"
         android:padding="10dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/grey_text"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/form_SubjectButton"
         app:layout_constraintEnd_toEndOf="@+id/placeHolder3"
         app:layout_constraintStart_toStartOf="@+id/form_NameInput2"

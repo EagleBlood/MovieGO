@@ -38,7 +38,9 @@ public class MovieDetailsFragment extends Fragment {
         bottomNavigation.hideElement();
 
         ImageButton backButton = root.findViewById(R.id.backButton);
-        backButton.setOnClickListener(v -> getActivity().onBackPressed());
+        backButton.setOnClickListener(v -> {
+            if (getActivity() != null) getActivity().onBackPressed();
+        });
 
         Button bookSeats = root.findViewById(R.id.bookSeat);
         bookSeats.setOnClickListener(v -> {
@@ -47,6 +49,13 @@ public class MovieDetailsFragment extends Fragment {
             fragmentTransaction.replace(R.id.frameLayout, new MovieHallFragment());
             fragmentTransaction.addToBackStack("hall");
             fragmentTransaction.commit();
+        });
+
+        final boolean[] isClicked = {false};
+        ImageButton likeMovie = root.findViewById(R.id.likeButton);
+        likeMovie.setOnClickListener(v-> {
+            likeMovie.setImageResource(isClicked[0] ? R.drawable.ic_cards_heart : R.drawable.mdi_cards_heart);
+            isClicked[0] = !isClicked[0];
         });
 
         return root;

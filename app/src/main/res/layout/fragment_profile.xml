@@ -17,28 +17,17 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/welcomeTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="30dp"
-                android:text="@string/welcomeSign"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp">
 
             <TableLayout
                 android:id="@+id/profileLayout"
-                android:layout_width="330dp"
-                android:layout_height="65dp"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="34dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/welcomeTxt">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -60,7 +49,7 @@
                     <EditText
                         android:id="@+id/editProfileInput"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="48dp"
                         android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
@@ -70,7 +59,8 @@
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
                         android:textColorHint="@color/grey_text"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        tools:ignore="TouchTargetSizeCheck" />
 
 
                     <Button
@@ -86,9 +76,8 @@
 
             <TableLayout
                 android:id="@+id/passLayout"
-                android:layout_width="330dp"
-                android:layout_height="65dp"
-                android:layout_marginStart="26dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profileLayout">
@@ -113,7 +102,7 @@
                     <EditText
                         android:id="@+id/editPassInput"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="48dp"
                         android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
@@ -138,9 +127,8 @@
 
             <TableLayout
                 android:id="@+id/nameLayout"
-                android:layout_width="330dp"
-                android:layout_height="65dp"
-                android:layout_marginStart="26dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/passLayout">
@@ -165,7 +153,7 @@
                     <EditText
                         android:id="@+id/editNameInput"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="48dp"
                         android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
@@ -190,9 +178,8 @@
 
             <TableLayout
                 android:id="@+id/surnameLayout"
-                android:layout_width="330dp"
-                android:layout_height="65dp"
-                android:layout_marginStart="26dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nameLayout">
@@ -217,7 +204,7 @@
                     <EditText
                         android:id="@+id/editSurnameInput"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="48dp"
                         android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
@@ -242,9 +229,8 @@
 
             <TableLayout
                 android:id="@+id/emailLayout"
-                android:layout_width="330dp"
-                android:layout_height="65dp"
-                android:layout_marginStart="26dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/surnameLayout">
@@ -269,7 +255,7 @@
                     <EditText
                         android:id="@+id/editEmailInput"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="48dp"
                         android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
@@ -294,9 +280,8 @@
 
             <TableLayout
                 android:id="@+id/phoneLayout"
-                android:layout_width="330dp"
-                android:layout_height="65dp"
-                android:layout_marginStart="26dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailLayout">
@@ -321,7 +306,7 @@
                     <EditText
                         android:id="@+id/editPhoneInput"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="48dp"
                         android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
@@ -346,9 +331,8 @@
 
             <TableLayout
                 android:id="@+id/addrLayout"
-                android:layout_width="330dp"
-                android:layout_height="65dp"
-                android:layout_marginStart="26dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/phoneLayout">
@@ -373,7 +357,7 @@
                     <EditText
                         android:id="@+id/editAddrInput"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="48dp"
                         android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
@@ -391,16 +375,16 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        tools:ignore="TouchTargetSizeCheck" />
                 </TableRow>
 
             </TableLayout>
 
             <TableLayout
                 android:id="@+id/birthLayout"
-                android:layout_width="330dp"
-                android:layout_height="65dp"
-                android:layout_marginStart="26dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addrLayout">
@@ -425,7 +409,7 @@
                     <EditText
                         android:id="@+id/editBirthInput"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="48dp"
                         android:layout_weight="4"
                         android:background="@drawable/bg"
                         android:ems="10"
@@ -435,7 +419,8 @@
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
                         android:textColorHint="@color/grey_text"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                     <Button
                         android:id="@+id/editBirthButton"

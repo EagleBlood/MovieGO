@@ -87,7 +87,7 @@
     <string name="form_IssueInputHint">What seems to be an issue? Please describe your problem in detail here.</string>
     <string name="form_NameInputHint">Name</string>
     <string name="form_EmailInputHint">Email Address</string>
-    <string name="form_SubjectButton">Send ticket</string>
+    <string name="form_SubjectButton">Send message</string>
 
     // For fragment_home.xml
     <string name="home_Text1">Want to go see a movie? Get your ticket today</string>
