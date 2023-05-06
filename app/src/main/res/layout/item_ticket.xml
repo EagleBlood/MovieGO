@@ -17,7 +17,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/grey_fill_bg"
             app:cardCornerRadius="15dp"
             app:cardElevation="0dp"
@@ -29,103 +29,158 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_height="match_parent"
+            <LinearLayout
                 android:layout_width="match_parent"
-                >
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/itemTitle"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ticket_mainLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/itemTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ticket_title"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/itemScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/ticket_reservationNumber"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/itemTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/itemTitle"
+                        tools:ignore="TextContrastCheck" />
+
+                    <TextView
+                        android:id="@+id/itemReservation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/ticket_RN"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/itemScore"
+                        app:layout_constraintTop_toTopOf="@+id/itemScore"
+                        tools:ignore="TextContrastCheck" />
+
+                    <TextView
+                        android:id="@+id/itemBDt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ticket_bookingDateText"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/itemScore"
+                        app:layout_constraintTop_toBottomOf="@+id/itemScore"
+                        tools:ignore="TextContrastCheck" />
+
+                    <TextView
+                        android:id="@+id/itemBooking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/ticket_date"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/itemBDt"
+                        app:layout_constraintTop_toTopOf="@+id/itemBDt"
+                        tools:ignore="TextContrastCheck" />
+
+                    <TextView
+                        android:id="@+id/itemSt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ticket_seatsText"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/itemBDt"
+                        app:layout_constraintTop_toBottomOf="@+id/itemBDt"
+                        tools:ignore="TextContrastCheck" />
+
+                    <TextView
+                        android:id="@+id/itemSeats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/ticket_seats"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/itemSt"
+                        app:layout_constraintTop_toTopOf="@+id/itemSt"
+                        tools:ignore="TextContrastCheck" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ticket_expandableLayout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/ticket_title"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/ticket_mainLayout">
 
-                <TextView
-                    android:id="@+id/itemScore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="@string/ticket_reservationNumber"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="@+id/itemTitle"
-                    app:layout_constraintTop_toBottomOf="@+id/itemTitle"
-                    tools:ignore="TextContrastCheck" />
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/ticket_reservedSpots"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/itemReservation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="@string/ticket_RN"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/itemScore"
-                    app:layout_constraintTop_toTopOf="@+id/itemScore"
-                    tools:ignore="TextContrastCheck" />
+                    <TextView
+                        android:id="@+id/itemSpots"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ticket_yourSpots"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/textView2"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-                <TextView
-                    android:id="@+id/itemBDt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ticket_bookingDateText"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="@+id/itemScore"
-                    app:layout_constraintTop_toBottomOf="@+id/itemScore"
-                    tools:ignore="TextContrastCheck" />
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/ticket_price"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/itemSpots"
+                        app:layout_constraintTop_toBottomOf="@+id/itemSpots" />
 
-                <TextView
-                    android:id="@+id/itemBooking"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="@string/ticket_date"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/itemBDt"
-                    app:layout_constraintTop_toTopOf="@+id/itemBDt"
-                    tools:ignore="TextContrastCheck" />
+                    <TextView
+                        android:id="@+id/itemPriceValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ticket_priceValue"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/textView3"
+                        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-                <TextView
-                    android:id="@+id/itemSt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ticket_seatsText"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="@+id/itemBDt"
-                    app:layout_constraintTop_toBottomOf="@+id/itemBDt"
-                    tools:ignore="TextContrastCheck" />
-
-                <TextView
-                    android:id="@+id/itemSeats"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="@string/ticket_seats"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/itemSt"
-                    app:layout_constraintTop_toTopOf="@+id/itemSt"
-                    tools:ignore="TextContrastCheck" />
-
-                <TextView
-                    android:id="@+id/itemMoreInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ticket_moreInformation"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:ignore="TextContrastCheck" />
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        android:text="@string/ticket_currency"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@+id/itemPriceValue"
+                        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
 
 
         </androidx.cardview.widget.CardView>

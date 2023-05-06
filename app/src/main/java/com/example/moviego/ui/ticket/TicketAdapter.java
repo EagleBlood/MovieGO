@@ -1,30 +1,28 @@
 package com.example.moviego.ui.ticket;
 
 import android.content.Context;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviego.R;
 
-import java.time.LocalDate;
+import org.w3c.dom.Text;
+
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketViewHolder> {
 
     private final List<Ticket> tickets;
-    private Context context;
+    private final Context context;
 
     public TicketAdapter(Context context, List<Ticket> tickets) {
 
@@ -40,7 +38,6 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         return new TicketViewHolder(view);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull TicketViewHolder holder, int position) {
         Ticket ticket = tickets.get(position);
@@ -48,6 +45,8 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         holder.itemReservationNumber.setText(String.valueOf(ticket.getReservationNumber()));
         holder.itemDate.setText(ticket.getFormattedDate());
         holder.itemSeats.setText(String.valueOf(ticket.getSeats()));
+        holder.itemSpots.setText(ticket.getSpots());
+        holder.itemPrice.setText(String.valueOf(ticket.getPrice()));
 
         LocalDateTime dateTime = ticket.getDateTime();
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -55,8 +54,18 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
 
         if (dateTime.compareTo(currentDateTime) >= 0){
             holder.cardView.setCardBackgroundColor(red);
-
         }
+
+        boolean isExpandable = ticket.isExpandable();
+        holder.expandableLayout.setVisibility(isExpandable ? View.VISIBLE : View.GONE);
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ticket.setExpandable(!ticket.isExpandable());
+                notifyItemChanged(holder.getAdapterPosition());
+            }
+        });
     }
 
     @Override
@@ -69,7 +78,11 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         public TextView itemReservationNumber;
         public TextView itemDate;
         public TextView itemSeats;
+        public TextView itemSpots;
+        public TextView itemPrice;
         public CardView cardView;
+        public ConstraintLayout mainLayout;
+        public ConstraintLayout expandableLayout;
 
         public TicketViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,6 +91,10 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
             itemDate = itemView.findViewById(R.id.itemBooking);
             itemSeats = itemView.findViewById(R.id.itemSeats);
             cardView = itemView.findViewById(R.id.cardView);
+            itemSpots = itemView.findViewById(R.id.itemSpots);
+            itemPrice = itemView.findViewById(R.id.itemPriceValue);
+            expandableLayout = itemView.findViewById(R.id.ticket_expandableLayout);
+
         }
     }
 }

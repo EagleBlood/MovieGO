@@ -21,6 +21,7 @@ import com.example.moviego.ui.home.MovieAdapter;
 import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TicketFragment extends Fragment {
@@ -43,9 +44,9 @@ public class TicketFragment extends Fragment {
         recyclerViewTickets = root.findViewById(R.id.ticket_ticketRecyclerView);
         List<Ticket> ticketList = new ArrayList<>();
 
-        ticketList.add(new Ticket("Filip", 49092, "03.05.2023 11:00", 2));
-        ticketList.add(new Ticket("Test1", 49812, "02.05.2023 12:30", 1));
-        ticketList.add(new Ticket("Test1", 49812, "02.05.2023 13:31", 3));
+        ticketList.add(new Ticket("Filip", 49092, "03.05.2023 11:00", 2, new ArrayList<String>(Arrays.asList("2:4", "4:6")), 28.98));
+        ticketList.add(new Ticket("Test1", 49812, "02.05.2023 12:30", 1, new ArrayList<String>(Arrays.asList("1:6", "4:6")), 14.49));
+        ticketList.add(new Ticket("Test1", 49812, "02.05.2023 13:31", 3, new ArrayList<String>(Arrays.asList("9:2", "9:3", "9:4")), 43.47));
 
 
         ticketAdapter = new TicketAdapter(getContext(), ticketList);
