@@ -6,6 +6,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/navHomeDrawer"
+            android:icon="@drawable/ic_baseline_home_24dp"
+            android:title="@string/bottomHome" />
+        <item
             android:id="@+id/navLogin"
             android:icon="@drawable/ic_user"
             android:title="@string/menuLogin" />
@@ -14,9 +18,10 @@
             android:icon="@drawable/ic_form_24dp"
             android:title="@string/menuForm" />
         <item
-            android:id="@+id/navHomeDrawer"
-            android:icon="@drawable/ic_baseline_home_24dp"
-            android:title="@string/bottomHome" />
+            android:id="@+id/checkUpdates"
+            android:icon="@drawable/ic_round_autorenew_24dp"
+            android:title="@string/menuUpdate" />
+
     </group>
 
     <group

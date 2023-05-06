@@ -17,22 +17,6 @@
         android:background="@color/white"
         android:layout_marginBottom="10dp"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/settings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:background="@color/black_bg"
-        android:drawableStart="@drawable/ic_round_autorenew_24dp"
-        android:text="@string/menuUpdate"
-        android:textAllCaps="false"
-        android:textColor="#FFF"
-        android:drawableTint="@color/white"
-        android:drawablePadding="15dp"
-        android:paddingStart="25dp"
-        android:gravity="start|center_vertical"
-        tools:targetApi="m" />
-
     <Space
         android:layout_width="match_parent"
         android:layout_height="30dp" />

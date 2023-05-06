@@ -127,7 +127,7 @@
     <string name="ticket_reservedSpots">Reserved spots:</string>
     <string name="ticket_price">Price:</string>
     <string name="ticket_currency">zł</string>
-
+    <string name="ticket_priceValue">28.99</string>
 
     // For fragment_movie_hall.xml
     <string name="movieHall_SelectedText">Selected</string>
@@ -136,7 +136,8 @@
     <string name="movieHall_SelectSpotText">Select your Spot</string>
     <string name="movieHall_PriceText">price: </string>
     <string name="movieHall_BookButtonText">Book Now</string>
-    <string name="ticket_priceValue">28.99</string>
+
+
 
 
 </resources>
