@@ -1,27 +1,20 @@
 package com.example.moviego.ui.movie;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.ImageView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.Toast;
-
-import androidx.fragment.app.FragmentManager;
 
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentMovieHallBinding;
@@ -33,7 +26,6 @@ import java.util.List;
 public class MovieHallFragment extends Fragment {
 
     private FragmentMovieHallBinding binding;
-    private BottomSheetBehavior bottomSheetBehavior;
     private RecyclerView recyclerView;
     private List<String> chosenSeats;
 
@@ -85,32 +77,29 @@ public class MovieHallFragment extends Fragment {
                 // set a tag to identify the element later
                 imageView.setTag(i + "," + j);
 
-                imageView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String tag = view.getTag().toString();
-                        String[] rowCol = tag.split(",");
-                        int row = Integer.parseInt(rowCol[0]) + 1; // convert to 1-indexed
-                        int col = Integer.parseInt(rowCol[1]) + 1; // convert to 1-indexed
-                        String seat = row + ":" + col;
+                imageView.setOnClickListener(view -> {
+                    String tag = view.getTag().toString();
+                    String[] rowCol = tag.split(",");
+                    int row = Integer.parseInt(rowCol[0]) + 1; // convert to 1-indexed
+                    int col = Integer.parseInt(rowCol[1]) + 1; // convert to 1-indexed
+                    String seat = row + ":" + col;
 
-                        if (chosenSeats.contains(seat)) {
-                            chosenSeats.remove(seat);
-                            seatAdapter.removeSeat(seat);
-                            recyclerView.setAdapter(seatAdapter);
-                        } else {
-                            chosenSeats.add(seat);
-                            seatAdapter.addSeat(seat);
-                            recyclerView.setAdapter(seatAdapter);
-                        }
+                    if (chosenSeats.contains(seat)) {
+                        chosenSeats.remove(seat);
+                        seatAdapter.removeSeat(seat);
+                        recyclerView.setAdapter(seatAdapter);
+                    } else {
+                        chosenSeats.add(seat);
+                        seatAdapter.addSeat(seat);
+                        recyclerView.setAdapter(seatAdapter);
+                    }
 
 
-                        // change the image resource of the clicked element
-                        if (chosenSeats.contains(seat)) {
-                            imageView.setImageResource(R.drawable.seat_selected);
-                        } else {
-                            imageView.setImageResource(R.drawable.seat_available);
-                        }
+                    // change the image resource of the clicked element
+                    if (chosenSeats.contains(seat)) {
+                        imageView.setImageResource(R.drawable.seat_selected);
+                    } else {
+                        imageView.setImageResource(R.drawable.seat_available);
                     }
                 });
 
@@ -132,7 +121,7 @@ public class MovieHallFragment extends Fragment {
         }
         //Bottom menu
         View bottomSheet = root.findViewById(R.id.bottom_sheet);
-        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+        BottomSheetBehavior<View> bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
 
 
         ImageView backButton = root.findViewById(R.id.movieHall_ReturnImg);

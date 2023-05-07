@@ -59,7 +59,7 @@
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
                         android:textColorHint="@color/grey_text"
-                        android:textSize="15sp"
+                        android:textSize="@dimen/textWeight"
                         tools:ignore="TouchTargetSizeCheck" />
 
 
