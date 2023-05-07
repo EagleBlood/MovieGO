@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MovieGO</string>
+    <string name="app_name">Movie<b>GO</b></string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -141,9 +141,6 @@
         <item>Normal</item>
         <item>Half</item>
     </string-array>
-
-
-
 
 
 </resources>
