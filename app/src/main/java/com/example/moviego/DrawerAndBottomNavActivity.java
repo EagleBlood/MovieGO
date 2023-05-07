@@ -134,8 +134,11 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity implements Bot
 
                     binding.bottomNavigationView.setVisibility(View.GONE);
                     fm.popBackStack("resetPass", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                } else {
+                } else if (backStackEntry.getName() != null && backStackEntry.getName().equals("startAfterBookedSeats")) {
 
+                    binding.bottomNavigationView.setVisibility(View.VISIBLE);
+                    fm.popBackStack("startAfterBookedSeats", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                } else {
                     binding.bottomNavigationView.setSelectedItemId(R.id.nav_home);
                     binding.bottomNavigationView.setVisibility(View.VISIBLE);
                     fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);

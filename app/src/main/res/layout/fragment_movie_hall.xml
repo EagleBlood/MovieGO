@@ -231,7 +231,7 @@
                     android:layout_height="wrap_content"
                     android:text="price"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text20"
+                    android:textSize="@dimen/text30"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/movieHall_BookButton"
                     app:layout_constraintStart_toStartOf="@+id/movieHall_SelectSpotText"
@@ -239,8 +239,8 @@
 
                 <Button
                     android:id="@+id/movieHall_BookButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="140dp"
+                    android:layout_height="55dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/button_bg"

@@ -137,6 +137,7 @@
     <string name="movieHall_PriceText">price: </string>
     <string name="movieHall_BookButtonText">Book Now</string>
     <string name="movieHall_TicketListText">Choose your ticket</string>
+    <string name="EndTransactionText">Seats have been reserved. Details in Tickets</string>
     <string-array name="movieHall_TicketValues">
         <item>Normal</item>
         <item>Half</item>

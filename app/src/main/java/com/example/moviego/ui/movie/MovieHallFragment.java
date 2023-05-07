@@ -1,12 +1,17 @@
 package com.example.moviego.ui.movie;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -127,6 +132,13 @@ public class MovieHallFragment extends Fragment {
         ImageView backButton = root.findViewById(R.id.movieHall_ReturnImg);
         backButton.setOnClickListener(v -> getParentFragmentManager().popBackStack("hall", FragmentManager.POP_BACK_STACK_INCLUSIVE));
 
+        Button bookNow = root.findViewById(R.id.movieHall_BookButton);
+        bookNow.setOnClickListener(v->{
+            Toast toast = Toast.makeText(getActivity(), R.string.EndTransactionText, Toast.LENGTH_SHORT);
+            toast.show();
+            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+            fragmentManager.popBackStack();
+        });
 
         return root;
     }
