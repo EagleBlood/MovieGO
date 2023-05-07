@@ -4,4 +4,5 @@
     android:layout_height="wrap_content"
     android:padding="14dp"
     android:text="TextView"
+    android:textSize="@dimen/text14"
     android:textColor="@color/black" />

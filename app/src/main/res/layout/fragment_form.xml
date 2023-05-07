@@ -32,7 +32,7 @@
         android:radius="5dp"
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
-        android:textSize="15sp"
+        android:textSize="@dimen/text14"
         app:layout_constraintEnd_toStartOf="@+id/placeHolder3"
         app:layout_constraintStart_toStartOf="@+id/form_Text2"
         app:layout_constraintTop_toBottomOf="@+id/form_Text2" />
@@ -52,7 +52,7 @@
         android:radius="5dp"
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
-        android:textSize="15sp"
+        android:textSize="@dimen/text14"
         app:layout_constraintEnd_toEndOf="@+id/form_NameInput"
         app:layout_constraintStart_toStartOf="@+id/form_Text2"
         app:layout_constraintTop_toBottomOf="@+id/form_NameInput" />
@@ -65,7 +65,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/form_Text1"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="@dimen/text20"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,7 +76,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/form_Text2"
         android:textColor="@color/grey_text"
-        android:textSize="10sp"
+        android:textSize="@dimen/text12"
         app:layout_constraintStart_toStartOf="@+id/form_Text1"
         app:layout_constraintTop_toBottomOf="@+id/form_Text1" />
 
@@ -88,6 +88,7 @@
         android:background="@drawable/button_bg"
         android:text="@string/form_SubjectButton"
         android:textColor="@color/white"
+        android:textSize="@dimen/text14"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/placeHolder3"
         app:layout_constraintStart_toStartOf="@+id/form_messageInput" />
@@ -104,7 +105,7 @@
         android:padding="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/grey_text"
-        android:textSize="15sp"
+        android:textSize="@dimen/text14"
         app:layout_constraintBottom_toTopOf="@+id/form_SubjectButton"
         app:layout_constraintEnd_toEndOf="@+id/placeHolder3"
         app:layout_constraintStart_toStartOf="@+id/form_NameInput2"

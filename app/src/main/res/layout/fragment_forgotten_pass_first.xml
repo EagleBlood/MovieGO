@@ -30,7 +30,7 @@
         android:radius="5dp"
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
-        android:textSize="15sp"
+        android:textSize="@dimen/text14"
         app:layout_constraintEnd_toEndOf="@+id/fpFirst_Text2"
         app:layout_constraintStart_toStartOf="@+id/fpFirst_Text2"
         app:layout_constraintTop_toBottomOf="@+id/fpFirst_Text2" />
@@ -42,7 +42,7 @@
         android:layout_marginTop="9dp"
         android:text="@string/fpFirst_Text2"
         android:textColor="@color/grey_text"
-        android:textSize="12sp"
+        android:textSize="@dimen/text12"
         app:layout_constraintEnd_toStartOf="@+id/placeHolder2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/fpFirst_Text1"
@@ -56,7 +56,7 @@
         android:layout_marginTop="44dp"
         android:text="@string/fpFirst_Text1"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="@dimen/text20"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,6 +68,7 @@
         android:background="@drawable/button_bg"
         android:text="@string/fpFirst_ResetPassButton"
         android:textColor="@color/white"
+        android:textSize="@dimen/text14"
         app:layout_constraintEnd_toEndOf="@+id/placeHolder2"
         app:layout_constraintStart_toStartOf="@+id/fpFirst_EmailInput"
         app:layout_constraintTop_toBottomOf="@+id/fpFirst_EmailInput" />

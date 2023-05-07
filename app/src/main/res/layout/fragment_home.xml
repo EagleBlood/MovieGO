@@ -113,7 +113,7 @@
                 android:layout_marginStart="18dp"
                 android:text="@string/home_Text1"
                 android:textColor="@color/grey_text"
-                android:textSize="14sp"
+                android:textSize="@dimen/text14"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -134,7 +134,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/home_Text2"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/text20"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_calendarRecyclerView" />
@@ -147,7 +147,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/home_Text3"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/text20"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_movieRecyclerView1" />
@@ -160,7 +160,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/home_Text4"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/text20"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_movieRecyclerView2" />
@@ -173,7 +173,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/home_Text5"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/text20"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_movieRecyclerView3" />

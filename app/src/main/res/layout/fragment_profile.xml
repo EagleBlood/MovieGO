@@ -39,6 +39,7 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/profileNameTitle"
+                        android:textSize="@dimen/text14"
                         android:textColor="@color/white" />
                 </TableRow>
 
@@ -59,7 +60,7 @@
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
                         android:textColorHint="@color/grey_text"
-                        android:textSize="@dimen/textWeight"
+                        android:textSize="@dimen/text14"
                         tools:ignore="TouchTargetSizeCheck" />
 
 
@@ -69,6 +70,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
+                        android:textSize="@dimen/text12"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 
@@ -92,6 +94,7 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/passTitle"
+                        android:textSize="@dimen/text14"
                         android:textColor="@color/white" />
                 </TableRow>
 
@@ -112,7 +115,7 @@
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
                         android:textColorHint="@color/grey_text"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/text14" />
 
                     <Button
                         android:id="@+id/editPassButton"
@@ -120,6 +123,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/showButtonText"
+                        android:textSize="@dimen/text12"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 
@@ -143,6 +147,7 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/nameTitle"
+                        android:textSize="@dimen/text14"
                         android:textColor="@color/white" />
                 </TableRow>
 
@@ -163,7 +168,7 @@
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
                         android:textColorHint="@color/grey_text"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/text14" />
 
                     <Button
                         android:id="@+id/editNameButton"
@@ -171,7 +176,8 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/text12"/>
                 </TableRow>
 
             </TableLayout>
@@ -194,6 +200,7 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/surnameTitle"
+                        android:textSize="@dimen/text14"
                         android:textColor="@color/white" />
                 </TableRow>
 
@@ -214,7 +221,7 @@
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
                         android:textColorHint="@color/grey_text"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/text14" />
 
                     <Button
                         android:id="@+id/editSurnameButton"
@@ -222,6 +229,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
+                        android:textSize="@dimen/text12"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 
@@ -245,6 +253,7 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/emailTitle"
+                        android:textSize="@dimen/text14"
                         android:textColor="@color/white" />
                 </TableRow>
 
@@ -265,7 +274,7 @@
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
                         android:textColorHint="@color/grey_text"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/text14" />
 
                     <Button
                         android:id="@+id/editEmailButton"
@@ -273,6 +282,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
+                        android:textSize="@dimen/text12"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 
@@ -296,6 +306,7 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/phoneTitle"
+                        android:textSize="@dimen/text14"
                         android:textColor="@color/white" />
                 </TableRow>
 
@@ -316,7 +327,7 @@
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
                         android:textColorHint="@color/grey_text"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/text14" />
 
                     <Button
                         android:id="@+id/editPhoneButton"
@@ -324,7 +335,8 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/text12"/>
                 </TableRow>
 
             </TableLayout>
@@ -347,6 +359,7 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/addressTitle"
+                        android:textSize="@dimen/text14"
                         android:textColor="@color/white" />
                 </TableRow>
 
@@ -367,7 +380,7 @@
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
                         android:textColorHint="@color/grey_text"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/text14" />
 
                     <Button
                         android:id="@+id/editAddrButton"
@@ -376,6 +389,7 @@
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
                         android:textColor="@color/grey_text"
+                        android:textSize="@dimen/text12"
                         tools:ignore="TouchTargetSizeCheck" />
                 </TableRow>
 
@@ -399,6 +413,7 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/birthTitle"
+                        android:textSize="@dimen/text14"
                         android:textColor="@color/white" />
                 </TableRow>
 
@@ -419,7 +434,7 @@
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
                         android:textColorHint="@color/grey_text"
-                        android:textSize="15sp"
+                        android:textSize="@dimen/text14"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <Button
@@ -428,6 +443,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
+                        android:textSize="@dimen/text12"
                         android:textColor="@color/grey_text" />
                 </TableRow>
 

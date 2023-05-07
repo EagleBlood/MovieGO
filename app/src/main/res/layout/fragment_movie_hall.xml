@@ -24,7 +24,7 @@
         android:layout_marginTop="37dp"
         android:text="Title"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="@dimen/text20"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
         android:letterSpacing="0.3"
         android:text="Hall"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="@dimen/text20"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,7 +142,7 @@
             android:layout_marginStart="6dp"
             android:text="@string/movieHall_SelectedText"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="@dimen/text12"
             app:layout_constraintBottom_toBottomOf="@+id/imageView5"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="@+id/imageView5" />
@@ -154,7 +154,7 @@
             android:layout_marginStart="6dp"
             android:text="@string/movieHall_AvailableText"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="@dimen/text12"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
             app:layout_constraintTop_toTopOf="@+id/imageView6" />
@@ -166,7 +166,7 @@
             android:layout_marginStart="6dp"
             android:text="@string/movieHall_ReservedText"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="@dimen/text12"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -202,7 +202,7 @@
                     android:layout_marginTop="26dp"
                     android:text="@string/movieHall_SelectSpotText"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/text20"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -231,7 +231,7 @@
                     android:layout_height="wrap_content"
                     android:text="price"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/text20"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/movieHall_BookButton"
                     app:layout_constraintStart_toStartOf="@+id/movieHall_SelectSpotText"
@@ -245,6 +245,7 @@
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/button_bg"
                     android:text="@string/movieHall_BookButtonText"
+                    android:textSize="@dimen/text20"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/imageView4"
