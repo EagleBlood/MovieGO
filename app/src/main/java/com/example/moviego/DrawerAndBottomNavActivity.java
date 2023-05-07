@@ -87,17 +87,13 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity implements Bot
             int itemId = item.getItemId();
 
             if (itemId == R.id.nav_home){
-
                 getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                toggle.setDrawerIndicatorEnabled(true);
                 return true;
             } else if (itemId == R.id.nav_profile){
                 callFragment(new ProfileFragment());
-                toggle.setDrawerIndicatorEnabled(false);
                 return true;
             } else if (itemId == R.id.nav_tickets){
                 callFragment(new TicketFragment());
-                toggle.setDrawerIndicatorEnabled(false);
                 return true;
             }
             return false;

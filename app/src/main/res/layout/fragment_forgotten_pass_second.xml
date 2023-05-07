@@ -74,7 +74,7 @@
         android:layout_marginTop="44dp"
         android:text="@string/fpSec_Text1"
         android:textColor="@color/white"
-        android:textSize="@dimen/text20"
+        android:textSize="@dimen/text18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
