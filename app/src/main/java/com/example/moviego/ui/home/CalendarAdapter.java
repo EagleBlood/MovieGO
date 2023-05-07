@@ -21,9 +21,11 @@ import java.util.Locale;
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder> {
 
     private List<String> daysList;
+    private int currentDatePosition;
 
-    public CalendarAdapter(List<String> daysList) {
+    public CalendarAdapter(List<String> daysList, int currentDatePosition) {
         this.daysList = daysList;
+        this.currentDatePosition = currentDatePosition;
     }
 
     @Override
@@ -39,8 +41,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
         holder.itemDay.setText(day[0]);
         holder.itemWeek.setText(day[1]);
 
-        String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
-        if (day[0].equals(currentDate)) {
+        if (position == currentDatePosition) {
             holder.itemBG.setImageResource(R.drawable.calendar_bg_active);
         } else {
             holder.itemBG.setImageResource(R.drawable.calendar_bg);
