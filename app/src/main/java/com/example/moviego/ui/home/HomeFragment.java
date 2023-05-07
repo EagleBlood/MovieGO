@@ -19,6 +19,7 @@ import com.example.moviego.databinding.FragmentHomeBinding;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,30 +45,42 @@ public class HomeFragment extends Fragment {
         }
 
 
-        // Calendar
-        RecyclerView recyclerView = root.findViewById(R.id.home_calendarRecyclerView);
+        // Calculate the position of the current date in the list
         List<String> daysList = new ArrayList<>();
 
-        CalendarAdapter calendarAdapter = new CalendarAdapter(daysList);
+        int currentDatePosition = -1;
+        String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
+
+        // Add the days of the week to the daysList
+        for (int i = -7; i < 14; i++) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+            calendar.add(Calendar.DATE, i);
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd", Locale.getDefault());
+            String dayNumber = dateFormat.format(calendar.getTime());
+            String dayName = new SimpleDateFormat("E", Locale.getDefault()).format(calendar.getTime());
+            String day = dayNumber + "," + dayName;
+            daysList.add(day);
+
+            if (dayNumber.equals(currentDate)) {
+                currentDatePosition = daysList.size() - 1;
+            }
+        }
+
+        RecyclerView recyclerView = root.findViewById(R.id.home_calendarRecyclerView);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(daysList, currentDatePosition);
         recyclerView.setAdapter(calendarAdapter);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        // Get the calendar instance and set it to the first day of the week
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-
-        // Add the days of the week to the daysList
-        for (int i = 0; i < 14; i++) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd", Locale.getDefault());
-            String dayNumber = dateFormat.format(calendar.getTime());
-            String dayName = new SimpleDateFormat("E", Locale.getDefault()).format(calendar.getTime());
-            daysList.add(dayNumber + "," + dayName);
-            calendar.add(Calendar.DATE, 1);
+        // Scroll to the position of the current date
+        if (currentDatePosition != -1) {
+            recyclerView.scrollToPosition(currentDatePosition);
         }
-        calendarAdapter.notifyDataSetChanged();
 
+        calendarAdapter.notifyDataSetChanged();
 
 
         // Movies
