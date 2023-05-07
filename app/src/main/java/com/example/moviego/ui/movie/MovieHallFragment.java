@@ -55,7 +55,7 @@ public class MovieHallFragment extends Fragment {
         List<String> chosenSeats = new ArrayList<>();
         SeatAdapter seatAdapter = new SeatAdapter();
 
-        //Table
+//Table
         int numRows = 8; // number of rows in the table
         int numColumns = 9; // number of columns in the table
 
@@ -85,31 +85,39 @@ public class MovieHallFragment extends Fragment {
                 // set a tag to identify the element later
                 imageView.setTag(i + "," + j);
 
-
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         String tag = view.getTag().toString();
-                        imageView.setImageResource(R.drawable.seat_selected);
                         String[] rowCol = tag.split(",");
                         int row = Integer.parseInt(rowCol[0]) + 1; // convert to 1-indexed
                         int col = Integer.parseInt(rowCol[1]) + 1; // convert to 1-indexed
                         String seat = row + ":" + col;
 
-                        // add the selected seat to the list of chosen seats
-                        chosenSeats.add(seat);
+                        if (chosenSeats.contains(seat)) {
+                            chosenSeats.remove(seat);
+                            seatAdapter.removeSeat(seat);
+                            recyclerView.setAdapter(seatAdapter);
+                        } else {
+                            chosenSeats.add(seat);
+                            seatAdapter.addSeat(seat);
+                            recyclerView.setAdapter(seatAdapter);
+                        }
 
-                        // update the SeatAdapter with the new list of chosen seats
-                        seatAdapter.addSeat(seat);
 
-                        recyclerView.setAdapter(seatAdapter);
+                        // change the image resource of the clicked element
+                        if (chosenSeats.contains(seat)) {
+                            imageView.setImageResource(R.drawable.seat_selected);
+                        } else {
+                            imageView.setImageResource(R.drawable.seat_available);
+                        }
                     }
                 });
-
 
                 // add the element to the row
                 tableRow.addView(imageView);
             }
+
             // hide the corner elements
             if (i == 0 || i == numRows - 1) {
                 tableRow.getChildAt(0).setVisibility(View.INVISIBLE);
@@ -122,7 +130,6 @@ public class MovieHallFragment extends Fragment {
             // add the row to the table
             tableLayout.addView(tableRow);
         }
-
         //Bottom menu
         View bottomSheet = root.findViewById(R.id.bottom_sheet);
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);

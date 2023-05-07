@@ -37,4 +37,11 @@
     <style name="Theme.MovieGO.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.MovieGO.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MyExposedDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/black</item>
+        <item name="hintTextColor">@color/black</item>
+        <item name="endIconTint">@color/black</item>
+    </style>
+
 </resources>

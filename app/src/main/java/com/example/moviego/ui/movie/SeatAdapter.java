@@ -1,5 +1,6 @@
 package com.example.moviego.ui.movie;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        //There is an warning with ColorStateList in the item_booked_seats.xml caused by style attribute
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_booked_seats, parent, false);
 
@@ -63,5 +66,10 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatAdapter.ViewHolder> {
             seatTextView = view.findViewById(R.id.itemChosenSeat);
             autoCompleteTextView = view.findViewById(R.id.autoCompleteTextView);
         }
+    }
+
+    public void removeSeat(String seat) {
+        chosenSeats.remove(seat);
+        notifyDataSetChanged();
     }
 }
