@@ -17,15 +17,16 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:paddingBottom="15dp">
+            android:layout_height="wrap_content">
 
             <TableLayout
                 android:id="@+id/profileLayout"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -39,8 +40,8 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/profileNameTitle"
-                        android:textSize="@dimen/text14"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text14" />
                 </TableRow>
 
                 <TableRow
@@ -70,18 +71,19 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
-                        android:textSize="@dimen/text12"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
 
             <TableLayout
                 android:id="@+id/passLayout"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/profileLayout"
+                app:layout_constraintStart_toStartOf="@+id/profileLayout"
                 app:layout_constraintTop_toBottomOf="@+id/profileLayout">
 
                 <TableRow
@@ -94,8 +96,8 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/passTitle"
-                        android:textSize="@dimen/text14"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text14" />
                 </TableRow>
 
                 <TableRow
@@ -123,18 +125,19 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/showButtonText"
-                        android:textSize="@dimen/text12"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
 
             <TableLayout
                 android:id="@+id/nameLayout"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/passLayout"
+                app:layout_constraintStart_toStartOf="@+id/passLayout"
                 app:layout_constraintTop_toBottomOf="@+id/passLayout">
 
                 <TableRow
@@ -147,8 +150,8 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/nameTitle"
-                        android:textSize="@dimen/text14"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text14" />
                 </TableRow>
 
                 <TableRow
@@ -177,17 +180,18 @@
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
                         android:textColor="@color/grey_text"
-                        android:textSize="@dimen/text12"/>
+                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
 
             <TableLayout
                 android:id="@+id/surnameLayout"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/nameLayout"
+                app:layout_constraintStart_toStartOf="@+id/nameLayout"
                 app:layout_constraintTop_toBottomOf="@+id/nameLayout">
 
                 <TableRow
@@ -200,8 +204,8 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/surnameTitle"
-                        android:textSize="@dimen/text14"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text14" />
                 </TableRow>
 
                 <TableRow
@@ -229,18 +233,19 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
-                        android:textSize="@dimen/text12"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
 
             <TableLayout
                 android:id="@+id/emailLayout"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/surnameLayout"
+                app:layout_constraintStart_toStartOf="@+id/surnameLayout"
                 app:layout_constraintTop_toBottomOf="@+id/surnameLayout">
 
                 <TableRow
@@ -253,8 +258,8 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/emailTitle"
-                        android:textSize="@dimen/text14"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text14" />
                 </TableRow>
 
                 <TableRow
@@ -282,18 +287,19 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
-                        android:textSize="@dimen/text12"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
 
             <TableLayout
                 android:id="@+id/phoneLayout"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/emailLayout"
+                app:layout_constraintStart_toStartOf="@+id/emailLayout"
                 app:layout_constraintTop_toBottomOf="@+id/emailLayout">
 
                 <TableRow
@@ -306,8 +312,8 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/phoneTitle"
-                        android:textSize="@dimen/text14"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text14" />
                 </TableRow>
 
                 <TableRow
@@ -336,17 +342,18 @@
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
                         android:textColor="@color/grey_text"
-                        android:textSize="@dimen/text12"/>
+                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
 
             <TableLayout
                 android:id="@+id/addrLayout"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/phoneLayout"
+                app:layout_constraintStart_toStartOf="@+id/phoneLayout"
                 app:layout_constraintTop_toBottomOf="@+id/phoneLayout">
 
                 <TableRow
@@ -359,8 +366,8 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/addressTitle"
-                        android:textSize="@dimen/text14"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text14" />
                 </TableRow>
 
                 <TableRow
@@ -397,10 +404,13 @@
 
             <TableLayout
                 android:id="@+id/birthLayout"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/addrLayout"
+                app:layout_constraintStart_toStartOf="@+id/addrLayout"
                 app:layout_constraintTop_toBottomOf="@+id/addrLayout">
 
                 <TableRow
@@ -413,8 +423,8 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="6dp"
                         android:text="@string/birthTitle"
-                        android:textSize="@dimen/text14"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text14" />
                 </TableRow>
 
                 <TableRow
@@ -443,8 +453,8 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/editButtonText"
-                        android:textSize="@dimen/text12"
-                        android:textColor="@color/grey_text" />
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
