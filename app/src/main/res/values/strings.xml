@@ -49,11 +49,15 @@
     <string name="editButtonText">Edit</string>
     <string name="showButtonText">Show</string>
 
+    // For fragment_login.xml
+    <string name="login_UserTryHint">Username</string>
+    <string name="login_PassTryHint">Password</string>
+
     // For fragment_home.xml
     <string name="welcomeSign2">Welcome</string>
     <string name="text1">Please log in</string>
     <string name="emailLoginTryHint">Email address</string>
-    <string name="passLoginTryHint">Password</string>
+    <string name="passLoginTryHint">Username</string>
     <string name="forgotPassLink">Forgot password?</string>
     <string name="checkboxText">Stay signed in</string>
     <string name="logButtonText">Log in</string>
@@ -137,7 +141,7 @@
     <string name="movieHall_PriceText">price: </string>
     <string name="movieHall_BookButtonText">Book Now</string>
     <string name="movieHall_TicketListText">Choose your ticket</string>
-    <string name="EndTransactionText">Seats have been reserved. Details in Tickets</string>
+    <string name="EndTransactionText">Seats have been reserved. More details in Tickets</string>
     <string-array name="movieHall_TicketValues">
         <item>Normal</item>
         <item>Half</item>

@@ -8,13 +8,13 @@
     tools:context=".ui.login.LoginFragment">
 
     <EditText
-        android:id="@+id/passLoginTryInput"
+        android:id="@+id/login_userInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
         android:background="@drawable/bg"
         android:ems="10"
-        android:hint="@string/passLoginTryHint"
+        android:hint="@string/login_UserTryHint"
         android:inputType="textPersonName"
         android:maxWidth="400dp"
         android:padding="10dp"
@@ -29,13 +29,13 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/passEmailTryInput"
+        android:id="@+id/login_passInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:background="@drawable/bg"
         android:ems="10"
-        android:hint="@string/emailLoginTryHint"
+        android:hint="@string/login_PassTryHint"
         android:inputType="textPersonName"
         android:maxWidth="400dp"
         android:padding="10dp"
@@ -44,9 +44,9 @@
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
         android:textSize="@dimen/text14"
-        app:layout_constraintEnd_toEndOf="@+id/passLoginTryInput"
-        app:layout_constraintStart_toStartOf="@+id/passLoginTryInput"
-        app:layout_constraintTop_toBottomOf="@+id/passLoginTryInput"
+        app:layout_constraintEnd_toEndOf="@+id/login_userInput"
+        app:layout_constraintStart_toStartOf="@+id/login_userInput"
+        app:layout_constraintTop_toBottomOf="@+id/login_userInput"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -70,7 +70,7 @@
         android:textColor="@color/grey_text"
         android:textSize="@dimen/text12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passEmailTryInput" />
+        app:layout_constraintTop_toBottomOf="@+id/login_passInput" />
 
     <TextView
         android:id="@+id/textView6"
@@ -82,7 +82,7 @@
         android:textColor="@color/grey_text"
         android:textSize="@dimen/text12"
         app:layout_constraintStart_toEndOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/passEmailTryInput" />
+        app:layout_constraintTop_toBottomOf="@+id/login_passInput" />
 
     <TextView
         android:id="@+id/textView4"
@@ -106,7 +106,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/text14"
         app:layout_constraintEnd_toEndOf="@+id/login_forgotPassword"
-        app:layout_constraintStart_toStartOf="@+id/passEmailTryInput"
+        app:layout_constraintStart_toStartOf="@+id/login_passInput"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
@@ -129,8 +129,8 @@
         android:background="@drawable/bg"
         android:button="@color/yellow_star"
         android:checked="true"
-        app:layout_constraintStart_toStartOf="@+id/passEmailTryInput"
-        app:layout_constraintTop_toBottomOf="@+id/passEmailTryInput" />
+        app:layout_constraintStart_toStartOf="@+id/login_passInput"
+        app:layout_constraintTop_toBottomOf="@+id/login_passInput" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
