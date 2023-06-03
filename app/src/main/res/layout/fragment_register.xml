@@ -23,10 +23,10 @@
         android:radius="5dp"
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
-        android:textSize="@dimen/text18"
-        app:layout_constraintEnd_toEndOf="@+id/reg_EmailInput"
-        app:layout_constraintStart_toStartOf="@+id/reg_EmailInput"
-        app:layout_constraintTop_toBottomOf="@+id/reg_EmailInput" />
+        android:textSize="@dimen/text14"
+        app:layout_constraintEnd_toEndOf="@+id/reg_LoginInput"
+        app:layout_constraintStart_toStartOf="@+id/reg_LoginInput"
+        app:layout_constraintTop_toBottomOf="@+id/reg_LoginInput" />
 
     <EditText
         android:id="@+id/reg_ConfirmPassInput"
@@ -53,7 +53,7 @@
         android:id="@+id/reg_LoginInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/bg"
         android:ems="10"
         android:hint="@string/reg_LoginInputHint"
@@ -66,15 +66,15 @@
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
         android:textSize="@dimen/text14"
-        app:layout_constraintEnd_toStartOf="@+id/placeHolder"
-        app:layout_constraintStart_toStartOf="@+id/reg_Text1"
-        app:layout_constraintTop_toBottomOf="@+id/reg_Text1" />
+        app:layout_constraintEnd_toEndOf="@+id/reg_EmailInput"
+        app:layout_constraintStart_toStartOf="@+id/reg_EmailInput"
+        app:layout_constraintTop_toBottomOf="@+id/reg_EmailInput" />
 
     <EditText
         android:id="@+id/reg_EmailInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="27dp"
         android:background="@drawable/bg"
         android:ems="10"
         android:hint="@string/reg_EmailInputHint"
@@ -87,9 +87,9 @@
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
         android:textSize="@dimen/text14"
-        app:layout_constraintEnd_toEndOf="@+id/reg_LoginInput"
-        app:layout_constraintStart_toStartOf="@+id/reg_LoginInput"
-        app:layout_constraintTop_toBottomOf="@+id/reg_LoginInput" />
+        app:layout_constraintEnd_toEndOf="@+id/placeHolder"
+        app:layout_constraintStart_toStartOf="@+id/reg_Text1"
+        app:layout_constraintTop_toBottomOf="@+id/reg_Text1" />
 
     <CheckBox
         android:id="@+id/reg_CheckBox"
