@@ -12,6 +12,9 @@ import retrofit2.http.Path;
 
 public interface DataAPI {
 
+    @GET("/movies")
+    Call<List<HomeService>> getMovies();
+
 //    @GET("shoutbox/messages?last=12")
 //    Call<List<ShoutboxData>> getShoutboxData();
 //
