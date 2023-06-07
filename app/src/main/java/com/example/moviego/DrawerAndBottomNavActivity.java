@@ -3,6 +3,7 @@ package com.example.moviego;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -39,7 +40,6 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity implements Bot
     }
 
     private void initView() {
-
         setSupportActionBar(binding.toolbar);
         binding.toolbar.setTitleTextColor(Color.WHITE);
 

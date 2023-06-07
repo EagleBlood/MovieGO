@@ -35,10 +35,13 @@
             android:theme="@style/Theme.MovieGO.NoActionBar">
 
 
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

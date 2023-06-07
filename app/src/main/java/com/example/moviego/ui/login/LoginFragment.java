@@ -62,31 +62,10 @@ public class LoginFragment extends Fragment {
         inputPass = root.findViewById(R.id.login_passInput);
         Button logIn = root.findViewById(R.id.login_logIn);
         logIn.setOnClickListener(v -> {
-            try {
-                connectJDBC();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            ((DrawerAndBottomNavActivity) getActivity()).reloadApp();
         });
 
         return root;
-    }
-
-    private void connectJDBC() throws IOException {
-        String dbUrl = LoginCredentials.getDbUrl();
-        String username = String.valueOf(inputUser.getText());
-        String password = String.valueOf(inputPass.getText());
-        LoginCredentials.setCredentials(username, password);
-
-        try {
-            Connection connection = DriverManager.getConnection(dbUrl, username, password);
-            System.out.println("Success");
-            ((DrawerAndBottomNavActivity) getActivity()).reloadApp();
-            connection.close(); // Close the connection when you're done
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
     }
 
 
