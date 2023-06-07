@@ -46,6 +46,28 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
         } else {
             holder.itemBG.setImageResource(R.drawable.calendar_bg);
         }
+
+        // Set the onClick listener for each calendar element
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Update the current selected position
+                int previousPosition = currentDatePosition;
+                currentDatePosition = holder.getAdapterPosition();
+
+                // Update the background color for the previously selected item
+                notifyItemChanged(previousPosition);
+
+                // Update the background color for the currently selected item
+                notifyItemChanged(currentDatePosition);
+
+                // Update the currently picked calendar date
+                String[] dayInfo = daysList.get(currentDatePosition).split(",");
+                String pickedDate = dayInfo[0]; // Extract the date from "day,dayName"
+                // Update the pickedDate variable in your fragment or any other relevant place
+                // e.g., HomeFragment.pickedDate = pickedDate;
+            }
+        });
     }
 
     @Override

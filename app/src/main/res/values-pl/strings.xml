@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Movie<b>GO</b></string>
+    <string name="navigation_drawer_open">Otwórz szufladę nawigacji</string>
+    <string name="navigation_drawer_close">Zamknij szufladę nawigacji</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Nagłówek nawigacji</string>
+    <string name="action_settings">Ustawienia</string>
+
+    //global
+    <string name="globalTitle">MovieGO</string>
+    <string name="bottomCreateAccText">Nie masz konta w serwisie <font color="#FC094B">MovieGO</font>? <b>Załóż konto</b></string>
+    <string name="bottomCreatedAccText">Masz już konto w serwisie <font color="#FC094B">MovieGO</font>? <b>Zaloguj się</b></string>
+    <string name="welcomeSign">Witaj, </string>
+    <string name="open">Otwórz</string>
+    <string name="close">Zamknij</string>
+
+    // For left menu
+    <string name="menuLogin">Logowanie</string>
+    <string name="menuForm">Formularz</string>
+    <string name="menuSettings">Ustawienia</string>
+    <string name="menuUpdate">Sprawdź aktualizacje</string>
+    <string name="menuVersionApp">wersja 0.1.6.9.69.0.2 Movie Go</string>
+
+    // For bottom menu
+    <string name="bottomHome">Strona główna</string>
+    <string name="bottomProfile">Profil</string>
+    <string name="bottomTickets">Bilety</string>
+
+    // For fragment_gallery.xml
+    <string name="profileNameTitle">Imię w profilu</string>
+    <string name="passTitle">Hasło</string>
+    <string name="nameTitle">Imię</string>
+    <string name="surnameTitle">Nazwisko</string>
+    <string name="emailTitle">Adres e-mail</string>
+    <string name="phoneTitle">Numer telefonu</string>
+    <string name="addressTitle">Adres zamieszkania</string>
+    <string name="birthTitle">Data urodzenia</string>
+
+    <string name="editProfileHint">Imię w profilu</string>
+    <string name="editPassHint">*******************</string>
+    <string name="editNameHint">Imię</string>
+    <string name="editSurnameHint">Nazwisko</string>
+    <string name="editEmailHint">Adres e-mail</string>
+    <string name="editPhoneHint">Numer telefonu</string>
+    <string name="editAddressHint">Adres zamieszkania</string>
+    <string name="editBirthHint">Data urodzenia</string>
+
+    <string name="editButtonText">Edytuj</string>
+    <string name="showButtonText">Pokaż</string>
+
+    // For fragment_login.xml
+    <string name="login_UserTryHint">Nazwa użytkownika</string>
+    <string name="login_PassTryHint">Hasło</string>
+
+    // For fragment_home.xml
+    <string name="welcomeSign2">Witaj</string>
+    <string name="text1">Proszę się zalogować</string>
+    <string name="emailLoginTryHint">Adres e-mail</string>
+    <string name="passLoginTryHint">Nazwa użytkownika</string>
+    <string name="forgotPassLink">Zapomniałeś hasła?</string>
+    <string name="checkboxText">Zostań zalogowany</string>
+    <string name="logButtonText">Zaloguj się</string>
+
+    // For fragment_forgotten_pass_first.xml
+    <string name="fpFirst_Text1">Zapomniałeś hasła?</string>
+    <string name="fpFirst_Text2">Podaj adres e-mail powiązany z kontem MovieGO. Wyślemy ci e-mail z potwierdzeniem i linkiem do ustawienia nowego hasła.</string>
+    <string name="fpFirst_EmailInputHint">Adres e-mail</string>
+    <string name="fpFirst_ResetPassButton">Resetuj hasło</string>
+
+    // For fragment_forgotten_pass_second.xml
+    <string name="fpSec_Text1">Zresetuj hasło</string>
+    <string name="fpSec_Text2">Podaj nowe hasło.</string>
+    <string name="fpSec_EmailInputHint">Adres e-mail</string>
+    <string name="fpSec_PassInputHint">Nowe hasło</string>
+    <string name="fpSec_ConfirmPassInputHint">Potwierdź nowe hasło</string>
+    <string name="fpSec_ChangePassButton">Zmień hasło</string>
+
+    // For fragment_register.xml
+    <string name="reg_Text1">Stwórz swoje konto w serwisie <b><font color="#FC094B">MovieGO</font></b></string>
+    <string name="reg_LoginInputHint">Nazwa użytkownika</string>
+    <string name="reg_EmailInputHint">Adres e-mail</string>
+    <string name="reg_PassInputHint">Hasło</string>
+    <string name="reg_ConfirmPassInputHint">Potwierdź hasło</string>
+    <string name="reg_UsrAgr">Chcę otrzymywać biuletyny i inne informacje promocyjne, a także oddać nerkę na finansowanie dalszego rozwoju aplikacji.</string>
+    <string name="reg_CreateAccButton">Zarejestruj się</string>
+
+    // For fragment_form.xml
+    <string name="form_Text1">Witaj</string>
+    <string name="form_Text2">Jaki masz problem?</string>
+    <string name="form_IssueInputHint">Opisz szczegółowo swój problem tutaj.</string>
+    <string name="form_NameInputHint">Imię</string>
+    <string name="form_EmailInputHint">Adres e-mail</string>
+    <string name="form_SubjectButton">Wyślij wiadomość</string>
+
+    // For fragment_home.xml
+    <string name="home_Text1">Chcesz iść na film? Kup swoje bilety już dziś</string>
+    <string name="home_Text2">13:00</string>
+    <string name="home_Text3">16:00</string>
+    <string name="home_Text4">19:00</string>
+
+    <!-- TODO: Usuń lub zmień ten tekst zastępczy -->
+    <string name="hello_blank_fragment">Witaj, pusty fragmencie</string>
+    <string name="navText">Nawigacja</string>
+
+    // For fragment_movie_details.xml
+    <string name="movie_imageDescription">Obrazek bieżącego filmu</string>
+    <string name="movie_averageScore">Średnia ocena</string>
+    <string name="movie_bookYourSeat">Zarezerwuj miejsce</string>
+    <string name="movie_type">Dokumentalny</string>
+    <string name="movie_duration">123 min</string>
+    <string name="movie_score">7.43</string>
+    <string name="movie_title">Filip</string>
+    <string name="movie_description">Akcja filmu rozgrywa się w 1943 roku. Tytułowy bohater jest kosmopolitą i uwodzicielem niezdolnym do głębszych uczuć. W Polsce stracił całą rodzinę. Samotny - będąc w sercu nazistowskich Niemiec - ukrywa swoje żydowskie pochodzenie i często unika śmierci.</string>
+    <string name="movie_star">gwiazda</string>
+    <string name="movie_like">lubię to</string>
+
+    //For fragment_ticket
+    <string name="ticket_title">Tytuł</string>
+    <string name="ticket_reservationNumber">Numer rezerwacji:</string>
+    <string name="ticket_bookingDateText">Data rezerwacji:</string>
+    <string name="ticket_seatsText">Miejsca:</string>
+    <string name="ticket_moreInformation">Więcej informacji</string>
+    <string name="ticket_lessInformation">Mniej informacji</string>
+    <string name="ticket_RN">0014423</string>
+    <string name="ticket_date">03.10.2023</string>
+    <string name="ticket_seats">2</string>
+    <string name="ticket_scrollView">Bilety</string>
+    <string name="ticket_yourSpots">Twoje miejsca</string>
+    <string name="ticket_reservedSpots">Zarezerwowane miejsca:</string>
+    <string name="ticket_price">Cena:</string>
+    <string name="ticket_currency">zł</string>
+    <string name="ticket_priceValue">28.99</string>
+
+    // For fragment_movie_hall.xml
+    <string name="movieHall_SelectedText">Wybrane</string>
+    <string name="movieHall_AvailableText">Dostępne</string>
+    <string name="movieHall_ReservedText">Zarezerwowane</string>
+    <string name="movieHall_SelectSpotText">Wybierz swoje miejsce</string>
+    <string name="movieHall_PriceText">cena: </string>
+    <string name="movieHall_BookButtonText">Rezerwuj teraz</string>
+    <string name="movieHall_TicketListText">Wybierz swój bilet</string>
+    <string name="EndTransactionText">Miejsca zostały zarezerwowane. Szczegóły w sekcji Bilety</string>
+    <string-array name="movieHall_TicketValues">
+        <item>Normalny</item>
+        <item>Ulgowy</item>
+    </string-array>
+
+
+
+</resources>

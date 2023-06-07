@@ -1,4 +1,4 @@
-package com.example.moviego;
+package com.example.moviego.retrofit;
 
 import retrofit2.Call;
 import retrofit2.Callback;

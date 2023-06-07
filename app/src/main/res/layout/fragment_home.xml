@@ -67,22 +67,13 @@
             tools:context=".ui.home.HomeFragment">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/home_movieRecyclerView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_7pm" />
-
-            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/home_movieRecyclerView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_5pm">
+                app:layout_constraintTop_toBottomOf="@+id/home_19">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -93,7 +84,7 @@
                 android:layout_marginTop="11dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_3pm">
+                app:layout_constraintTop_toBottomOf="@+id/home_16">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -127,7 +118,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/home_Text1" />
 
             <TextView
-                android:id="@+id/home_11am"
+                android:id="@+id/home_13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -140,7 +131,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/home_calendarRecyclerView" />
 
             <TextView
-                android:id="@+id/home_3pm"
+                android:id="@+id/home_16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -153,7 +144,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/home_movieRecyclerView1" />
 
             <TextView
-                android:id="@+id/home_5pm"
+                android:id="@+id/home_19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -165,19 +156,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_movieRecyclerView2" />
 
-            <TextView
-                android:id="@+id/home_7pm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/home_Text5"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text20"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_movieRecyclerView3" />
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/home_movieRecyclerView1"
                 android:layout_width="wrap_content"
@@ -185,7 +163,7 @@
                 android:layout_marginTop="11dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_11am">
+                app:layout_constraintTop_toBottomOf="@+id/home_13">
 
             </androidx.recyclerview.widget.RecyclerView>
 
