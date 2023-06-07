@@ -15,6 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentHomeBinding;
+import com.example.moviego.retrofit.MovieService;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,6 +25,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
@@ -85,70 +92,44 @@ public class HomeFragment extends Fragment {
 
         // Movies
             //RecyclerView Movie 11AM
-        recyclerViewMovie1 = root.findViewById(R.id.home_movieRecyclerView1);
-        List<Movie> movieList = new ArrayList<>();
-
-        // Some dummy movies for testing
-        movieList.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 1", 7.5f));
-        movieList.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 2", 8.0f));
-        movieList.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 3", 6.5f));
-
-        movieAdapter = new MovieAdapter(getContext(), movieList);
-        recyclerViewMovie1.setAdapter(movieAdapter);
-
-        RecyclerView.LayoutManager layoutManagerMovie1 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewMovie1.setLayoutManager(layoutManagerMovie1);
+        // Create an instance of the RetrofitFunction class
 
 
 
-            //RecyclerView Movie 3PM
-        recyclerViewMovie2 = root.findViewById(R.id.home_movieRecyclerView2);
-        //List<Movie> movieList2 = new ArrayList<>();
 
-        // Some dummy movies for testing
-        //movieList2.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 1", 7.5f));
-        //movieList2.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 2", 8.0f));
-        //movieList2.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 3", 6.5f));
 
-        movieAdapter = new MovieAdapter(getContext(), movieList);
-        recyclerViewMovie2.setAdapter(movieAdapter);
-
-        RecyclerView.LayoutManager layoutManagerMovie2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewMovie2.setLayoutManager(layoutManagerMovie2);
+        //RecyclerView Movie 3PM
+//        recyclerViewMovie2 = root.findViewById(R.id.home_movieRecyclerView2);
+//        //List<Movie> movieList2 = new ArrayList<>();
+//
+//        // Some dummy movies for testing
+//        //movieList2.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 1", 7.5f));
+//        //movieList2.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 2", 8.0f));
+//        //movieList2.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 3", 6.5f));
+//
+//        movieAdapter = new MovieAdapter(getContext(), movieList);
+//        recyclerViewMovie2.setAdapter(movieAdapter);
+//
+//        RecyclerView.LayoutManager layoutManagerMovie2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+//        recyclerViewMovie2.setLayoutManager(layoutManagerMovie2);
 
 
 
             //RecyclerView Movie 5PM
-        recyclerViewMovie3 = root.findViewById(R.id.home_movieRecyclerView3);
-        //List<Movie> movieList3 = new ArrayList<>();
+//        recyclerViewMovie3 = root.findViewById(R.id.home_movieRecyclerView3);
+//        //List<Movie> movieList3 = new ArrayList<>();
+//
+//        // Some dummy movies for testing
+//        //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 1", 7.5f));
+//        //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 2", 8.0f));
+//        //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 3", 6.5f));
+//
+//        movieAdapter = new MovieAdapter(getContext(),movieList);
+//        recyclerViewMovie3.setAdapter(movieAdapter);
+//
+//        RecyclerView.LayoutManager layoutManagerMovie3 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+//        recyclerViewMovie3.setLayoutManager(layoutManagerMovie3);
 
-        // Some dummy movies for testing
-        //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 1", 7.5f));
-        //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 2", 8.0f));
-        //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 3", 6.5f));
-
-        movieAdapter = new MovieAdapter(getContext(),movieList);
-        recyclerViewMovie3.setAdapter(movieAdapter);
-
-        RecyclerView.LayoutManager layoutManagerMovie3 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewMovie3.setLayoutManager(layoutManagerMovie3);
-
-
-
-            //RecyclerView Movie 7PM
-        recyclerViewMovie4 = root.findViewById(R.id.home_movieRecyclerView4);
-        //List<Movie> movieList3 = new ArrayList<>();
-
-        // Some dummy movies for testing
-        //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 1", 7.5f));
-        //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 2", 8.0f));
-        //movieList3.add(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, "Title 3", 6.5f));
-
-        movieAdapter = new MovieAdapter(getContext(),movieList);
-        recyclerViewMovie4.setAdapter(movieAdapter);
-
-        RecyclerView.LayoutManager layoutManagerMovie4 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewMovie4.setLayoutManager(layoutManagerMovie4);
 
         return root;
     }

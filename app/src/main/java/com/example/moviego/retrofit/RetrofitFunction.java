@@ -6,7 +6,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class retrofitFunction<T> {
+public class RetrofitFunction<T> {
 
     private T dataAPI;
 
