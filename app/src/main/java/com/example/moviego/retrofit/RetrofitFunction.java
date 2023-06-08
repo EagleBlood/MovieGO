@@ -1,5 +1,10 @@
 package com.example.moviego.retrofit;
 
+import com.example.moviego.ui.home.MovieItem;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -8,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitFunction<T> {
 
-    private DataAPI dataAPI;
+    private static DataAPI dataAPI;
 
     public RetrofitFunction() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -19,44 +24,59 @@ public class RetrofitFunction<T> {
         dataAPI = retrofit.create(DataAPI.class);
     }
 
+
     public DataAPI dataAPI() {
         return dataAPI;
     }
 
-//    public void getData(Call<T> call, final Callback<T> callback) {
-//        call.enqueue(new Callback<T>() {
-//            @Override
-//            public void onResponse(Call<T> call, Response<T> response) {
-//                if (response.isSuccessful()) {
-//                    callback.onResponse(call, response);
-//                } else {
-//                    callback.onFailure(call, new Throwable("Response unsuccessful. Status code: " + response.code()));
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<T> call, Throwable t) {
-//                callback.onFailure(call, t);
-//            }
-//        });
-//    }
-//
-//    public void sendData(Call<T> call, final Callback<T> callback) {
-//        call.enqueue(new Callback<T>() {
-//            @Override
-//            public void onResponse(Call<T> call, Response<T> response) {
-//                if (response.isSuccessful()) {
-//                    callback.onResponse(call, response);
-//                } else {
-//                    callback.onFailure(call, new Throwable("Response unsuccessful. Status code: " + response.code()));
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<T> call, Throwable t) {
-//                callback.onFailure(call, t);
-//            }
-//        });
-//    }
+    public static void retrofit(final DataAPI callback) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        dataAPI = retrofit.create(DataAPI.class);
+
+        Call<List<HomeService>> homeServiceCall = dataAPI.getMovies();
+
+        homeServiceCall.enqueue(new Callback<List<HomeService>>() {
+            @Override
+            public void onResponse(Call<List<HomeService>> call, Response<List<HomeService>> response) {
+                if (!response.isSuccessful()) {
+                    System.out.println("Błąd: " + response.code());
+                    callback.onFailure();
+                    return;
+                }
+
+                List<HomeService> homeServices = response.body();
+                ArrayList<MovieItem> movieItems = new ArrayList<>();
+
+                if (homeServices != null) {
+                    for (HomeService homeService : homeServices) {
+                        String id_filmu = homeService.getId_filmu();
+                        String tytul = homeService.getTytul();
+                        String czas_trwania = homeService.getCzas_trwania();
+                        String ocena = homeService.getOcena();
+                        String opis = homeService.getOpis();
+                        String okladka = homeService.getOkladka();
+                        String cena = homeService.getCena();
+                        String nazwa_gatunku = homeService.getNazwa_gatunku();
+                        String data = homeService.getData();
+                        String pora_emisji = homeService.getPora_emisja();
+
+                        movieItems.add(new MovieItem(id_filmu, tytul, czas_trwania, ocena, opis, okladka, cena, nazwa_gatunku, data, pora_emisji));
+                    }
+                }
+
+                callback.onSuccess(movieItems);
+            }
+
+            @Override
+            public void onFailure(Call<List<HomeService>> call, Throwable t) {
+                System.out.println("Błąd: " + t.getMessage());
+                callback.onFailure();
+            }
+        });
+    }
 }
 

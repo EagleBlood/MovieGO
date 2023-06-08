@@ -16,6 +16,7 @@ import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentHomeBinding;
 import com.example.moviego.retrofit.DataAPI;
 import com.example.moviego.retrofit.HomeService;
+import com.example.moviego.retrofit.RetrofitFunction;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class HomeFragment extends Fragment {
     private MovieAdapter movieAdapter;
     private DataAPI dataApi;
     private List<Movie> movieList1;
+    private MovieItem movieItem;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -52,27 +54,6 @@ public class HomeFragment extends Fragment {
             actionBar.show();
             actionBar.setTitle("Hello, ...");
         }
-
-        recyclerViewMovie1 = root.findViewById(R.id.home_movieRecyclerView1);
-        recyclerViewMovie2 = root.findViewById(R.id.home_movieRecyclerView2);
-        recyclerViewMovie3 = root.findViewById(R.id.home_movieRecyclerView3);
-
-//
-//        ArrayList<MovieItem> movieItems = retrofit();
-//        System.out.println("Rozmiar: " + movieItems.size());
-//
-//        // Przykład użycia movieItems
-//        for (MovieItem movieItem : movieItems) {
-//            System.out.println("Tytuł: " + movieItem.getTytul());
-//        }
-
-
-        List<Movie> movieList1 = new ArrayList<>();
-
-
-
-        movieAdapter = new MovieAdapter(getContext(), movieList1);
-        recyclerViewMovie2.setAdapter(movieAdapter);
 
         // Calculate the position of the current date in the list
         List<String> daysList = new ArrayList<>();
@@ -112,50 +93,10 @@ public class HomeFragment extends Fragment {
         calendarAdapter.notifyDataSetChanged();
 
 
-        retrofit(new DataAPI() {
-            @Override
-            public Call<List<HomeService>> getMovies() {
-                return null;
-            }
 
-            @Override
-            public void onSuccess(ArrayList<MovieItem> movieItems) {
-                System.out.println("Number of movie items: " + movieItems.size());
-
-                // Further operations with the movieItems list
-            }
-
-            @Override
-            public void onFailure() {
-                // Handle failure case if needed
-            }
-        });
-
-
-
-
-// Tworzenie klienta dla klasy UserData
-//        RetrofitClient<UserDataAPI> userDataClient = new RetrofitClient<>(UserDataAPI.class);
-//
-//// Wywołanie metody POST dla UserData
-//        UserData userData = new UserData("John", "Doe");
-//        Call<UserData> userDataCall = userDataClient.getDataAPI().postUserData(userData);
-//        userDataClient.sendData(userDataCall, new Callback<UserData>() {
-//            @Override
-//            public void onResponse(Call<UserData> call, Response<UserData> response) {
-//                // Obsługa odpowiedzi
-//            }
-//
-//            @Override
-//            public void onFailure(Call<UserData> call, Throwable t) {
-//                // Obsługa błędu
-//            }
-//        });
-
-
-        // Movies
-            //RecyclerView Movie 11AM
-        // Create an instance of the RetrofitFunction class
+        recyclerViewMovie1 = root.findViewById(R.id.home_movieRecyclerView1);
+        recyclerViewMovie2 = root.findViewById(R.id.home_movieRecyclerView2);
+        recyclerViewMovie3 = root.findViewById(R.id.home_movieRecyclerView3);
 
 
 
@@ -172,10 +113,6 @@ public class HomeFragment extends Fragment {
 
         movieAdapter = new MovieAdapter(getContext(), movieList2);
         recyclerViewMovie2.setAdapter(movieAdapter);
-
-//        for(MovieItem movieItem : movieItems) {
-//            System.out.println("Tytuł: " + movieItem.getTytul());
-//        }
 
         RecyclerView.LayoutManager layoutManagerMovie2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerViewMovie2.setLayoutManager(layoutManagerMovie2);
@@ -201,55 +138,27 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-    private void retrofit(final DataAPI callback) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        dataApi = retrofit.create(DataAPI.class);
+    public void setMovieItems(ArrayList<MovieItem> movieItems) {
+        List<Movie> movieList = new ArrayList<>();
+        for (MovieItem movieItem : movieItems) {
+            String title = movieItem.getTytul();
+            Double rating = Double.valueOf(movieItem.getOcena()); // Replace with the actual getter
 
-        Call<List<HomeService>> homeServiceCall = dataApi.getMovies();
+            Movie movie = new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, title, rating);
+            movieList.add(movie);
+        }
 
-        homeServiceCall.enqueue(new Callback<List<HomeService>>() {
-            @Override
-            public void onResponse(Call<List<HomeService>> call, Response<List<HomeService>> response) {
-                if (!response.isSuccessful()) {
-                    System.out.println("Błąd: " + response.code());
-                    callback.onFailure();
-                    return;
-                }
+        System.out.println("movieList: " + movieList);
 
-                List<HomeService> homeServices = response.body();
-                ArrayList<MovieItem> movieItems = new ArrayList<>();
-
-                if (homeServices != null) {
-                    for (HomeService homeService : homeServices) {
-                        String id_filmu = homeService.getId_filmu();
-                        String tytul = homeService.getTytul();
-                        String czas_trwania = homeService.getCzas_trwania();
-                        String ocena = homeService.getOcena();
-                        String opis = homeService.getOpis();
-                        String okladka = homeService.getOkladka();
-                        String cena = homeService.getCena();
-                        String nazwa_gatunku = homeService.getNazwa_gatunku();
-                        String data = homeService.getData();
-                        String pora_emisji = homeService.getPora_emisja();
-
-                        movieItems.add(new MovieItem(id_filmu, tytul, czas_trwania, ocena, opis, okladka, cena, nazwa_gatunku, data, pora_emisji));
-                    }
-                }
-
-                callback.onSuccess(movieItems);
-            }
-
-            @Override
-            public void onFailure(Call<List<HomeService>> call, Throwable t) {
-                System.out.println("Błąd: " + t.getMessage());
-                callback.onFailure();
-            }
-        });
+//        // Set the MovieAdapter for the RecyclerView
+//        movieAdapter = new MovieAdapter(getContext(), movieList);
+//        recyclerViewMovie1.setAdapter(movieAdapter);
+//
+//        RecyclerView.LayoutManager layoutManagerMovie = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+//        recyclerViewMovie1.setLayoutManager(layoutManagerMovie);
     }
+
 
     @Override
     public void onDestroyView() {

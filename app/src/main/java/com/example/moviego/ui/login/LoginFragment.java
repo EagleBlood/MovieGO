@@ -17,11 +17,19 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.moviego.DrawerAndBottomNavActivity;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentLoginBinding;
+import com.example.moviego.retrofit.DataAPI;
+import com.example.moviego.retrofit.HomeService;
+import com.example.moviego.retrofit.RetrofitFunction;
+import com.example.moviego.ui.home.MovieItem;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
 
 public class LoginFragment extends Fragment {
 
@@ -60,6 +68,7 @@ public class LoginFragment extends Fragment {
 
         inputUser = root.findViewById(R.id.login_userInput);
         inputPass = root.findViewById(R.id.login_passInput);
+
         Button logIn = root.findViewById(R.id.login_logIn);
         logIn.setOnClickListener(v -> {
             ((DrawerAndBottomNavActivity) getActivity()).reloadApp();
