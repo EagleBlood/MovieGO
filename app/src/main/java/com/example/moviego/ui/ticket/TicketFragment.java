@@ -51,6 +51,8 @@ public class TicketFragment extends Fragment {
         return root;
     }
 
+
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
