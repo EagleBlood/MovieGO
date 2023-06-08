@@ -1,6 +1,8 @@
 package com.example.moviego.ui.home;
 
 import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +20,11 @@ import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentHomeBinding;
 import com.example.moviego.retrofit.SelectedListener;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -124,7 +129,9 @@ public class HomeFragment extends Fragment implements SelectedListener {
                 String tytul = movieItem.getTytul();
                 double ocena = Double.parseDouble(movieItem.getOcena());
                 String pora_emisji = movieItem.getPora_emisji();
-                filteredMovies.add(new FilteredMovie(new Movie(R.drawable.filip_b1_b_cut_f762836d12_3, tytul, ocena), pora_emisji));
+                String okladka = movieItem.getOkladka();
+                Bitmap bitmap = decodeBase64ToBitmap(okladka);
+                filteredMovies.add(new FilteredMovie(new Movie(bitmap, tytul, ocena), pora_emisji));
             }
         }
 
@@ -169,6 +176,11 @@ public class HomeFragment extends Fragment implements SelectedListener {
             recyclerViewMovie3.setAdapter(new MovieAdapter(movieList3, this));
         }
 
+    }
+
+    public static Bitmap decodeBase64ToBitmap(String base64Image) {
+        byte[] imageBytes = Base64.getDecoder().decode(base64Image);
+        return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
     }
 
     @Override

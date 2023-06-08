@@ -1,23 +1,25 @@
 package com.example.moviego.ui.home;
 
+import android.graphics.Bitmap;
+
 public class Movie {
 
-    private int imageResourceId;
+    private Bitmap image;
     private String title;
     private double score;
 
-    public Movie(int imageResourceId, String title, double score) {
-        this.imageResourceId = imageResourceId;
+    public Movie(Bitmap imageResourceId, String title, double score) {
+        this.image = imageResourceId;
         this.title = title;
         this.score = score;
     }
 
-    public int getImageResourceId() {
-        return imageResourceId;
+    public Bitmap getImage() {
+        return image;
     }
 
-    public void setImageResourceId(int imageResourceId) {
-        this.imageResourceId = imageResourceId;
+    public void setImage(Bitmap image) {
+        this.image = image;
     }
 
     public String getTitle() {
