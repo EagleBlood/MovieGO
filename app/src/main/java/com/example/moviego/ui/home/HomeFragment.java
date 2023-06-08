@@ -39,16 +39,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerViewMovie4;
     private MovieAdapter movieAdapter;
     private DataAPI dataApi;
-    private ArrayList<MovieItem> movieItems;
     private List<Movie> movieList1;
-
-    public static HomeFragment newInstance(ArrayList<MovieItem> data) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putSerializable("movies", data);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -66,8 +57,14 @@ public class HomeFragment extends Fragment {
         recyclerViewMovie2 = root.findViewById(R.id.home_movieRecyclerView2);
         recyclerViewMovie3 = root.findViewById(R.id.home_movieRecyclerView3);
 
-
-        retrofit();
+//
+//        ArrayList<MovieItem> movieItems = retrofit();
+//        System.out.println("Rozmiar: " + movieItems.size());
+//
+//        // Przykład użycia movieItems
+//        for (MovieItem movieItem : movieItems) {
+//            System.out.println("Tytuł: " + movieItem.getTytul());
+//        }
 
 
         List<Movie> movieList1 = new ArrayList<>();
@@ -184,60 +181,52 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-    private void retrofit() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        dataApi = retrofit.create(DataAPI.class);
-
-        Call<List<HomeService>> homeServiceCall = dataApi.getMovies();
-
-        homeServiceCall.enqueue(new Callback<List<HomeService>>() {
-            @Override
-            public void onResponse(Call<List<HomeService>> call, Response<List<HomeService>> response) {
-                if(!response.isSuccessful()) {
-                    System.out.println("Błąd: " + response.code());
-                    return;
-                }
-
-                List<HomeService> homeServices = response.body();
-                movieItems = new ArrayList<>();
-                assert homeServices != null;
-                for (HomeService homeService : homeServices ){
-
-                    String id_filmu = homeService.getId_filmu();
-                    String tytul = homeService.getTytul();
-                    String czas_trwania = homeService.getCzas_trwania();
-                    String ocena = homeService.getOcena();
-                    String opis = homeService.getOpis();
-                    String okladka = homeService.getOkladka();
-                    String cena = homeService.getCena();
-                    String nazwa_gatunku = homeService.getNazwa_gatunku();
-                    String data = homeService.getData();
-                    String pora_emisji = homeService.getPora_emisja();
-
-                    movieItems.add(new MovieItem(id_filmu, tytul, czas_trwania, ocena, opis, okladka, cena, nazwa_gatunku, data, pora_emisji));
-
-                }
-
-                recycler();
-
-            }
-
-            @Override
-            public void onFailure(Call<List<HomeService>> call, Throwable t) {
-                System.out.println("Błąd: " + t.getMessage());
-            }
-
-        });
-
-    }
-
-    private void recycler() {
-        System.out.println("Rozmiar: " + movieItems.size());
-    }
+//    private ArrayList<MovieItem> retrofit() {
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("http://10.0.2.2:8080/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        dataApi = retrofit.create(DataAPI.class);
+//
+//        Call<List<HomeService>> homeServiceCall = dataApi.getMovies();
+//
+//        final ArrayList<MovieItem> movieItems = new ArrayList<>();
+//
+//        homeServiceCall.enqueue(new Callback<List<HomeService>>() {
+//            @Override
+//            public void onResponse(Call<List<HomeService>> call, Response<List<HomeService>> response) {
+//                if (!response.isSuccessful()) {
+//                    System.out.println("Błąd: " + response.code());
+//                    return;
+//                }
+//
+//                List<HomeService> homeServices = response.body();
+//                assert homeServices != null;
+//                for (HomeService homeService : homeServices) {
+//                    String id_filmu = homeService.getId_filmu();
+//                    String tytul = homeService.getTytul();
+//                    String czas_trwania = homeService.getCzas_trwania();
+//                    String ocena = homeService.getOcena();
+//                    String opis = homeService.getOpis();
+//                    String okladka = homeService.getOkladka();
+//                    String cena = homeService.getCena();
+//                    String nazwa_gatunku = homeService.getNazwa_gatunku();
+//                    String data = homeService.getData();
+//                    String pora_emisji = homeService.getPora_emisja();
+//
+//                    movieItems.add(new MovieItem(id_filmu, tytul, czas_trwania, ocena, opis, okladka, cena, nazwa_gatunku, data, pora_emisji));
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<HomeService>> call, Throwable t) {
+//                System.out.println("Błąd: " + t.getMessage());
+//            }
+//        });
+//
+//        return movieItems;
+//    }
 
     @Override
     public void onDestroyView() {
