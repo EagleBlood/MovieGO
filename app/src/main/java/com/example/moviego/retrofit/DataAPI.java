@@ -1,5 +1,8 @@
 package com.example.moviego.retrofit;
 
+import com.example.moviego.ui.home.MovieItem;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -14,6 +17,9 @@ public interface DataAPI {
 
     @GET("movies")
     Call<List<HomeService>> getMovies();
+
+    void onSuccess(ArrayList<MovieItem> movieItems);
+    void onFailure();
 
 //    @GET("shoutbox/messages?last=12")
 //    Call<List<ShoutboxData>> getShoutboxData();
