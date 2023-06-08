@@ -1,6 +1,5 @@
 package com.example.moviego.ui.home;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,32 +7,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviego.R;
-import com.example.moviego.ui.movie.MovieDetailsFragment;
+import com.example.moviego.retrofit.SelectedListener;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    private final List<Movie> movies;
-    private final Context context;
+    private final ArrayList<Movie> movies;
+    private final SelectedListener listener;
 
-    public MovieAdapter(Context context, List<Movie> movies) {
-        this.context = context;
+    public MovieAdapter(ArrayList<Movie> movies, SelectedListener listener) {
         this.movies = movies;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_movie, parent, false);
-        return new MovieViewHolder(view);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_movie, parent, false);
+
+        return new MovieViewHolder(v, listener);
     }
 
     @Override
@@ -49,27 +45,27 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         return movies.size();
     }
 
-    public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+//    implements View.OnClickListener
+
+    public static class MovieViewHolder extends RecyclerView.ViewHolder  {
         public TextView itemTitle;
         public TextView itemScore;
         public ImageView itemImgCard;
 
-        public MovieViewHolder(@NonNull View itemView) {
+        public MovieViewHolder(@NonNull View itemView, SelectedListener listener) {
             super(itemView);
             itemTitle = itemView.findViewById(R.id.itemTitle);
             itemScore = itemView.findViewById(R.id.itemScore);
             itemImgCard = itemView.findViewById(R.id.itemImgCard);
-            itemView.setOnClickListener(this);
-        }
+            itemView.setOnClickListener(view -> {
+                if (listener != null){
+                    int pos = getAdapterPosition();
 
-        @Override
-        public void onClick(View v) {
-            // Open a new fragment with the movie details
-            FragmentManager fragmentManager = ((FragmentActivity)context).getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.frameLayout, new MovieDetailsFragment());
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
+                    if (pos != RecyclerView.NO_POSITION){
+                        listener.onItemClicked(pos);
+                    }
+                }
+            });
         }
     }
 

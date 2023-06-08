@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -36,6 +37,16 @@ public class MovieDetailsFragment extends Fragment {
         }
 
         bottomNavigation.hideElement();
+
+        TextView movieTitle = root.findViewById(R.id.movieTitle);
+
+
+        Bundle bundle = getArguments();
+        if(bundle != null){
+            String title = bundle.getString("movieTitle");
+            movieTitle.setText(title);
+        }
+
 
         ImageButton backButton = root.findViewById(R.id.backButton);
         backButton.setOnClickListener(v -> {

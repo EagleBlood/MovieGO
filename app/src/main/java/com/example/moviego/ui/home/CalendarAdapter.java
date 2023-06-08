@@ -9,10 +9,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviego.R;
+import com.example.moviego.retrofit.SelectedListener;
 
 import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -22,10 +25,12 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
 
     private List<String> daysList;
     private int currentDatePosition;
+    private SelectedListener listener;
 
-    public CalendarAdapter(List<String> daysList, int currentDatePosition) {
+    public CalendarAdapter(List<String> daysList, int currentDatePosition, SelectedListener listener) {
         this.daysList = daysList;
         this.currentDatePosition = currentDatePosition;
+        this.listener = listener;
     }
 
     @Override
@@ -64,8 +69,23 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
                 // Update the currently picked calendar date
                 String[] dayInfo = daysList.get(currentDatePosition).split(",");
                 String pickedDate = dayInfo[0]; // Extract the date from "day,dayName"
+
+                // Get the current year and month
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH) + 1; // Months are zero-based
+
+                // Add the year and month information to the picked date
+                String formattedDate = String.format("%04d-%02d-%02d", year, month, Integer.parseInt(pickedDate));
+
                 // Update the pickedDate variable in your fragment or any other relevant place
-                // e.g., HomeFragment.pickedDate = pickedDate;
+                // e.g., HomeFragment.pickedDate = formattedDate;
+
+                // Pass the selected date in the desired format to the listener
+                if (listener != null) {
+                    listener.onItemSelected(formattedDate);
+                }
+
             }
         });
     }
@@ -86,5 +106,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
             itemWeek = itemView.findViewById(R.id.itemWeek);
             itemBG = itemView.findViewById(R.id.itemBG);
         }
+
     }
 }

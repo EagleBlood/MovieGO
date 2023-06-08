@@ -3,6 +3,7 @@ package com.example.moviego;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,9 +35,11 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity implements Bot
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_drawer_and_bottom_nav);
 
         initView();
+
     }
 
     private void initView() {
