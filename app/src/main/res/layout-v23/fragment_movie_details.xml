@@ -83,7 +83,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/text14"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/rate"
+                app:layout_constraintEnd_toEndOf="@+id/movieRate"
                 app:layout_constraintStart_toStartOf="@+id/movieTitle" />
 
             <TextView
@@ -101,7 +101,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/rate"
+                android:id="@+id/movieRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
@@ -118,8 +118,8 @@
                 android:text="@string/movie_averageScore"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text12"
-                app:layout_constraintEnd_toEndOf="@+id/rate"
-                app:layout_constraintTop_toBottomOf="@+id/rate" />
+                app:layout_constraintEnd_toEndOf="@+id/movieRate"
+                app:layout_constraintTop_toBottomOf="@+id/movieRate" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -128,8 +128,8 @@
                 android:layout_marginEnd="10dp"
                 android:contentDescription="@string/movie_star"
                 android:src="@drawable/ic_star_rate"
-                app:layout_constraintEnd_toStartOf="@+id/rate"
-                app:layout_constraintTop_toTopOf="@+id/rate" />
+                app:layout_constraintEnd_toStartOf="@+id/movieRate"
+                app:layout_constraintTop_toTopOf="@+id/movieRate" />
 
             <Button
                 android:id="@+id/bookSeat"
@@ -144,7 +144,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/text14"
                 app:layout_constraintBottom_toTopOf="@+id/movieType"
-                app:layout_constraintEnd_toEndOf="@+id/rate"
+                app:layout_constraintEnd_toEndOf="@+id/movieRate"
                 app:layout_constraintStart_toStartOf="@+id/movieTitle"
                 tools:ignore="TextContrastCheck" />
 
@@ -157,11 +157,11 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/text14"
                 app:layout_constraintBottom_toTopOf="@+id/movieDescription"
-                app:layout_constraintEnd_toStartOf="@+id/duration"
+                app:layout_constraintEnd_toStartOf="@+id/movieDuration"
                 app:layout_constraintStart_toStartOf="@+id/bookSeat" />
 
             <TextView
-                android:id="@+id/duration"
+                android:id="@+id/movieDuration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"

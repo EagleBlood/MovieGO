@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviego.R;
+import com.example.moviego.retrofit.OnMovieClickListener;
 import com.example.moviego.retrofit.SelectedListener;
 
 import java.util.ArrayList;
@@ -17,12 +18,12 @@ import java.util.ArrayList;
 public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final ArrayList<Movie> movies;
-    private final SelectedListener listener;
+    private final OnMovieClickListener listener;
 
     private static final int VIEW_TYPE_EMPTY = 0;
     private static final int VIEW_TYPE_ITEM = 1;
 
-    public MovieAdapter(ArrayList<Movie> movies, SelectedListener listener) {
+    public MovieAdapter(ArrayList<Movie> movies, OnMovieClickListener listener) {
         this.movies = movies;
         this.listener = listener;
     }
@@ -46,7 +47,7 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             return new EmptyViewHolder(v);
         } else {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_movie, parent, false);
-            return new MovieViewHolder(v, listener);
+            return new MovieViewHolder(v);
         }
 
     }
@@ -59,6 +60,8 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             movieViewHolder.itemTitle.setText(movie.getTitle());
             movieViewHolder.itemScore.setText(String.valueOf(movie.getScore()));
             movieViewHolder.itemImgCard.setImageBitmap(movie.getImage());
+
+            movieViewHolder.itemView.setOnClickListener(v -> listener.onMovieClick(movie));
         }
     }
 
@@ -85,20 +88,12 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         public TextView itemScore;
         public ImageView itemImgCard;
 
-        public MovieViewHolder(@NonNull View itemView, SelectedListener listener) {
+        public MovieViewHolder(@NonNull View itemView) {
             super(itemView);
             itemTitle = itemView.findViewById(R.id.itemTitle);
             itemScore = itemView.findViewById(R.id.itemScore);
             itemImgCard = itemView.findViewById(R.id.itemImgCard);
-            itemView.setOnClickListener(view -> {
-                if (listener != null){
-                    int pos = getAdapterPosition();
 
-                    if (pos != RecyclerView.NO_POSITION){
-                        listener.onItemClicked(pos);
-                    }
-                }
-            });
         }
     }
 

@@ -1,12 +1,15 @@
 package com.example.moviego.ui.movie;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,10 +23,16 @@ import com.example.moviego.BottomNavigation;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentMovieDetailsBinding;
 
+import org.w3c.dom.Text;
+
+import java.util.Base64;
+
 public class MovieDetailsFragment extends Fragment {
 
     private FragmentMovieDetailsBinding binding;
     private BottomNavigation bottomNavigation;
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -39,12 +48,31 @@ public class MovieDetailsFragment extends Fragment {
         bottomNavigation.hideElement();
 
         TextView movieTitle = root.findViewById(R.id.movieTitle);
+        TextView movieRate = root.findViewById(R.id.movieRate);
+        TextView movieType = root.findViewById(R.id.movieType);
+        TextView movieDescription = root.findViewById(R.id.movieDescription);
+        TextView movieDuration = root.findViewById(R.id.movieDuration);
+        ImageView moviePoster = root.findViewById(R.id.moviePoster);
 
 
         Bundle bundle = getArguments();
         if(bundle != null){
-            String title = bundle.getString("movieTitle");
-            movieTitle.setText(title);
+
+            String tytul = bundle.getString("tytul");
+            String ocena = bundle.getString("ocena");
+            String okladka = bundle.getString("okladka");
+            String opis = bundle.getString("opis");
+            String czas_trwania = bundle.getString("czas_trwania");
+            String gatunek = bundle.getString("gatunek");
+
+            Bitmap bitmap = decodeBase64ToBitmap(okladka);
+
+            movieTitle.setText(tytul);
+            movieRate.setText(ocena);
+            movieType.setText(gatunek);
+            movieDescription.setText(opis);
+            movieDuration.setText(czas_trwania);
+            moviePoster.setImageBitmap(bitmap);
         }
 
 
@@ -70,6 +98,11 @@ public class MovieDetailsFragment extends Fragment {
         });
 
         return root;
+    }
+
+    public static Bitmap decodeBase64ToBitmap(String base64Image) {
+        byte[] imageBytes = Base64.getDecoder().decode(base64Image);
+        return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
     }
 
     @Override

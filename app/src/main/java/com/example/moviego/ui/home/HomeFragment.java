@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,9 +21,8 @@ import com.example.moviego.MyApp;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentHomeBinding;
 import com.example.moviego.retrofit.SelectedListener;
+import com.example.moviego.ui.movie.MovieDetailsFragment;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -34,13 +35,11 @@ public class HomeFragment extends Fragment implements SelectedListener {
 
     private FragmentHomeBinding binding;
 
-    private RecyclerView recyclerView;
     private RecyclerView recyclerViewMovie1;
     private RecyclerView recyclerViewMovie2;
     private RecyclerView recyclerViewMovie3;
 
     private ArrayList<MovieItem> movieItems;
-    private CalendarAdapter calendarAdapter;
 
     ArrayList<Movie> movieList1;
     ArrayList<Movie> movieList2;
@@ -59,7 +58,7 @@ public class HomeFragment extends Fragment implements SelectedListener {
             actionBar.setTitle("Hello");
         }
 
-        recyclerView = root.findViewById(R.id.home_calendarRecyclerView);
+        RecyclerView recyclerView = root.findViewById(R.id.home_calendarRecyclerView);
         recyclerViewMovie1 = root.findViewById(R.id.home_movieRecyclerView1);
         recyclerViewMovie2 = root.findViewById(R.id.home_movieRecyclerView2);
         recyclerViewMovie3 = root.findViewById(R.id.home_movieRecyclerView3);
@@ -90,7 +89,7 @@ public class HomeFragment extends Fragment implements SelectedListener {
             }
         }
 
-        calendarAdapter = new CalendarAdapter(daysList, currentDatePosition, this);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(daysList, currentDatePosition, this);
         recyclerView.setAdapter(calendarAdapter);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -112,22 +111,6 @@ public class HomeFragment extends Fragment implements SelectedListener {
 
     private void setCalendar() {
 
-    }
-
-
-    @Override
-    public void onItemClicked(int position) {
-//        MovieDetailsFragment movieDetailsFragment = new MovieDetailsFragment();
-//
-//        Bundle movieDetails = new Bundle();
-//        movieDetails.putString("movieTitle", movieList1.get(position).getTitle());
-//        movieDetailsFragment.setArguments(movieDetails);
-//
-//        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.frameLayout, new MovieDetailsFragment());
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
     }
 
     @Override
@@ -194,9 +177,45 @@ public class HomeFragment extends Fragment implements SelectedListener {
             recyclerViewMovie3.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         }
 
-        recyclerViewMovie1.setAdapter(new MovieAdapter(movieList1, this));
-        recyclerViewMovie2.setAdapter(new MovieAdapter(movieList2, this));
-        recyclerViewMovie3.setAdapter(new MovieAdapter(movieList3, this));
+        recyclerViewMovie1.setAdapter(new MovieAdapter(movieList1, this::openNextFragment));
+
+        recyclerViewMovie2.setAdapter(new MovieAdapter(movieList2, this::openNextFragment));
+
+        recyclerViewMovie3.setAdapter(new MovieAdapter(movieList3, this::openNextFragment));
+    }
+
+    private void openNextFragment(Movie movie) {
+
+        String tytul = movie.getTitle();
+        MovieItem matchingMovieItem = null;
+        for (MovieItem movieItem : movieItems) {
+            if (movieItem.getTytul().equals(tytul)) {
+                matchingMovieItem = movieItem;
+                break;
+            }
+        }
+
+        if (matchingMovieItem != null) {
+            // Przekazanie danych do następnego fragmentu
+            Bundle bundle = new Bundle();
+            bundle.putString("tytul", tytul);
+            bundle.putString("ocena", String.valueOf(movie.getScore()));
+            bundle.putString("okladka", matchingMovieItem.getOkladka());
+            bundle.putString("opis", matchingMovieItem.getOpis());
+            bundle.putString("czas_trwania", matchingMovieItem.getCzas_trwania() + " min");
+            bundle.putString("gatunek", matchingMovieItem.getNazwa_gatunku());
+
+            // Otwarcie nowego fragmentu
+            MovieDetailsFragment nextFragment = new MovieDetailsFragment();
+            nextFragment.setArguments(bundle);
+
+            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.frameLayout, nextFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+
     }
 
     public static Bitmap decodeBase64ToBitmap(String base64Image) {
