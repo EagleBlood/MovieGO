@@ -20,6 +20,7 @@ import com.example.moviego.databinding.FragmentLoginBinding;
 import com.example.moviego.retrofit.DataAPI;
 import com.example.moviego.retrofit.HomeService;
 import com.example.moviego.retrofit.RetrofitFunction;
+import com.example.moviego.retrofit.UserService;
 import com.example.moviego.ui.home.MovieItem;
 
 import java.io.IOException;
@@ -30,6 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginFragment extends Fragment {
 
@@ -68,14 +71,54 @@ public class LoginFragment extends Fragment {
 
         inputUser = root.findViewById(R.id.login_userInput);
         inputPass = root.findViewById(R.id.login_passInput);
-
         Button logIn = root.findViewById(R.id.login_logIn);
+
         logIn.setOnClickListener(v -> {
-            ((DrawerAndBottomNavActivity) getActivity()).reloadApp();
+            String username = inputUser.getText().toString();
+            String password = inputPass.getText().toString();
+            performLogin(username, password);
+            System.out.println("kuniec");
+            //((DrawerAndBottomNavActivity) getActivity()).reloadApp();
         });
 
         return root;
     }
+
+    private void performLogin(String username, String password) {
+        System.out.println("performLogin");
+        RetrofitFunction retrofitFunction = new RetrofitFunction();
+        DataAPI dataAPI = retrofitFunction.dataAPI();
+
+        String url = "login?login=test&password=test";
+        Call<UserService> call = dataAPI.checkLogin(url, username, password);
+        call.enqueue(new Callback<UserService>() {
+            @Override
+            public void onResponse(Call<UserService> call, Response<UserService> response) {
+                System.out.println("onResponse");
+                if (response.isSuccessful()) {
+                    UserService userService = response.body();
+                    if (userService != null) {
+                        // Login successful, you can access the user's details here
+                        int userId = userService.getId_uzyt();
+                        String userEmail = userService.getEmail();
+                        // ... access other user details and perform necessary actions
+                        ((DrawerAndBottomNavActivity) requireActivity()).reloadApp();
+                    } else {
+                        System.out.println("Login failed");
+                    }
+                } else {
+                    System.out.println("Request failed: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserService> call, Throwable t) {
+                System.out.println("Network error occurred: " + t.getMessage());
+            }
+        });
+    }
+
+
 
 
     @Override
