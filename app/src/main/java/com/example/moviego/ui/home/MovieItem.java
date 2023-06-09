@@ -2,18 +2,18 @@ package com.example.moviego.ui.home;
 
 public class MovieItem {
 
-    private String id_filmu;
+    private int id_filmu;
     private String tytul;
-    private String czas_trwania;
-    private String ocena;
+    private int czas_trwania;
+    private double ocena;
     private String opis;
     private String okladka;
-    private String cena;
+    private double cena;
     private String nazwa_gatunku;
     private String data;
     private String pora_emisji;
 
-    public MovieItem(String id_filmu, String tytul, String czas_trwania, String ocena, String opis, String okladka, String cena, String nazwa_gatunku, String data, String pora_emisji) {
+    public MovieItem(int id_filmu, String tytul, int czas_trwania, double ocena, String opis, String okladka, double cena, String nazwa_gatunku, String data, String pora_emisji) {
         this.id_filmu = id_filmu;
         this.tytul = tytul;
         this.czas_trwania = czas_trwania;
@@ -26,11 +26,11 @@ public class MovieItem {
         this.pora_emisji = pora_emisji;
     }
 
-    public String getId_filmu() {
+    public int getId_filmu() {
         return id_filmu;
     }
 
-    public void setId_filmu(String id_filmu) {
+    public void setId_filmu(int id_filmu) {
         this.id_filmu = id_filmu;
     }
 
@@ -42,19 +42,19 @@ public class MovieItem {
         this.tytul = tytul;
     }
 
-    public String getCzas_trwania() {
+    public int getCzas_trwania() {
         return czas_trwania;
     }
 
-    public void setCzas_trwania(String czas_trwania) {
+    public void setCzas_trwania(int czas_trwania) {
         this.czas_trwania = czas_trwania;
     }
 
-    public String getOcena() {
+    public double getOcena() {
         return ocena;
     }
 
-    public void setOcena(String ocena) {
+    public void setOcena(double ocena) {
         this.ocena = ocena;
     }
 
@@ -74,11 +74,11 @@ public class MovieItem {
         this.okladka = okladka;
     }
 
-    public String getCena() {
+    public double getCena() {
         return cena;
     }
 
-    public void setCena(String cena) {
+    public void setCena(double cena) {
         this.cena = cena;
     }
 

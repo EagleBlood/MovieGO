@@ -98,6 +98,7 @@
     <string name="home_Text2">13:00</string>
     <string name="home_Text3">16:00</string>
     <string name="home_Text4">19:00</string>
+    <string name="no_item_movie">No scheduled screenings</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

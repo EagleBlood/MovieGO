@@ -18,8 +18,11 @@ public interface DataAPI {
     @GET("movies")
     Call<List<HomeService>> getMovies();
 
-    void onSuccess(ArrayList<MovieItem> movieItems);
-    void onFailure();
+    @GET("tickets")
+    Call<List<HomeService>> getTickets();
+
+//    void onSuccess(ArrayList<MovieItem> movieItems);
+//    void onFailure();
 
 //    @GET("shoutbox/messages?last=12")
 //    Call<List<ShoutboxData>> getShoutboxData();

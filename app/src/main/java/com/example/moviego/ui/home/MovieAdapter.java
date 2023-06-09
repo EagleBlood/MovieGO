@@ -14,35 +14,68 @@ import com.example.moviego.retrofit.SelectedListener;
 
 import java.util.ArrayList;
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
+public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final ArrayList<Movie> movies;
     private final SelectedListener listener;
+
+    private static final int VIEW_TYPE_EMPTY = 0;
+    private static final int VIEW_TYPE_ITEM = 1;
 
     public MovieAdapter(ArrayList<Movie> movies, SelectedListener listener) {
         this.movies = movies;
         this.listener = listener;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        if (movies.isEmpty()) {
+            return VIEW_TYPE_EMPTY;
+        } else {
+            return VIEW_TYPE_ITEM;
+        }
+    }
+
     @NonNull
     @Override
-    public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_movie, parent, false);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        return new MovieViewHolder(v, listener);
+        if (viewType == VIEW_TYPE_EMPTY) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_no_movie, parent, false);
+
+            return new EmptyViewHolder(v);
+        } else {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_movie, parent, false);
+            return new MovieViewHolder(v, listener);
+        }
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
-        Movie movie = movies.get(position);
-        holder.itemTitle.setText(movie.getTitle());
-        holder.itemScore.setText(String.valueOf(movie.getScore()));
-        holder.itemImgCard.setImageBitmap(movie.getImage());
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+        if (viewHolder instanceof MovieViewHolder) {
+            MovieViewHolder movieViewHolder = (MovieViewHolder) viewHolder;
+            Movie movie = movies.get(position);
+            movieViewHolder.itemTitle.setText(movie.getTitle());
+            movieViewHolder.itemScore.setText(String.valueOf(movie.getScore()));
+            movieViewHolder.itemImgCard.setImageBitmap(movie.getImage());
+        }
     }
 
     @Override
     public int getItemCount() {
-        return movies.size();
+        if (movies.isEmpty()) {
+            return 1;
+        } else {
+            return movies.size();
+        }
+    }
+
+    public static class EmptyViewHolder extends RecyclerView.ViewHolder {
+
+        public EmptyViewHolder(View itemView) {
+            super(itemView);
+        }
     }
 
 //    implements View.OnClickListener

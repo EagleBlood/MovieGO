@@ -7,16 +7,16 @@ import com.google.gson.annotations.SerializedName;
 public class HomeService {
 
     @SerializedName("id_filmu")
-    final String id_filmu;
+    final int id_filmu;
 
     @SerializedName("tytul")
     final String tytul;
 
     @SerializedName("czas_trwania")
-    final String czas_trwania;
+    final int czas_trwania;
 
     @SerializedName("ocena")
-    final String ocena;
+    final double ocena;
 
     @SerializedName("opis")
     final String opis;
@@ -25,7 +25,7 @@ public class HomeService {
     final String okladka;
 
     @SerializedName("cena")
-    final String cena;
+    final double cena;
 
     @SerializedName("nazwa_gatunku")
     final String nazwa_gatunku;
@@ -36,7 +36,7 @@ public class HomeService {
     @SerializedName("pora_emisji")
     final String pora_emisja;
 
-    public HomeService(String id_filmu, String tytul, String czas_trwania, String ocena, String opis, String okladka, String cena, String nazwa_gatunku, String data, String pora_emisja) {
+    public HomeService(int id_filmu, String tytul, int czas_trwania, double ocena, String opis, String okladka, double cena, String nazwa_gatunku, String data, String pora_emisja) {
         this.id_filmu = id_filmu;
         this.tytul = tytul;
         this.czas_trwania = czas_trwania;
@@ -49,7 +49,7 @@ public class HomeService {
         this.pora_emisja = pora_emisja;
     }
 
-    public String getId_filmu() {
+    public int getId_filmu() {
         return id_filmu;
     }
 
@@ -57,11 +57,11 @@ public class HomeService {
         return tytul;
     }
 
-    public String getCzas_trwania() {
+    public int getCzas_trwania() {
         return czas_trwania;
     }
 
-    public String getOcena() {
+    public double getOcena() {
         return ocena;
     }
 
@@ -73,7 +73,7 @@ public class HomeService {
         return okladka;
     }
 
-    public String getCena() {
+    public double getCena() {
         return cena;
     }
 

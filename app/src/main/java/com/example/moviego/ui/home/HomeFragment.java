@@ -34,11 +34,17 @@ public class HomeFragment extends Fragment implements SelectedListener {
 
     private FragmentHomeBinding binding;
 
+    private RecyclerView recyclerView;
     private RecyclerView recyclerViewMovie1;
     private RecyclerView recyclerViewMovie2;
     private RecyclerView recyclerViewMovie3;
 
     private ArrayList<MovieItem> movieItems;
+    private CalendarAdapter calendarAdapter;
+
+    ArrayList<Movie> movieList1;
+    ArrayList<Movie> movieList2;
+    ArrayList<Movie> movieList3;
 
     @SuppressLint("NotifyDataSetChanged")
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -53,7 +59,15 @@ public class HomeFragment extends Fragment implements SelectedListener {
             actionBar.setTitle("Hello");
         }
 
+        recyclerView = root.findViewById(R.id.home_calendarRecyclerView);
+        recyclerViewMovie1 = root.findViewById(R.id.home_movieRecyclerView1);
+        recyclerViewMovie2 = root.findViewById(R.id.home_movieRecyclerView2);
+        recyclerViewMovie3 = root.findViewById(R.id.home_movieRecyclerView3);
+
         // Calculate the position of the current date in the list
+
+        setCalendar();
+
         List<String> daysList = new ArrayList<>();
 
         int currentDatePosition = -1;
@@ -76,8 +90,7 @@ public class HomeFragment extends Fragment implements SelectedListener {
             }
         }
 
-        RecyclerView recyclerView = root.findViewById(R.id.home_calendarRecyclerView);
-        CalendarAdapter calendarAdapter = new CalendarAdapter(daysList, currentDatePosition, this);
+        calendarAdapter = new CalendarAdapter(daysList, currentDatePosition, this);
         recyclerView.setAdapter(calendarAdapter);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -87,16 +100,18 @@ public class HomeFragment extends Fragment implements SelectedListener {
         if (currentDatePosition != -1) {
             recyclerView.scrollToPosition(currentDatePosition);
         }
-
         calendarAdapter.notifyDataSetChanged();
 
         movieItems = MyApp.getInstance().getMovieItems();
 
-        recyclerViewMovie1 = root.findViewById(R.id.home_movieRecyclerView1);
-        recyclerViewMovie2 = root.findViewById(R.id.home_movieRecyclerView2);
-        recyclerViewMovie3 = root.findViewById(R.id.home_movieRecyclerView3);
+        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        setAdapters(date);
 
         return root;
+    }
+
+    private void setCalendar() {
+
     }
 
 
@@ -120,14 +135,19 @@ public class HomeFragment extends Fragment implements SelectedListener {
         String[] dateParts = selectedDate.split(",");
         String selectedDay = dateParts[0];
 
+        setAdapters(selectedDay);
+
+    }
+
+    private void setAdapters(String currentDate){
 
         ArrayList<FilteredMovie> filteredMovies = new ArrayList<>();
 
         for (MovieItem movieItem : movieItems) {
             String data = movieItem.getData();
-            if (data.equals(selectedDay)) {
+            if (data.equals(currentDate)) {
                 String tytul = movieItem.getTytul();
-                double ocena = Double.parseDouble(movieItem.getOcena());
+                double ocena = movieItem.getOcena();
                 String pora_emisji = movieItem.getPora_emisji();
                 String okladka = movieItem.getOkladka();
                 Bitmap bitmap = decodeBase64ToBitmap(okladka);
@@ -135,9 +155,9 @@ public class HomeFragment extends Fragment implements SelectedListener {
             }
         }
 
-        ArrayList<Movie> movieList1 = new ArrayList<>();
-        ArrayList<Movie> movieList2 = new ArrayList<>();
-        ArrayList<Movie> movieList3 = new ArrayList<>();
+        movieList1 = new ArrayList<>();
+        movieList2 = new ArrayList<>();
+        movieList3 = new ArrayList<>();
 
         for (FilteredMovie filteredMovie : filteredMovies) {
             Movie movie = filteredMovie.getMovie();
@@ -156,26 +176,27 @@ public class HomeFragment extends Fragment implements SelectedListener {
             }
         }
 
-        recyclerViewMovie1.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerViewMovie2.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerViewMovie3.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
-        recyclerViewMovie1.setAdapter(null);
-        recyclerViewMovie2.setAdapter(null);
-        recyclerViewMovie3.setAdapter(null);
-
         if (!movieList1.isEmpty()) {
-            recyclerViewMovie1.setAdapter(new MovieAdapter(movieList1, this));
+            recyclerViewMovie1.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        } else {
+            recyclerViewMovie1.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         }
 
         if (!movieList2.isEmpty()) {
-            recyclerViewMovie2.setAdapter(new MovieAdapter(movieList2, this));
+            recyclerViewMovie2.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        } else {
+            recyclerViewMovie2.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         }
 
         if (!movieList3.isEmpty()) {
-            recyclerViewMovie3.setAdapter(new MovieAdapter(movieList3, this));
+            recyclerViewMovie3.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        } else {
+            recyclerViewMovie3.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         }
 
+        recyclerViewMovie1.setAdapter(new MovieAdapter(movieList1, this));
+        recyclerViewMovie2.setAdapter(new MovieAdapter(movieList2, this));
+        recyclerViewMovie3.setAdapter(new MovieAdapter(movieList3, this));
     }
 
     public static Bitmap decodeBase64ToBitmap(String base64Image) {
