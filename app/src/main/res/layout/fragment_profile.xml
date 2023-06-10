@@ -23,25 +23,50 @@
                 android:id="@+id/profileLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="28dp"
+                android:layout_marginEnd="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_width="226dp"
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/profileTxt"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
                         android:paddingBottom="6dp"
                         android:text="@string/profileNameTitle"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text14" />
+
+                    <Button
+                        android:id="@+id/editLoginButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:background="@android:color/transparent"
+                        android:text="@string/editLoginButtonText"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/text12" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:id="@+id/divider4"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="10"
+                        android:background="@color/white" />
                 </TableRow>
 
                 <TableRow
@@ -65,14 +90,6 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
 
-                    <Button
-                        android:id="@+id/editProfileButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:text="@string/editButtonText"
-                        android:textColor="@color/grey_text"
-                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
@@ -81,7 +98,7 @@
                 android:id="@+id/passLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="40dp"
                 app:layout_constraintEnd_toEndOf="@+id/profileLayout"
                 app:layout_constraintStart_toStartOf="@+id/profileLayout"
                 app:layout_constraintTop_toBottomOf="@+id/profileLayout">
@@ -93,11 +110,36 @@
                     <TextView
                         android:id="@+id/passTxt"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
                         android:paddingBottom="6dp"
                         android:text="@string/passTitle"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text14" />
+
+                    <Button
+                        android:id="@+id/editPassButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:background="@android:color/transparent"
+                        android:text="@string/editPassButtonText"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/text12" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="10"
+                        android:background="@color/white" />
+
                 </TableRow>
 
                 <TableRow
@@ -119,14 +161,6 @@
                         android:textColorHint="@color/grey_text"
                         android:textSize="@dimen/text14" />
 
-                    <Button
-                        android:id="@+id/editPassButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:text="@string/showButtonText"
-                        android:textColor="@color/grey_text"
-                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
@@ -135,7 +169,7 @@
                 android:id="@+id/nameLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="40dp"
                 app:layout_constraintEnd_toEndOf="@+id/passLayout"
                 app:layout_constraintStart_toStartOf="@+id/passLayout"
                 app:layout_constraintTop_toBottomOf="@+id/passLayout">
@@ -145,14 +179,43 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/nameTxt"
+                        android:id="@+id/profileMainTxt"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
                         android:paddingBottom="6dp"
                         android:text="@string/nameTitle"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text14" />
+
+                    <Button
+                        android:id="@+id/editProfileButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:background="@android:color/transparent"
+                        android:text="@string/editProfileButtonText"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/grey_text"
+                        android:textSize="@dimen/text12" />
                 </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:id="@+id/divider3"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="10"
+                        android:background="@color/white" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -173,14 +236,6 @@
                         android:textColorHint="@color/grey_text"
                         android:textSize="@dimen/text14" />
 
-                    <Button
-                        android:id="@+id/editNameButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:text="@string/editButtonText"
-                        android:textColor="@color/grey_text"
-                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
@@ -196,17 +251,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/surnameTxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="6dp"
-                        android:text="@string/surnameTitle"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text14" />
-                </TableRow>
+                    android:layout_height="match_parent"/>
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -227,14 +272,6 @@
                         android:textColorHint="@color/grey_text"
                         android:textSize="@dimen/text14" />
 
-                    <Button
-                        android:id="@+id/editSurnameButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:text="@string/editButtonText"
-                        android:textColor="@color/grey_text"
-                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
@@ -250,17 +287,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/emailTxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="6dp"
-                        android:text="@string/emailTitle"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text14" />
-                </TableRow>
+                    android:layout_height="match_parent"/>
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -281,14 +308,6 @@
                         android:textColorHint="@color/grey_text"
                         android:textSize="@dimen/text14" />
 
-                    <Button
-                        android:id="@+id/editEmailButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:text="@string/editButtonText"
-                        android:textColor="@color/grey_text"
-                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
@@ -304,17 +323,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/phoneTxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="6dp"
-                        android:text="@string/phoneTitle"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text14" />
-                </TableRow>
+                    android:layout_height="match_parent"/>
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -335,14 +344,6 @@
                         android:textColorHint="@color/grey_text"
                         android:textSize="@dimen/text14" />
 
-                    <Button
-                        android:id="@+id/editPhoneButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:text="@string/editButtonText"
-                        android:textColor="@color/grey_text"
-                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>
@@ -358,17 +359,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/addrTxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="6dp"
-                        android:text="@string/addressTitle"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text14" />
-                </TableRow>
+                    android:layout_height="match_parent"/>
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -389,15 +380,6 @@
                         android:textColorHint="@color/grey_text"
                         android:textSize="@dimen/text14" />
 
-                    <Button
-                        android:id="@+id/editAddrButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:text="@string/editButtonText"
-                        android:textColor="@color/grey_text"
-                        android:textSize="@dimen/text12"
-                        tools:ignore="TouchTargetSizeCheck" />
                 </TableRow>
 
             </TableLayout>
@@ -415,17 +397,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/birthTxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="6dp"
-                        android:text="@string/birthTitle"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text14" />
-                </TableRow>
+                    android:layout_height="match_parent"/>
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -447,14 +419,6 @@
                         android:textSize="@dimen/text14"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <Button
-                        android:id="@+id/editBirthButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:text="@string/editButtonText"
-                        android:textColor="@color/grey_text"
-                        android:textSize="@dimen/text12" />
                 </TableRow>
 
             </TableLayout>

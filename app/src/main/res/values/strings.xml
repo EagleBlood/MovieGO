@@ -27,10 +27,10 @@
     <string name="bottomProfile">Profile</string>
     <string name="bottomTickets">Tickets</string>
 
-    // For fragment_gallery.xml
+    // For fragment_profile.xml
     <string name="profileNameTitle">Profile name</string>
     <string name="passTitle">Password</string>
-    <string name="nameTitle">Name</string>
+    <string name="nameTitle">Profile</string>
     <string name="surnameTitle">Surname</string>
     <string name="emailTitle">Email</string>
     <string name="phoneTitle">Phone number</string>
@@ -46,7 +46,9 @@
     <string name="editAddressHint">Home address</string>
     <string name="editBirthHint">Birth date</string>
 
-    <string name="editButtonText">Edit</string>
+    <string name="editLoginButtonText">Edit login</string>
+    <string name="editPassButtonText">Edit password</string>
+    <string name="editProfileButtonText">Edit profile</string>
     <string name="showButtonText">Show</string>
 
     // For fragment_login.xml
