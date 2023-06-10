@@ -29,7 +29,7 @@
     <string name="bottomTickets">Bilety</string>
 
     // For fragment_gallery.xml
-    <string name="profileNameTitle">Imię w profilu</string>
+    <string name="profileNameTitle">Login</string>
     <string name="passTitle">Hasło</string>
     <string name="nameTitle">Imię</string>
     <string name="surnameTitle">Nazwisko</string>
@@ -38,7 +38,7 @@
     <string name="addressTitle">Adres zamieszkania</string>
     <string name="birthTitle">Data urodzenia</string>
 
-    <string name="editProfileHint">Imię w profilu</string>
+    <string name="editProfileHint">Profil</string>
     <string name="editPassHint">*******************</string>
     <string name="editNameHint">Imię</string>
     <string name="editSurnameHint">Nazwisko</string>
@@ -47,7 +47,9 @@
     <string name="editAddressHint">Adres zamieszkania</string>
     <string name="editBirthHint">Data urodzenia</string>
 
-    <string name="editButtonText">Edytuj</string>
+    <string name="editLoginButtonText">Edytuj login</string>
+    <string name="editPassButtonText">Edytuj hasło</string>
+    <string name="editProfileButtonText">Edytuj profil</string>
     <string name="showButtonText">Pokaż</string>
 
     // For fragment_login.xml

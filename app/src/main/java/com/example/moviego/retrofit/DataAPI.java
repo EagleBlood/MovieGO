@@ -31,6 +31,12 @@ public interface DataAPI {
     @POST("book")
     Call<BookResponse> bookTickets(@Body BookResponse bookResponse);
 
+    @GET("login")
+    Call<Boolean> checkLogin(@Query("login") String login, @Query("password") String password);
+
+    @GET("users/{username}")
+    Call<UserService> getUserDetails(@Path("username") String username);
+
 //    void onSuccess(ArrayList<MovieItem> movieItems);
 //    void onFailure();
 
