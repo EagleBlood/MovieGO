@@ -12,16 +12,28 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.moviego.MyApp;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentTicketBinding;
+import com.example.moviego.retrofit.DataAPI;
+import com.example.moviego.retrofit.TicketService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class TicketFragment extends Fragment {
 
     private FragmentTicketBinding binding;
+    private DataAPI dataAPI;
+    private RecyclerView recyclerViewTickets;
+    private int userId;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -34,23 +46,80 @@ public class TicketFragment extends Fragment {
             actionBar.setTitle("Your tickets");
         }
 
-        RecyclerView recyclerViewTickets = root.findViewById(R.id.ticket_ticketRecyclerView);
-        List<Ticket> ticketList = new ArrayList<>();
+        userId = MyApp.getInstance().getUserId();
 
-        ticketList.add(new Ticket("Filip", 49092, "03.05.2023 11:00", 2, new ArrayList<>(Arrays.asList("2:4", "4:6")), 28.98));
-        ticketList.add(new Ticket("Test1", 49812, "02.05.2023 12:30", 1, new ArrayList<>(Arrays.asList("1:6", "4:6")), 14.49));
-        ticketList.add(new Ticket("Test1", 49812, "02.05.2023 13:31", 3, new ArrayList<>(Arrays.asList("9:2", "9:3", "9:4")), 43.47));
+        recyclerViewTickets = root.findViewById(R.id.ticket_ticketRecyclerView);
 
+        if(userId != 0) {
+            getTickets();
+        } else {
+            List<Ticket> tickets = new ArrayList<>();
+            TicketAdapter ticketAdapter = new TicketAdapter(getContext(), tickets);
+            recyclerViewTickets.setAdapter(ticketAdapter);
 
-        TicketAdapter ticketAdapter = new TicketAdapter(getContext(), ticketList);
-        recyclerViewTickets.setAdapter(ticketAdapter);
+            RecyclerView.LayoutManager layoutManagerTicket = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+            recyclerViewTickets.setLayoutManager(layoutManagerTicket);
+        }
 
-        RecyclerView.LayoutManager layoutManagerTicket = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        recyclerViewTickets.setLayoutManager(layoutManagerTicket);
 
         return root;
     }
 
+    private void retrofitCon(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        dataAPI = retrofit.create(DataAPI.class);
+    }
+
+    private void getTickets(){
+
+        retrofitCon();
+
+        Call<List<TicketService>> ticketServiceCall = dataAPI.getTickets(userId);
+
+        ticketServiceCall.enqueue(new Callback<List<TicketService>>() {
+            @Override
+            public void onResponse(Call<List<TicketService>> call, Response<List<TicketService>> response) {
+                if (!response.isSuccessful()) {
+                    System.out.println("Błąd: " + response.code());
+                }
+
+                List<TicketService> ticketServices = response.body();
+                List<Ticket> tickets = new ArrayList<>();
+
+                for (TicketService ticketService : ticketServices){
+
+                    String title = ticketService.getTitle();
+                    String reservationNumber = ticketService.getReservationNumber();
+                    String dateTime = ticketService.getDateTime();
+                    int seats = ticketService.getSeats();
+                    String spots = ticketService.getSpots();
+                    double price = ticketService.getPrice();
+
+                    tickets.add(new Ticket(title, reservationNumber, dateTime, seats, spots, price));
+
+                }
+
+                TicketAdapter ticketAdapter = new TicketAdapter(getContext(), tickets);
+                recyclerViewTickets.setAdapter(ticketAdapter);
+
+                RecyclerView.LayoutManager layoutManagerTicket = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                recyclerViewTickets.setLayoutManager(layoutManagerTicket);
+
+
+            }
+
+            @Override
+            public void onFailure(Call<List<TicketService>> call, Throwable t) {
+                System.out.println("Błąd: " + t.getMessage());
+            }
+        });
+
+
+    }
 
 
     @Override

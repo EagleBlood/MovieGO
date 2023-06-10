@@ -122,7 +122,6 @@ public class SplashScreen extends AppCompatActivity {
 
                 MyApp.getInstance().setMovieItems(movieItems);
 
-
                 new Handler().postDelayed(() -> {
 
                     startActivity(intent);

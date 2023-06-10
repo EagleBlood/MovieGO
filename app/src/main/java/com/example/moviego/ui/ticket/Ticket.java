@@ -6,22 +6,19 @@ import java.util.List;
 
 public class Ticket {
     private String title;
-    private int reservationNumber;
-    private LocalDateTime dateTime;
+    private String reservationNumber;
+    private String dateTime;
     private int seats;
     private String spots;
     private double price;
     private boolean isExpandable;
 
-    public Ticket(String title, int reservationNumber, String stringDateTime, int seats, List<String> spots, double price){
+    public Ticket(String title, String reservationNumber, String dateTime, int seats, String spots, double price){
         this.title = title;
         this.reservationNumber = reservationNumber;
+        this.dateTime = dateTime;
         this.seats = seats;
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-        this.dateTime = LocalDateTime.parse(stringDateTime, formatter);
-
-        this.spots = String.join(" | ", spots);
+        this.spots = spots;
         this.price = price;
         isExpandable = false;
 
@@ -31,15 +28,15 @@ public class Ticket {
         return title;
     }
 
-    public int getReservationNumber() {
+    public String getReservationNumber() {
         return reservationNumber;
     }
 
-    public LocalDateTime getDateTime() {
+    public String getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -67,7 +64,7 @@ public class Ticket {
         this.title = title;
     }
 
-    public void setReservationNumber(int reservationNumber) {
+    public void setReservationNumber(String reservationNumber) {
         this.reservationNumber = reservationNumber;
     }
 
@@ -83,9 +80,5 @@ public class Ticket {
         this.seats = seats;
     }
 
-    public String getFormattedDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-        return this.dateTime.format(formatter);
-    }
 
 }

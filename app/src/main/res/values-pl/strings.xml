@@ -133,6 +133,7 @@
     <string name="ticket_price">Cena:</string>
     <string name="ticket_currency">zł</string>
     <string name="ticket_priceValue">28.99</string>
+    <string name="item_no_tickets">Brak biletów</string>
 
     // For fragment_movie_hall.xml
     <string name="movieHall_SelectedText">Wybrane</string>

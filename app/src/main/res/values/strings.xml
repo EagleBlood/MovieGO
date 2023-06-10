@@ -132,6 +132,7 @@
     <string name="ticket_price">Price:</string>
     <string name="ticket_currency">zł</string>
     <string name="ticket_priceValue">28.99</string>
+    <string name="item_no_tickets">No tickets</string>
 
     // For fragment_movie_hall.xml
     <string name="movieHall_SelectedText">Selected</string>
@@ -144,5 +145,6 @@
     <string name="EndTransactionText">Seats have been reserved. More details in Tickets</string>
     <string name="FailedTransation">Failed operation</string>
     <string name="movieHall_SelectedSeat">Selected seat: </string>
+
 
 </resources>

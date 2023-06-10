@@ -20,7 +20,7 @@ public interface DataAPI {
     Call<List<HomeService>> getMovies();
 
     @GET("tickets")
-    Call<List<HomeService>> getTickets();
+    Call<List<TicketService>> getTickets(@Query("id_uzyt") int id_uzyt);
 
     @GET("seats")
     Call<List<HallService>> getSeats();
