@@ -1,8 +1,6 @@
 package com.example.moviego.ui.movie;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,13 +25,8 @@ import com.example.moviego.databinding.FragmentMovieHallBinding;
 import com.example.moviego.retrofit.BookResponse;
 import com.example.moviego.retrofit.BookTicket;
 import com.example.moviego.retrofit.DataAPI;
-import com.example.moviego.retrofit.HallService;
-import com.example.moviego.ui.home.FilteredMovie;
-import com.example.moviego.ui.home.Movie;
-import com.example.moviego.ui.home.MovieItem;
+import com.example.moviego.retrofit.ReservedSeatsService;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +52,8 @@ public class MovieHallFragment extends Fragment {
     private double sum = 0;
     private List<BookTicket> bookTickets;
     private List<Hall> halls;
+    private DataAPI dataAPI;
+    private ImageView imageView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -109,7 +104,7 @@ public class MovieHallFragment extends Fragment {
             tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
                     TableLayout.LayoutParams.WRAP_CONTENT));
             for (int j = 0; j < numColumns; j++) { // loop through columns
-                ImageView imageView = new ImageView(getContext());
+                imageView = new ImageView(getContext());
                 TableRow.LayoutParams layoutParams;
                 if (j == middleColIndex) { // set smaller width for middle column
                     layoutParams = new TableRow.LayoutParams(0,
@@ -180,6 +175,9 @@ public class MovieHallFragment extends Fragment {
             // add the row to the table
             tableLayout.addView(tableRow);
         }
+
+        reservedSeats();
+
         //Bottom menu
         View bottomSheet = root.findViewById(R.id.bottom_sheet);
         BottomSheetBehavior<View> bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
@@ -219,19 +217,24 @@ public class MovieHallFragment extends Fragment {
 
     }
 
-    private void bookTicket(BookResponse bookResponse){
+    private void retrofitCon(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        DataAPI dataAPI = retrofit.create(DataAPI.class);
+        dataAPI = retrofit.create(DataAPI.class);
+    }
 
-        Call<String> bookTickets = dataAPI.bookTickets(bookResponse);
+    private void bookTicket(BookResponse bookResponse){
 
-        bookTickets.enqueue(new Callback<String>() {
+        retrofitCon();
+
+        Call<BookResponse> bookTickets = dataAPI.bookTickets(bookResponse);
+
+        bookTickets.enqueue(new Callback<BookResponse>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
+            public void onResponse(Call<BookResponse> call, Response<BookResponse> response) {
                 if (!response.isSuccessful()) {
                     System.out.println("Błąd: " + response.code());
                 }
@@ -244,7 +247,54 @@ public class MovieHallFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<BookResponse> call, Throwable t) {
+                System.out.println("Błąd: " + t.getMessage());
+            }
+        });
+    }
+
+    private void reservedSeats(){
+        retrofitCon();
+
+        Call<List<ReservedSeatsService>> reservedSeatsServiceCall = dataAPI.getReservedSeats(id_seansu);
+
+        reservedSeatsServiceCall.enqueue(new Callback<List<ReservedSeatsService>>() {
+            @Override
+            public void onResponse(Call<List<ReservedSeatsService>> call, Response<List<ReservedSeatsService>> response) {
+                if (!response.isSuccessful()) {
+                    System.out.println("Błąd: " + response.code());
+                    return;
+                }
+
+                List<ReservedSeatsService> reservedSeatsServices = response.body();
+                List<Integer> rs = new ArrayList<>();
+
+                for (ReservedSeatsService reservedSeatsService : reservedSeatsServices){
+                    int seatId = reservedSeatsService.getSeatId();
+
+                    rs.add(seatId);
+
+                }
+
+//                String tag = getView().getTag().toString();
+//                String[] rowCol = tag.split(",");
+//                int row = Integer.parseInt(rowCol[0]) + 1; // convert to 1-indexed
+//                int col = Integer.parseInt(rowCol[1]) + 1; // convert to 1-indexed
+//                String seat = row + ":" + col;
+
+//                for (Hall hall: halls) {
+//                    if(hall.getSeatId() == )
+//                }
+//
+//                if (rs.contains(id_miejsca)) {
+//                    imageView.setEnabled(false);
+//                    imageView.setImageResource(R.drawable.seat_reserved);
+//                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<ReservedSeatsService>> call, Throwable t) {
                 System.out.println("Błąd: " + t.getMessage());
             }
         });

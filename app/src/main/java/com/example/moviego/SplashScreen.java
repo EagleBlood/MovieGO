@@ -82,7 +82,7 @@ public class SplashScreen extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<HallService>> call, Throwable t) {
-
+                System.out.println("Błąd: " + t.getMessage());
             }
         });
     }

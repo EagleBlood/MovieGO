@@ -12,6 +12,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface DataAPI {
 
@@ -24,8 +25,11 @@ public interface DataAPI {
     @GET("seats")
     Call<List<HallService>> getSeats();
 
+    @GET("seats/reserved")
+    Call<List<ReservedSeatsService>> getReservedSeats(@Query("id_seansu") int id_seansu);
+
     @POST("book")
-    Call<String> bookTickets(@Body BookResponse bookResponse);
+    Call<BookResponse> bookTickets(@Body BookResponse bookResponse);
 
 //    void onSuccess(ArrayList<MovieItem> movieItems);
 //    void onFailure();
