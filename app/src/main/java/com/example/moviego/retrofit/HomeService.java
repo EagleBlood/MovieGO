@@ -36,7 +36,10 @@ public class HomeService {
     @SerializedName("pora_emisji")
     final String pora_emisja;
 
-    public HomeService(int id_filmu, String tytul, int czas_trwania, double ocena, String opis, String okladka, double cena, String nazwa_gatunku, String data, String pora_emisja) {
+    @SerializedName("id_seansu")
+    final int id_seansu;
+
+    public HomeService(int id_filmu, String tytul, int czas_trwania, double ocena, String opis, String okladka, double cena, String nazwa_gatunku, String data, String pora_emisja, int id_seansu) {
         this.id_filmu = id_filmu;
         this.tytul = tytul;
         this.czas_trwania = czas_trwania;
@@ -47,6 +50,7 @@ public class HomeService {
         this.nazwa_gatunku = nazwa_gatunku;
         this.data = data;
         this.pora_emisja = pora_emisja;
+        this.id_seansu = id_seansu;
     }
 
     public int getId_filmu() {
@@ -87,5 +91,9 @@ public class HomeService {
 
     public String getPora_emisja() {
         return pora_emisja;
+    }
+
+    public int getId_seansu() {
+        return id_seansu;
     }
 }

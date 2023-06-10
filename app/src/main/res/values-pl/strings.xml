@@ -139,14 +139,12 @@
     <string name="movieHall_AvailableText">Dostępne</string>
     <string name="movieHall_ReservedText">Zarezerwowane</string>
     <string name="movieHall_SelectSpotText">Wybierz swoje miejsce</string>
-    <string name="movieHall_PriceText">cena: </string>
+    <string name="movieHall_PriceText">Cena za bilet: </string>
     <string name="movieHall_BookButtonText">Rezerwuj teraz</string>
     <string name="movieHall_TicketListText">Wybierz swój bilet</string>
     <string name="EndTransactionText">Miejsca zostały zarezerwowane. Szczegóły w sekcji Bilety</string>
-    <string-array name="movieHall_TicketValues">
-        <item>Normalny</item>
-        <item>Ulgowy</item>
-    </string-array>
+    <string name="FailedTransation">Błąd operacji</string>
+    <string name="movieHall_SelectedSeat">Wybrane miejsce: </string>
 
 
 

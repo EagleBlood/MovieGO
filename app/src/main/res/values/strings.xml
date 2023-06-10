@@ -138,14 +138,11 @@
     <string name="movieHall_AvailableText">Available</string>
     <string name="movieHall_ReservedText">Reserved</string>
     <string name="movieHall_SelectSpotText">Select your Spot</string>
-    <string name="movieHall_PriceText">price: </string>
+    <string name="movieHall_PriceText">Ticket price: </string>
     <string name="movieHall_BookButtonText">Book Now</string>
     <string name="movieHall_TicketListText">Choose your ticket</string>
     <string name="EndTransactionText">Seats have been reserved. More details in Tickets</string>
-    <string-array name="movieHall_TicketValues">
-        <item>Normal</item>
-        <item>Half</item>
-    </string-array>
-
+    <string name="FailedTransation">Failed operation</string>
+    <string name="movieHall_SelectedSeat">Selected seat: </string>
 
 </resources>

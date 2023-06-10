@@ -16,61 +16,51 @@
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/itemChosenSeat"
+            android:id="@+id/itemSeatText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/small_red_bg"
-            android:padding="5dp"
-            android:text="4:6"
-            android:textSize="@dimen/text14"
-            android:textColor="@color/white"
+            android:text="@string/movieHall_SelectedSeat"
+            android:textColor="@color/grey_text"
+            android:textSize="@dimen/text12"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/MyExposedDropdownMenu"
+        <TextView
+            android:id="@+id/itemChosenSeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/small_red_bg"
+            android:padding="5dp"
+            android:text="4:6"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text14"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/itemPriceText"
-            app:layout_constraintStart_toEndOf="@+id/itemChosenSeat"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@null"
-            tools:ignore="ResourceType">
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="none"
-                android:text="@string/movieHall_TicketListText"
-                android:textSize="@dimen/text12"
-                android:textColor="@color/black"
-                android:focusable="false"
-                android:focusableInTouchMode="false"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintStart_toEndOf="@+id/itemSeatText"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/itemPriceText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
+            android:layout_marginEnd="20dp"
             android:layout_weight="1"
             android:text="@string/movieHall_PriceText"
-            android:textSize="@dimen/text12"
             android:textColor="@color/grey_text"
+            android:textSize="@dimen/text12"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/itemPrice"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.513" />
+            app:layout_constraintVertical_bias="0.384" />
 
         <TextView
             android:id="@+id/itemPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="300zł"
+            android:minWidth="40dp"
             android:textColor="@color/black"
             android:textSize="@dimen/text14"
             android:textStyle="bold"

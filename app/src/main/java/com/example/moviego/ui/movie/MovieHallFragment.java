@@ -1,6 +1,8 @@
 package com.example.moviego.ui.movie;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,18 +21,44 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.moviego.MyApp;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentMovieHallBinding;
+import com.example.moviego.retrofit.BookResponse;
+import com.example.moviego.retrofit.BookTicket;
+import com.example.moviego.retrofit.DataAPI;
+import com.example.moviego.retrofit.HallService;
+import com.example.moviego.ui.home.FilteredMovie;
+import com.example.moviego.ui.home.Movie;
+import com.example.moviego.ui.home.MovieItem;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieHallFragment extends Fragment {
 
     private FragmentMovieHallBinding binding;
     private RecyclerView recyclerView;
     private List<String> chosenSeats;
+    private SeatAdapter seatAdapter;
+    private TextView finalPrice;
+    private Button bookNow;
+    private int id_seansu;
+    private String login;
+    private double price;
+    private double sum = 0;
+    private List<BookTicket> bookTickets;
+    private List<Hall> halls;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -37,19 +66,38 @@ public class MovieHallFragment extends Fragment {
         binding = FragmentMovieHallBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        TextView title = root.findViewById(R.id.movieHall_Title);
+        finalPrice = root.findViewById(R.id.movieHall_FinallPrice);
         recyclerView = root.findViewById(R.id.movieHall_RecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        bookNow = root.findViewById(R.id.movieHall_BookButton);
+
+        finalPrice.setVisibility(View.GONE);
+        bookNow.setVisibility(View.GONE);
 
         ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
         }
 
-        //List
-        List<String> chosenSeats = new ArrayList<>();
-        SeatAdapter seatAdapter = new SeatAdapter();
+        Bundle bundle = getArguments();
+        if(bundle != null){
+            id_seansu = bundle.getInt("book_id_seansu");
+            String movieTitle = bundle.getString("book_title");
+            login = bundle.getString("book_login");
+            price = bundle.getDouble("book_price");
 
-//Table
+            title.setText(movieTitle);
+        }
+
+        bookTickets = new ArrayList<>();
+        halls = MyApp.getInstance().getHalls();
+
+        //List
+        chosenSeats = new ArrayList<>();
+        seatAdapter = new SeatAdapter(price);
+
+        //Table
         int numRows = 8; // number of rows in the table
         int numColumns = 9; // number of columns in the table
 
@@ -96,17 +144,28 @@ public class MovieHallFragment extends Fragment {
                         recyclerView.setAdapter(seatAdapter);
                     }
 
-
                     // change the image resource of the clicked element
                     if (chosenSeats.contains(seat)) {
                         imageView.setImageResource(R.drawable.seat_selected);
                     } else {
                         imageView.setImageResource(R.drawable.seat_available);
                     }
+
+                    sum = chosenSeats.size() * price;
+                    finalPrice.setText(String.format(Locale.getDefault(), "%.2f zł", sum));
+
+                    if(chosenSeats.size() > 0){
+                        finalPrice.setVisibility(View.VISIBLE);
+                        bookNow.setVisibility(View.VISIBLE);
+                    } else {
+                        finalPrice.setVisibility(View.GONE);
+                        bookNow.setVisibility(View.GONE);
+                    }
                 });
 
                 // add the element to the row
                 tableRow.addView(imageView);
+
             }
 
             // hide the corner elements
@@ -125,19 +184,70 @@ public class MovieHallFragment extends Fragment {
         View bottomSheet = root.findViewById(R.id.bottom_sheet);
         BottomSheetBehavior<View> bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
 
-
         ImageView backButton = root.findViewById(R.id.movieHall_ReturnImg);
         backButton.setOnClickListener(v -> getParentFragmentManager().popBackStack("hall", FragmentManager.POP_BACK_STACK_INCLUSIVE));
 
-        Button bookNow = root.findViewById(R.id.movieHall_BookButton);
         bookNow.setOnClickListener(v->{
-            Toast toast = Toast.makeText(getActivity(), R.string.EndTransactionText, Toast.LENGTH_SHORT);
-            toast.show();
-            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-            fragmentManager.popBackStack();
+            book();
+
         });
 
+
+
         return root;
+    }
+
+    private void book() {
+
+        int userId = 1;
+        for (Hall hall: halls) {
+
+            int currentRow = hall.getRow();
+            int currentCol = hall.getArmchair();
+
+            String seat = currentRow + ":" + currentCol;
+
+            if (chosenSeats.contains(seat)) {
+                int seatId = hall.getSeatId();
+                bookTickets.add(new BookTicket(seatId, id_seansu, price));
+            }
+        }
+
+        BookResponse bookResponse = new BookResponse(userId, sum, bookTickets);
+
+        bookTicket(bookResponse);
+
+    }
+
+    private void bookTicket(BookResponse bookResponse){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        DataAPI dataAPI = retrofit.create(DataAPI.class);
+
+        Call<String> bookTickets = dataAPI.bookTickets(bookResponse);
+
+        bookTickets.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (!response.isSuccessful()) {
+                    System.out.println("Błąd: " + response.code());
+                }
+
+                Toast toast = Toast.makeText(getActivity(), R.string.EndTransactionText, Toast.LENGTH_SHORT);
+                toast.show();
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                fragmentManager.popBackStack();
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                System.out.println("Błąd: " + t.getMessage());
+            }
+        });
     }
 
     @Override

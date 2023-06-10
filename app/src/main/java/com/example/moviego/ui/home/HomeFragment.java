@@ -20,7 +20,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.moviego.MyApp;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentHomeBinding;
+import com.example.moviego.retrofit.DataAPI;
+import com.example.moviego.retrofit.HallService;
 import com.example.moviego.retrofit.SelectedListener;
+import com.example.moviego.ui.movie.Hall;
 import com.example.moviego.ui.movie.MovieDetailsFragment;
 
 import java.text.SimpleDateFormat;
@@ -31,6 +34,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class HomeFragment extends Fragment implements SelectedListener {
 
     private FragmentHomeBinding binding;
@@ -38,7 +47,7 @@ public class HomeFragment extends Fragment implements SelectedListener {
     private RecyclerView recyclerViewMovie1;
     private RecyclerView recyclerViewMovie2;
     private RecyclerView recyclerViewMovie3;
-
+    private DataAPI dataAPI;
     private ArrayList<MovieItem> movieItems;
 
     ArrayList<Movie> movieList1;
@@ -204,6 +213,8 @@ public class HomeFragment extends Fragment implements SelectedListener {
             bundle.putString("opis", matchingMovieItem.getOpis());
             bundle.putString("czas_trwania", matchingMovieItem.getCzas_trwania() + " min");
             bundle.putString("gatunek", matchingMovieItem.getNazwa_gatunku());
+            bundle.putInt("id_seansu", matchingMovieItem.getId_seansu());
+            bundle.putDouble("cena", matchingMovieItem.getCena());
 
             // Otwarcie nowego fragmentu
             MovieDetailsFragment nextFragment = new MovieDetailsFragment();
@@ -222,6 +233,7 @@ public class HomeFragment extends Fragment implements SelectedListener {
         byte[] imageBytes = Base64.getDecoder().decode(base64Image);
         return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
     }
+
 
     @Override
     public void onDestroyView() {

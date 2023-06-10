@@ -21,6 +21,12 @@ public interface DataAPI {
     @GET("tickets")
     Call<List<HomeService>> getTickets();
 
+    @GET("seats")
+    Call<List<HallService>> getSeats();
+
+    @POST("book")
+    Call<String> bookTickets(@Body BookResponse bookResponse);
+
 //    void onSuccess(ArrayList<MovieItem> movieItems);
 //    void onFailure();
 

@@ -12,8 +12,9 @@ public class MovieItem {
     private String nazwa_gatunku;
     private String data;
     private String pora_emisji;
+    private int id_seansu;
 
-    public MovieItem(int id_filmu, String tytul, int czas_trwania, double ocena, String opis, String okladka, double cena, String nazwa_gatunku, String data, String pora_emisji) {
+    public MovieItem(int id_filmu, String tytul, int czas_trwania, double ocena, String opis, String okladka, double cena, String nazwa_gatunku, String data, String pora_emisji, int id_seansu) {
         this.id_filmu = id_filmu;
         this.tytul = tytul;
         this.czas_trwania = czas_trwania;
@@ -24,6 +25,7 @@ public class MovieItem {
         this.nazwa_gatunku = nazwa_gatunku;
         this.data = data;
         this.pora_emisji = pora_emisji;
+        this.id_seansu = id_seansu;
     }
 
     public int getId_filmu() {
@@ -104,5 +106,13 @@ public class MovieItem {
 
     public void setPora_emisji(String pora_emisji) {
         this.pora_emisji = pora_emisji;
+    }
+
+    public int getId_seansu() {
+        return id_seansu;
+    }
+
+    public void setId_seansu(int id_seansu) {
+        this.id_seansu = id_seansu;
     }
 }

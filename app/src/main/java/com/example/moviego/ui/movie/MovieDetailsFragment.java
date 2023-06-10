@@ -20,10 +20,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.moviego.BottomNavigation;
+import com.example.moviego.MyApp;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentMovieDetailsBinding;
-
-import org.w3c.dom.Text;
 
 import java.util.Base64;
 
@@ -32,6 +31,10 @@ public class MovieDetailsFragment extends Fragment {
     private FragmentMovieDetailsBinding binding;
     private BottomNavigation bottomNavigation;
 
+    private int id_seansu;
+    private String tytul;
+    private String login;
+    private double cena;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -54,16 +57,21 @@ public class MovieDetailsFragment extends Fragment {
         TextView movieDuration = root.findViewById(R.id.movieDuration);
         ImageView moviePoster = root.findViewById(R.id.moviePoster);
 
+//        login = MyApp.getInstance().getLogin();
+
+        login = "test";
 
         Bundle bundle = getArguments();
         if(bundle != null){
 
-            String tytul = bundle.getString("tytul");
+            tytul = bundle.getString("tytul");
             String ocena = bundle.getString("ocena");
             String okladka = bundle.getString("okladka");
             String opis = bundle.getString("opis");
             String czas_trwania = bundle.getString("czas_trwania");
             String gatunek = bundle.getString("gatunek");
+            id_seansu = bundle.getInt("id_seansu");
+            cena = bundle.getDouble("cena");
 
             Bitmap bitmap = decodeBase64ToBitmap(okladka);
 
@@ -82,13 +90,28 @@ public class MovieDetailsFragment extends Fragment {
         });
 
         Button bookSeats = root.findViewById(R.id.bookSeat);
-        bookSeats.setOnClickListener(v -> {
-            FragmentManager fragmentManager = (requireActivity()).getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.frameLayout, new MovieHallFragment());
-            fragmentTransaction.addToBackStack("hall");
-            fragmentTransaction.commit();
-        });
+
+        if(login!=null){
+            bookSeats.setOnClickListener(v -> {
+
+                Bundle book = new Bundle();
+                book.putInt("book_id_seansu", id_seansu);
+                book.putString("book_title", tytul);
+                book.putString("book_login", login);
+                book.putDouble("book_price", cena);
+
+                MovieHallFragment nextFragment = new MovieHallFragment();
+                nextFragment.setArguments(book);
+
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout, nextFragment);
+                fragmentTransaction.addToBackStack("hall");
+                fragmentTransaction.commit();
+            });
+        }
+
+
 
         final boolean[] isClicked = {false};
         ImageButton likeMovie = root.findViewById(R.id.likeButton);
