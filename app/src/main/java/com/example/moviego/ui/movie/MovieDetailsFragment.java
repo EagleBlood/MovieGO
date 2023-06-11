@@ -67,7 +67,8 @@ public class MovieDetailsFragment extends Fragment {
         TextView movieDuration = root.findViewById(R.id.movieDuration);
         ImageView moviePoster = root.findViewById(R.id.moviePoster);
 
-        USER_LOGIN = MyApp.getInstance().getUSER_LOGIN();
+//        USER_LOGIN = MyApp.getInstance().getUSER_LOGIN();
+        USER_LOGIN = "123";
 
 
         Bundle bundle = getArguments();

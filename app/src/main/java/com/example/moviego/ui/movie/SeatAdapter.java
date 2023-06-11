@@ -50,6 +50,7 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatAdapter.ViewHolder> {
 
     public void addSeat(String seat) {
         chosenSeats.add(seat);
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -65,5 +66,6 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatAdapter.ViewHolder> {
 
     public void removeSeat(String seat) {
         chosenSeats.remove(seat);
+        notifyDataSetChanged();
     }
 }

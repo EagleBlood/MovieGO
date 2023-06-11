@@ -10,6 +10,7 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -38,8 +39,9 @@ public interface DataAPI {
     @GET("users/{username}")
     Call<UserService> getUserDetails(@Path("username") String username);
 
+    @Headers("Content-Type: application/json")
     @POST("register")
-    Call<RegistrationResponse> registerUser(@Query("login") String login, @Query("password") String password, @Query("email") String email);
+    Call<RegistrationResponse> addUser(@Body RegistrationResponse registrationResponse);
 
 
 //    void onSuccess(ArrayList<MovieItem> movieItems);

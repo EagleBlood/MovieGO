@@ -23,6 +23,8 @@ import com.example.moviego.retrofit.RegistrationResponse;
 import com.example.moviego.retrofit.RetrofitFunction;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterFragment extends Fragment {
 
@@ -65,13 +67,14 @@ public class RegisterFragment extends Fragment {
             String email = inputEmail.getText().toString();
             String user = inputUser.getText().toString();
             String pass = inputPass.getText().toString();
+
             String passConfirm = inputPassConfirm.getText().toString();
             if (email.isEmpty() || user.isEmpty() || pass.isEmpty() || passConfirm.isEmpty()) {
-                Toast.makeText(getContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.reg_FillFields, Toast.LENGTH_SHORT).show();
             } else if (!pass.equals(passConfirm)) {
-                Toast.makeText(getContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.reg_PassDoNoMatch, Toast.LENGTH_SHORT).show();
             } else {
-                registerUser(email, user, pass);
+                registerUser(user, pass, email);
             }
         });
 
@@ -82,31 +85,37 @@ public class RegisterFragment extends Fragment {
         RetrofitFunction retrofitFunction = new RetrofitFunction();
         DataAPI dataAPI = retrofitFunction.dataAPI();
 
-        Call<RegistrationResponse> call = dataAPI.registerUser(user, pass, email);
+        RegistrationResponse registrationResponse = new RegistrationResponse(user, pass, email);
 
-        call.enqueue(new retrofit2.Callback<RegistrationResponse>() {
+        Call<RegistrationResponse> call = dataAPI.addUser(registrationResponse);
+
+        call.enqueue(new Callback<RegistrationResponse>() {
             @Override
-            public void onResponse(Call<RegistrationResponse> call, retrofit2.Response<RegistrationResponse> response) {
+            public void onResponse(@NonNull Call<RegistrationResponse> call, @NonNull Response<RegistrationResponse> response) {
                 if (response.isSuccessful()) {
                     RegistrationResponse registrationResponse = response.body();
                     if (registrationResponse != null) {
                         String message = registrationResponse.getMessage();
                         if (message.equalsIgnoreCase("User registered successfully")) {
-                            Toast.makeText(getContext(), "Account created", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), R.string.reg_CreateAccText, Toast.LENGTH_SHORT).show();
+
+                            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                            fragmentManager.popBackStack();
+
                         } else if (message.equalsIgnoreCase("User with the given login already exists")) {
-                            Toast.makeText(getContext(), "Login already taken", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), R.string.reg_LoginAlready, Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(getContext(), "Registration failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), R.string.reg_RegFailedText, Toast.LENGTH_SHORT).show();
                         }
                     }
                 } else {
-                    Toast.makeText(getContext(), "Registration failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.reg_RegFailedText, Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<RegistrationResponse> call, Throwable t) {
-                Toast.makeText(getContext(), "Registration failed", Toast.LENGTH_SHORT).show();
+            public void onFailure(@NonNull Call<RegistrationResponse> call, @NonNull Throwable t) {
+                Toast.makeText(getContext(), R.string.reg_RegFailedText, Toast.LENGTH_SHORT).show();
                 System.out.println("Failure: " + t.getMessage());
             }
         });

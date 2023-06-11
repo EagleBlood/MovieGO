@@ -54,7 +54,7 @@ public class MovieHallFragment extends Fragment {
     private List<BookTicket> bookTickets;
     private List<Hall> HALLS;
     private ImageView imageView;
-    private List<Integer> receivedSeats;
+    private List<Integer> reservedSeats;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -82,7 +82,7 @@ public class MovieHallFragment extends Fragment {
             String movieTitle = bundle.getString("book_title");
             login = bundle.getString("book_login");
             price = bundle.getDouble("book_price");
-            receivedSeats = bundle.getIntegerArrayList("reservedSeats");
+            reservedSeats = bundle.getIntegerArrayList("reservedSeats");
 
             title.setText(movieTitle);
         }
@@ -106,7 +106,7 @@ public class MovieHallFragment extends Fragment {
             tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
                     TableLayout.LayoutParams.WRAP_CONTENT));
             for (int j = 0; j < numColumns; j++) { // loop through columns
-                imageView = new ImageView(getContext());
+                ImageView imageView = new ImageView(getContext());
                 TableRow.LayoutParams layoutParams;
                 if (j == middleColIndex) { // set smaller width for middle column
                     layoutParams = new TableRow.LayoutParams(0,

@@ -92,6 +92,11 @@
     <string name="reg_ConfirmPassInputHint">Potwierdź hasło</string>
     <string name="reg_UsrAgr">Chcę otrzymywać biuletyny i inne informacje promocyjne, a także oddać nerkę na finansowanie dalszego rozwoju aplikacji.</string>
     <string name="reg_CreateAccButton">Zarejestruj się</string>
+    <string name="reg_CreateAccText">Konto zostało utworzone</string>
+    <string name="reg_LoginAlready">Login istnieje</string>
+    <string name="reg_RegFailedText">Błąd podczas rejestracji</string>
+    <string name="reg_FillFields">Wypełnij wszystkie pola</string>
+    <string name="reg_PassDoNoMatch">Hasła są różne</string>
 
     // For fragment_form.xml
     <string name="form_Text1">Witaj</string>
