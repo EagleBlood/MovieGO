@@ -1,10 +1,12 @@
 package com.example.moviego.ui.login;
 
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,9 +18,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentRegisterBinding;
-import com.example.moviego.retrofit.BookResponse;
 import com.example.moviego.retrofit.DataAPI;
-import com.example.moviego.retrofit.RegistrationRequest;
 import com.example.moviego.retrofit.RegistrationResponse;
 import com.example.moviego.retrofit.RetrofitFunction;
 
@@ -34,6 +34,8 @@ public class RegisterFragment extends Fragment {
     private TextView inputPassConfirm;
     private TextView inputEmail;
     private Button createAccButton;
+    private ImageView showPassIcon;
+    private ImageView showConfirmPassIcon;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -75,6 +77,28 @@ public class RegisterFragment extends Fragment {
                 Toast.makeText(getContext(), R.string.reg_PassDoNoMatch, Toast.LENGTH_SHORT).show();
             } else {
                 registerUser(user, pass, email);
+            }
+        });
+
+        showPassIcon = root.findViewById(R.id.reg_showPassIcon);
+        showPassIcon.setOnClickListener(v -> {
+            if (inputPass.getTransformationMethod() == null) {
+                inputPass.setTransformationMethod(new PasswordTransformationMethod());
+                showPassIcon.setImageResource(R.drawable.gridicons_visible);
+            } else {
+                inputPass.setTransformationMethod(null);
+                showPassIcon.setImageResource(R.drawable.gridicons_invisible);
+            }
+        });
+
+        showConfirmPassIcon = root.findViewById(R.id.reg_showConfirmPassIcon);
+        showConfirmPassIcon.setOnClickListener(v -> {
+            if (inputPassConfirm.getTransformationMethod() == null) {
+                inputPassConfirm.setTransformationMethod(new PasswordTransformationMethod());
+                showConfirmPassIcon.setImageResource(R.drawable.gridicons_visible);
+            } else {
+                inputPassConfirm.setTransformationMethod(null);
+                showConfirmPassIcon.setImageResource(R.drawable.gridicons_invisible);
             }
         });
 

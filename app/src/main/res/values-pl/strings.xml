@@ -17,6 +17,8 @@
     <string name="close">Zamknij</string>
     <string name="welcome_login">Witaj, </string>
     <string name="welcome">Witaj</string>
+    <string name="toastLoginFailed">Bład logowania</string>
+    <string name="toastLoginSuccess">Logowanie zakończone sukcesem</string>
 
     // For left menu
     <string name="menuLogin">Logowanie</string>

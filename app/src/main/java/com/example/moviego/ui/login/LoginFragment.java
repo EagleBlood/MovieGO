@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -147,6 +148,7 @@ public class LoginFragment extends Fragment {
                                     MyApp.getInstance().setUSER_DATA(userData);
 
                                     ((DrawerAndBottomNavActivity) requireActivity()).reloadApp();
+                                    Toast.makeText(getContext(), R.string.toastLoginSuccess, Toast.LENGTH_SHORT).show();
                                     System.out.println("Login successful");
                                 }
                             } else {
@@ -162,6 +164,7 @@ public class LoginFragment extends Fragment {
                         }
                     });
                 } else {
+                    Toast.makeText(getContext(), R.string.toastLoginFailed, Toast.LENGTH_SHORT).show();
                     System.out.println("Request failed");
                     // Request failed, show an error message
                 }
