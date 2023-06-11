@@ -27,20 +27,21 @@ import com.example.moviego.ui.profile.ProfileFragment;
 import com.example.moviego.ui.ticket.TicketFragment;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+
 public class DrawerAndBottomNavActivity extends AppCompatActivity implements BottomNavigation {
 
     private ActivityDrawerAndBottomNavBinding binding;
     public ActionBarDrawerToggle toggle;
     private int USER_ID;
-    private String USER_LOGIN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_drawer_and_bottom_nav);
+
         USER_ID = MyApp.getInstance().getUSER_ID();
-        USER_LOGIN = MyApp.getInstance().getUSER_LOGIN();
 
         initView();
 
@@ -72,6 +73,11 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity implements Bot
                     binding.bottomNavigationView.setVisibility(View.GONE);
                     if (actionBar != null ) actionBar.setTitle("Login");
                     callFragment(fragment);
+                } else if (itemId == R.id.navLogout){
+                    MyApp.getInstance().setUSER_LOGIN(null);
+                    MyApp.getInstance().setUSER_DATA(new ArrayList<>());
+                    MyApp.getInstance().setUSER_ID(-1);
+                    reloadApp();
                 } else if (itemId == R.id.navForm){
                     fragment = new FormFragment();
                     binding.drawer.closeDrawer(GravityCompat.START);
@@ -88,6 +94,17 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity implements Bot
             }
         });
 
+        MenuItem loginMenuItem = binding.navView.getMenu().findItem(R.id.navLogin);
+        MenuItem logoutMenuItem = binding.navView.getMenu().findItem(R.id.navLogout);
+
+        if (USER_ID < 0) {
+            loginMenuItem.setVisible(true);
+            logoutMenuItem.setVisible(false);
+        } else {
+            loginMenuItem.setVisible(false);
+            logoutMenuItem.setVisible(true);
+        }
+
 
         binding.bottomNavigationView.setSelectedItemId(R.id.nav_home);
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -97,8 +114,7 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity implements Bot
                 getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 return true;
             } else if (itemId == R.id.nav_profile){
-                int USER_ID = MyApp.getInstance().getUSER_ID();
-                if(USER_ID == 0){
+                if(USER_ID < 0){
                     Fragment fragment = new LoginFragment();
                     binding.drawer.closeDrawer(GravityCompat.START);
                     binding.bottomNavigationView.setVisibility(View.GONE);
@@ -109,7 +125,7 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity implements Bot
                 }
 
             } else if (itemId == R.id.nav_tickets){
-                if(USER_ID == 0){
+                if(USER_ID < 0){
                     Fragment fragment = new LoginFragment();
                     binding.drawer.closeDrawer(GravityCompat.START);
                     binding.bottomNavigationView.setVisibility(View.GONE);

@@ -23,6 +23,7 @@
     <string name="menuSettings">Settings</string>
     <string name="menuUpdate">Check for updates</string>
     <string name="menuVersionApp">ver. 0.1.6.9.69.0.2 Movie Go</string>
+    <string name="menuLogout">Log out</string>
 
     // For bottom menu
     <string name="bottomHome">Home</string>
@@ -155,6 +156,7 @@
     <string name="EndTransactionText">Seats have been reserved. More details in Tickets</string>
     <string name="FailedTransation">Failed operation</string>
     <string name="movieHall_SelectedSeat">Selected seat: </string>
+
 
 
 </resources>
