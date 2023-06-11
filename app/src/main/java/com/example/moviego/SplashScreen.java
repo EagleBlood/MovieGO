@@ -3,6 +3,7 @@ package com.example.moviego;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -132,7 +133,9 @@ public class SplashScreen extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<List<HomeService>> call, @NonNull Throwable t) {
-                System.out.println("Błąd: " + t.getMessage());
+                nextActivity();
+                Toast toast = Toast.makeText(getApplicationContext(), "Nie udało się załatować filmów\n" + "Błąd: " + t.getMessage(), Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
     }

@@ -8,6 +8,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -36,6 +37,10 @@ public interface DataAPI {
 
     @GET("users/{username}")
     Call<UserService> getUserDetails(@Path("username") String username);
+
+    @POST("register")
+    Call<RegistrationResponse> registerUser(@Query("login") String login, @Query("password") String password, @Query("email") String email);
+
 
 //    void onSuccess(ArrayList<MovieItem> movieItems);
 //    void onFailure();

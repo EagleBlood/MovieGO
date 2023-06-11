@@ -8,14 +8,14 @@
     tools:context=".ui.login.RegisterFragment">
 
     <EditText
-        android:id="@+id/reg_PassInput"
+        android:id="@+id/reg_passInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:background="@drawable/bg"
         android:ems="10"
         android:hint="@string/reg_PassInputHint"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:maxWidth="400dp"
         android:minHeight="48dp"
         android:padding="10dp"
@@ -24,19 +24,19 @@
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
         android:textSize="@dimen/text14"
-        app:layout_constraintEnd_toEndOf="@+id/reg_LoginInput"
-        app:layout_constraintStart_toStartOf="@+id/reg_LoginInput"
-        app:layout_constraintTop_toBottomOf="@+id/reg_LoginInput" />
+        app:layout_constraintEnd_toEndOf="@+id/reg_loginInput"
+        app:layout_constraintStart_toStartOf="@+id/reg_loginInput"
+        app:layout_constraintTop_toBottomOf="@+id/reg_loginInput" />
 
     <EditText
-        android:id="@+id/reg_ConfirmPassInput"
+        android:id="@+id/reg_confirmPassInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:background="@drawable/bg"
         android:ems="10"
         android:hint="@string/reg_ConfirmPassInputHint"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:maxWidth="400dp"
         android:minHeight="48dp"
         android:padding="10dp"
@@ -45,12 +45,12 @@
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
         android:textSize="@dimen/text14"
-        app:layout_constraintEnd_toEndOf="@+id/reg_PassInput"
-        app:layout_constraintStart_toStartOf="@+id/reg_PassInput"
-        app:layout_constraintTop_toBottomOf="@+id/reg_PassInput" />
+        app:layout_constraintEnd_toEndOf="@+id/reg_passInput"
+        app:layout_constraintStart_toStartOf="@+id/reg_passInput"
+        app:layout_constraintTop_toBottomOf="@+id/reg_passInput" />
 
     <EditText
-        android:id="@+id/reg_LoginInput"
+        android:id="@+id/reg_loginInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -66,19 +66,19 @@
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
         android:textSize="@dimen/text14"
-        app:layout_constraintEnd_toEndOf="@+id/reg_EmailInput"
-        app:layout_constraintStart_toStartOf="@+id/reg_EmailInput"
-        app:layout_constraintTop_toBottomOf="@+id/reg_EmailInput" />
+        app:layout_constraintEnd_toEndOf="@+id/reg_emailInput"
+        app:layout_constraintStart_toStartOf="@+id/reg_emailInput"
+        app:layout_constraintTop_toBottomOf="@+id/reg_emailInput" />
 
     <EditText
-        android:id="@+id/reg_EmailInput"
+        android:id="@+id/reg_emailInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
         android:background="@drawable/bg"
         android:ems="10"
         android:hint="@string/reg_EmailInputHint"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:maxWidth="400dp"
         android:minHeight="48dp"
         android:padding="10dp"
@@ -101,8 +101,8 @@
         android:textColor="@color/grey_text"
         android:textColorHint="@color/grey_text"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/reg_ConfirmPassInput"
-        app:layout_constraintTop_toBottomOf="@+id/reg_ConfirmPassInput"
+        app:layout_constraintStart_toStartOf="@+id/reg_confirmPassInput"
+        app:layout_constraintTop_toBottomOf="@+id/reg_confirmPassInput"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -113,7 +113,7 @@
         android:textColor="@color/grey_text"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_ConfirmPassInput" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_confirmPassInput" />
 
     <TextView
         android:id="@+id/reg_Text1"
@@ -128,7 +128,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/reg_CreateAccButton"
+        android:id="@+id/reg_createAccButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -138,7 +138,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/placeHolder"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/reg_ConfirmPassInput"
+        app:layout_constraintStart_toStartOf="@+id/reg_confirmPassInput"
         app:layout_constraintTop_toBottomOf="@+id/reg_UsrAgr" />
 
     <TextView
@@ -161,9 +161,9 @@
         android:text="@string/reg_UsrAgr"
         android:textColor="@color/grey_text"
         android:textSize="@dimen/text12"
-        app:layout_constraintEnd_toEndOf="@+id/reg_ConfirmPassInput"
+        app:layout_constraintEnd_toEndOf="@+id/reg_confirmPassInput"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/reg_CheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/reg_ConfirmPassInput" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_confirmPassInput" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
