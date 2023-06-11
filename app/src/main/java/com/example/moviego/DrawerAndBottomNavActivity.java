@@ -97,6 +97,7 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity implements Bot
                 getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 return true;
             } else if (itemId == R.id.nav_profile){
+                int USER_ID = MyApp.getInstance().getUSER_ID();
                 if(USER_ID == 0){
                     Fragment fragment = new LoginFragment();
                     binding.drawer.closeDrawer(GravityCompat.START);

@@ -52,6 +52,7 @@
     <string name="editPassButtonText">Edit password</string>
     <string name="editProfileButtonText">Edit profile</string>
     <string name="showButtonText">Show</string>
+    <string name="logoutButtonText">Logout</string>
 
 
 

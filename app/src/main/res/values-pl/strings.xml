@@ -53,6 +53,7 @@
     <string name="editPassButtonText">Edytuj hasło</string>
     <string name="editProfileButtonText">Edytuj profil</string>
     <string name="showButtonText">Pokaż</string>
+    <string name="logoutButtonText">Wyloguj</string>
 
     // For fragment_login.xml
     <string name="login_UserTryHint">Nazwa użytkownika</string>

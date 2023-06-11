@@ -154,7 +154,7 @@
                         android:background="@drawable/bg"
                         android:ems="10"
                         android:hint="@string/editPassHint"
-                        android:inputType="textPersonName"
+                        android:inputType="textPassword"
                         android:paddingStart="10dp"
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
@@ -301,7 +301,7 @@
                         android:background="@drawable/bg"
                         android:ems="10"
                         android:hint="@string/editEmailHint"
-                        android:inputType="textPersonName"
+                        android:inputType="textEmailAddress"
                         android:paddingStart="10dp"
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
@@ -337,7 +337,7 @@
                         android:background="@drawable/bg"
                         android:ems="10"
                         android:hint="@string/editPhoneHint"
-                        android:inputType="textPersonName"
+                        android:inputType="phone"
                         android:paddingStart="10dp"
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
@@ -389,15 +389,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:layout_marginBottom="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/addrLayout"
                 app:layout_constraintStart_toStartOf="@+id/addrLayout"
                 app:layout_constraintTop_toBottomOf="@+id/addrLayout">
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent" />
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -411,7 +409,7 @@
                         android:background="@drawable/bg"
                         android:ems="10"
                         android:hint="@string/editBirthHint"
-                        android:inputType="textPersonName"
+                        android:inputType="datetime"
                         android:paddingStart="10dp"
                         android:radius="5dp"
                         android:textColor="@color/grey_text"
@@ -422,6 +420,20 @@
                 </TableRow>
 
             </TableLayout>
+
+            <Button
+                android:id="@+id/editLogoutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_bg"
+                android:text="@string/logoutButtonText"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/birthLayout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

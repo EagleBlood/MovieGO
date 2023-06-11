@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,12 +12,14 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.moviego.DrawerAndBottomNavActivity;
 import com.example.moviego.MyApp;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentProfileBinding;
 import com.example.moviego.retrofit.UserService;
 import com.example.moviego.ui.login.UserData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileFragment extends Fragment {
@@ -30,6 +33,8 @@ public class ProfileFragment extends Fragment {
     private String phone;
     private String address;
     private String birth;
+    private Button editLogoutButton;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -79,6 +84,13 @@ public class ProfileFragment extends Fragment {
             editBirthInput.setText(birth);
         }
 
+        editLogoutButton = root.findViewById(R.id.editLogoutButton);
+        editLogoutButton.setOnClickListener(v -> {
+            MyApp.getInstance().setUSER_LOGIN(null);
+            MyApp.getInstance().setUSER_DATA(new ArrayList<>());
+            MyApp.getInstance().setUSER_ID(0);
+            ((DrawerAndBottomNavActivity) requireActivity()).reloadApp();
+        });
 
 
         return root;
