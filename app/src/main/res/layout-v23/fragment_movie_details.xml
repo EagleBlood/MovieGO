@@ -88,9 +88,10 @@
 
             <TextView
                 android:id="@+id/movieTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/movie_title"
                 android:textAllCaps="true"
@@ -98,16 +99,18 @@
                 android:textSize="@dimen/text30"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/bookSeat"
+                app:layout_constraintEnd_toStartOf="@+id/average"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/movieRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="17dp"
                 android:text="@string/movie_score"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text12"
+                android:textSize="@dimen/text14"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/movieTitle" />
 
@@ -117,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/movie_averageScore"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text12"
+                android:textSize="@dimen/text14"
                 app:layout_constraintEnd_toEndOf="@+id/movieRate"
                 app:layout_constraintTop_toBottomOf="@+id/movieRate" />
 
@@ -128,6 +131,7 @@
                 android:layout_marginEnd="10dp"
                 android:contentDescription="@string/movie_star"
                 android:src="@drawable/ic_star_rate"
+                app:layout_constraintBottom_toBottomOf="@+id/movieRate"
                 app:layout_constraintEnd_toStartOf="@+id/movieRate"
                 app:layout_constraintTop_toTopOf="@+id/movieRate" />
 
