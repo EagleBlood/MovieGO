@@ -1,9 +1,5 @@
 package com.example.moviego.ui.ticket;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-
 public class Ticket {
     private String title;
     private String reservationNumber;

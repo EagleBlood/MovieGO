@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviego.R;
 import com.example.moviego.retrofit.OnMovieClickListener;
-import com.example.moviego.retrofit.SelectedListener;
 
 import java.util.ArrayList;
 

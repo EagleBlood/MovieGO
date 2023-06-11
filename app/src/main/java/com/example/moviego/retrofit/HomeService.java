@@ -1,7 +1,5 @@
 package com.example.moviego.retrofit;
 
-import androidx.annotation.StringRes;
-
 import com.google.gson.annotations.SerializedName;
 
 public class HomeService {

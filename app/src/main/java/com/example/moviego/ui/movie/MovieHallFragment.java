@@ -25,7 +25,6 @@ import com.example.moviego.databinding.FragmentMovieHallBinding;
 import com.example.moviego.retrofit.BookResponse;
 import com.example.moviego.retrofit.BookTicket;
 import com.example.moviego.retrofit.DataAPI;
-import com.example.moviego.retrofit.ReservedSeatsService;
 import com.example.moviego.retrofit.RetrofitFunction;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
@@ -36,8 +35,6 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieHallFragment extends Fragment {
 
@@ -48,13 +45,14 @@ public class MovieHallFragment extends Fragment {
     private TextView finalPrice;
     private Button bookNow;
     private int id_seansu;
-    private String login;
     private double price;
     private double sum = 0;
     private List<BookTicket> bookTickets;
     private List<Hall> HALLS;
-    private ImageView imageView;
     private ArrayList<String> reservedSeats;
+
+    public MovieHallFragment() {
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -80,7 +78,6 @@ public class MovieHallFragment extends Fragment {
         if(bundle != null){
             id_seansu = bundle.getInt("book_id_seansu");
             String movieTitle = bundle.getString("book_title");
-            login = bundle.getString("book_login");
             price = bundle.getDouble("book_price");
             reservedSeats = bundle.getStringArrayList("reservedSeats");
 
@@ -198,10 +195,7 @@ public class MovieHallFragment extends Fragment {
         ImageView backButton = root.findViewById(R.id.movieHall_ReturnImg);
         backButton.setOnClickListener(v -> getParentFragmentManager().popBackStack("hall", FragmentManager.POP_BACK_STACK_INCLUSIVE));
 
-        bookNow.setOnClickListener(v->{
-            book();
-
-        });
+        bookNow.setOnClickListener(v-> book());
 
 
 
@@ -239,7 +233,7 @@ public class MovieHallFragment extends Fragment {
 
         bookTickets.enqueue(new Callback<BookResponse>() {
             @Override
-            public void onResponse(Call<BookResponse> call, Response<BookResponse> response) {
+            public void onResponse(@NonNull Call<BookResponse> call, @NonNull Response<BookResponse> response) {
                 if (!response.isSuccessful()) {
                     System.out.println("Błąd: " + response.code());
                 }
@@ -252,17 +246,12 @@ public class MovieHallFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<BookResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<BookResponse> call, @NonNull Throwable t) {
                 System.out.println("Błąd: " + t.getMessage());
             }
         });
     }
 
-
-    private int getSeatId(int row, int col) {
-        // Calculate the unique seat ID based on row and column numbers
-        return (row * 10) + col;
-    }
 
     @Override
     public void onDestroyView() {

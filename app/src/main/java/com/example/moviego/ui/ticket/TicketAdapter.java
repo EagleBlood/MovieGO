@@ -13,9 +13,6 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviego.R;
-import com.example.moviego.ui.home.MovieAdapter;
-
-import org.w3c.dom.Text;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -82,12 +79,9 @@ public class TicketAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             boolean isExpandable = ticket.isExpandable();
             holder.expandableLayout.setVisibility(isExpandable ? View.VISIBLE : View.GONE);
 
-            holder.cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ticket.setExpandable(!ticket.isExpandable());
-                    notifyItemChanged(holder.getAdapterPosition());
-                }
+            holder.cardView.setOnClickListener(v -> {
+                ticket.setExpandable(!ticket.isExpandable());
+                notifyItemChanged(holder.getAdapterPosition());
             });
         }
     }

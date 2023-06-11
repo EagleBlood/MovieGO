@@ -1,5 +1,6 @@
 package com.example.moviego;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,9 +22,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashScreen extends AppCompatActivity {
 
     private Intent intent;
@@ -37,20 +37,9 @@ public class SplashScreen extends AppCompatActivity {
         RetrofitFunction retrofitFunction = new RetrofitFunction();
         DataAPI dataAPI = retrofitFunction.dataAPI();
 
-//        List<Hall> HALLS = MyApp.getInstance().loadHalls();
-//        List<MovieItem> MOVIE_ITEM = MyApp.getInstance().loadMovies();
-//
-//        if( MOVIE_ITEM == null || MOVIE_ITEM.isEmpty() || HALLS == null  || HALLS.isEmpty()) {
-//
-//            System.out.println("............................................ Pobieram dane");
 
-            setHall(dataAPI);
-            setMovie(dataAPI);
-//        } else {
-//
-//            System.out.println("........................ dane wczytane z SharedPreferences");
-////            nextActivity();
-//        }
+        setHall(dataAPI);
+        setMovie(dataAPI);
 
         intent = new Intent(this, DrawerAndBottomNavActivity.class);
 
@@ -86,7 +75,6 @@ public class SplashScreen extends AppCompatActivity {
                 }
 
                 MyApp.getInstance().setHALLS(halls);
-//                MyApp.getInstance().saveHalls(halls);
 
             }
 
@@ -133,7 +121,6 @@ public class SplashScreen extends AppCompatActivity {
                 }
 
                 MyApp.getInstance().setMOVIES(movieItems);
-//                MyApp.getInstance().saveMovies(movieItems);
 
                 nextActivity();
             }

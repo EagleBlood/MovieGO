@@ -22,16 +22,9 @@ import com.example.moviego.MyApp;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentLoginBinding;
 import com.example.moviego.retrofit.DataAPI;
-import com.example.moviego.retrofit.HomeService;
 import com.example.moviego.retrofit.RetrofitFunction;
 import com.example.moviego.retrofit.UserService;
-import com.example.moviego.ui.home.MovieItem;
-import com.example.moviego.ui.profile.ProfileFragment;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 

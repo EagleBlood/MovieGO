@@ -20,10 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.moviego.MyApp;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentHomeBinding;
-import com.example.moviego.retrofit.DataAPI;
-import com.example.moviego.retrofit.HallService;
 import com.example.moviego.retrofit.SelectedListener;
-import com.example.moviego.ui.movie.Hall;
 import com.example.moviego.ui.movie.MovieDetailsFragment;
 
 import java.text.SimpleDateFormat;
@@ -34,12 +31,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class HomeFragment extends Fragment implements SelectedListener {
 
     private FragmentHomeBinding binding;
@@ -47,12 +38,15 @@ public class HomeFragment extends Fragment implements SelectedListener {
     private RecyclerView recyclerViewMovie1;
     private RecyclerView recyclerViewMovie2;
     private RecyclerView recyclerViewMovie3;
-    private DataAPI dataAPI;
     private ArrayList<MovieItem> MOVIE_ITEMS;
 
     ArrayList<Movie> movieList1;
     ArrayList<Movie> movieList2;
     ArrayList<Movie> movieList3;
+
+    public HomeFragment() {
+    }
+
 
     @SuppressLint("NotifyDataSetChanged")
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -79,6 +73,8 @@ public class HomeFragment extends Fragment implements SelectedListener {
         recyclerViewMovie1 = root.findViewById(R.id.home_movieRecyclerView1);
         recyclerViewMovie2 = root.findViewById(R.id.home_movieRecyclerView2);
         recyclerViewMovie3 = root.findViewById(R.id.home_movieRecyclerView3);
+
+
 
         // Calculate the position of the current date in the list
 
@@ -213,7 +209,6 @@ public class HomeFragment extends Fragment implements SelectedListener {
         }
 
         if (matchingMovieItem != null) {
-            // Przekazanie danych do następnego fragmentu
             Bundle bundle = new Bundle();
             bundle.putString("tytul", tytul);
             bundle.putString("ocena", String.valueOf(movie.getScore()));

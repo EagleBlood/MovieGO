@@ -1,8 +1,6 @@
 package com.example.moviego.retrofit;
 
 import com.google.gson.annotations.SerializedName;
-
-import java.time.LocalDateTime;
 public class TicketService {
 
     @SerializedName("tytul")

@@ -20,14 +20,11 @@ import com.example.moviego.retrofit.RetrofitFunction;
 import com.example.moviego.retrofit.TicketService;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TicketFragment extends Fragment {
 
@@ -74,7 +71,7 @@ public class TicketFragment extends Fragment {
 
         ticketServiceCall.enqueue(new Callback<List<TicketService>>() {
             @Override
-            public void onResponse(Call<List<TicketService>> call, Response<List<TicketService>> response) {
+            public void onResponse(@NonNull Call<List<TicketService>> call, @NonNull Response<List<TicketService>> response) {
                 if (!response.isSuccessful()) {
                     System.out.println("Błąd: " + response.code());
                 }
@@ -82,6 +79,7 @@ public class TicketFragment extends Fragment {
                 List<TicketService> ticketServices = response.body();
                 List<Ticket> tickets = new ArrayList<>();
 
+                assert ticketServices != null;
                 for (TicketService ticketService : ticketServices){
 
                     String title = ticketService.getTitle();
@@ -105,7 +103,7 @@ public class TicketFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<TicketService>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<TicketService>> call, @NonNull Throwable t) {
                 System.out.println("Błąd: " + t.getMessage());
             }
         });

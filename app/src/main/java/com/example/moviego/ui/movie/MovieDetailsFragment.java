@@ -67,8 +67,7 @@ public class MovieDetailsFragment extends Fragment {
         TextView movieDuration = root.findViewById(R.id.movieDuration);
         ImageView moviePoster = root.findViewById(R.id.moviePoster);
 
-//        USER_LOGIN = MyApp.getInstance().getUSER_LOGIN();
-        USER_LOGIN = "123";
+        USER_LOGIN = MyApp.getInstance().getUSER_LOGIN();
 
 
         Bundle bundle = getArguments();
@@ -148,7 +147,7 @@ public class MovieDetailsFragment extends Fragment {
 
         reservedSeatsServiceCall.enqueue(new Callback<List<ReservedSeatsService>>() {
             @Override
-            public void onResponse(Call<List<ReservedSeatsService>> call, Response<List<ReservedSeatsService>> response) {
+            public void onResponse(@NonNull Call<List<ReservedSeatsService>> call, @NonNull Response<List<ReservedSeatsService>> response) {
                 if (!response.isSuccessful()) {
                     System.out.println("Błąd: " + response.code());
                     return;
@@ -157,6 +156,7 @@ public class MovieDetailsFragment extends Fragment {
                 List<ReservedSeatsService> reservedSeatsServices = response.body();
                 ArrayList<String> rs = new ArrayList<>();
 
+                assert reservedSeatsServices != null;
                 for (ReservedSeatsService reservedSeatsService : reservedSeatsServices){
                     int row = reservedSeatsService.getRow();
                     int col = reservedSeatsService.getCol();
@@ -184,7 +184,7 @@ public class MovieDetailsFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<ReservedSeatsService>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<ReservedSeatsService>> call, @NonNull Throwable t) {
                 System.out.println("Błąd: " + t.getMessage());
             }
         });

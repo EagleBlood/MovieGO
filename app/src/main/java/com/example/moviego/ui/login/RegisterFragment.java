@@ -1,5 +1,6 @@
 package com.example.moviego.ui.login;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
@@ -33,7 +34,6 @@ public class RegisterFragment extends Fragment {
     private TextView inputPass;
     private TextView inputPassConfirm;
     private TextView inputEmail;
-    private Button createAccButton;
     private ImageView showPassIcon;
     private ImageView showConfirmPassIcon;
 
@@ -48,7 +48,7 @@ public class RegisterFragment extends Fragment {
             actionBar.hide();
         }
 
-        Button signUp = root.findViewById(R.id.reg_createAccButton);
+        @SuppressLint("CutPasteId") Button signUp = root.findViewById(R.id.reg_createAccButton);
         signUp.setOnClickListener(v->{
             FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
             fragmentManager.popBackStack("login", FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -64,7 +64,7 @@ public class RegisterFragment extends Fragment {
         inputUser = root.findViewById(R.id.reg_loginInput);
         inputPass = root.findViewById(R.id.reg_passInput);
         inputPassConfirm = root.findViewById(R.id.reg_confirmPassInput);
-        createAccButton = root.findViewById(R.id.reg_createAccButton);
+        @SuppressLint("CutPasteId") Button createAccButton = root.findViewById(R.id.reg_createAccButton);
         createAccButton.setOnClickListener(v->{
             String email = inputEmail.getText().toString();
             String user = inputUser.getText().toString();

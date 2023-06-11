@@ -1,9 +1,9 @@
 package com.example.moviego.ui.movie;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,6 +48,7 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatAdapter.ViewHolder> {
         return chosenSeats.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void addSeat(String seat) {
         chosenSeats.add(seat);
         notifyDataSetChanged();
@@ -64,6 +65,7 @@ public class SeatAdapter extends RecyclerView.Adapter<SeatAdapter.ViewHolder> {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void removeSeat(String seat) {
         chosenSeats.remove(seat);
         notifyDataSetChanged();

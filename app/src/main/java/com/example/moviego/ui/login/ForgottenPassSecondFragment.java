@@ -1,6 +1,10 @@
 package com.example.moviego.ui.login;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -8,14 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentForgottenPassSecondBinding;
-import com.example.moviego.databinding.FragmentLoginBinding;
 
 public class ForgottenPassSecondFragment extends Fragment {
 
