@@ -155,12 +155,13 @@ public class MovieDetailsFragment extends Fragment {
                 }
 
                 List<ReservedSeatsService> reservedSeatsServices = response.body();
-                List<Integer> rs = new ArrayList<>();
+                ArrayList<String> rs = new ArrayList<>();
 
                 for (ReservedSeatsService reservedSeatsService : reservedSeatsServices){
-                    int seatId = reservedSeatsService.getSeatId();
-
-                    rs.add(seatId);
+                    int row = reservedSeatsService.getRow();
+                    int col = reservedSeatsService.getCol();
+                    String seat = row + ":" + col;
+                    rs.add(seat);
 
                 }
 
@@ -169,7 +170,7 @@ public class MovieDetailsFragment extends Fragment {
                 book.putString("book_title", tytul);
                 book.putString("book_login", USER_LOGIN);
                 book.putDouble("book_price", cena);
-                book.putIntegerArrayList("reservedSeats", new ArrayList<>(rs));
+                book.putStringArrayList("reservedSeats", rs);
 
                 MovieHallFragment nextFragment = new MovieHallFragment();
                 nextFragment.setArguments(book);

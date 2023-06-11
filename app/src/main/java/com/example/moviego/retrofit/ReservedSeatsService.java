@@ -4,14 +4,29 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReservedSeatsService {
 
-    @SerializedName("id_miejsca")
-    final int seatId;
+    @SerializedName("rzad")
+    private int row;
+    @SerializedName("fotel")
+    private int col;
 
-    public ReservedSeatsService(int seatId) {
-        this.seatId = seatId;
+    public ReservedSeatsService(int row, int col) {
+        this.row = row;
+        this.col = col;
     }
 
-    public int getSeatId() {
-        return seatId;
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
     }
 }

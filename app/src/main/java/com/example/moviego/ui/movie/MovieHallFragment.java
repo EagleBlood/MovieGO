@@ -54,7 +54,7 @@ public class MovieHallFragment extends Fragment {
     private List<BookTicket> bookTickets;
     private List<Hall> HALLS;
     private ImageView imageView;
-    private List<Integer> reservedSeats;
+    private ArrayList<String> reservedSeats;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -82,7 +82,7 @@ public class MovieHallFragment extends Fragment {
             String movieTitle = bundle.getString("book_title");
             login = bundle.getString("book_login");
             price = bundle.getDouble("book_price");
-            reservedSeats = bundle.getIntegerArrayList("reservedSeats");
+            reservedSeats = bundle.getStringArrayList("reservedSeats");
 
             title.setText(movieTitle);
         }
@@ -125,8 +125,8 @@ public class MovieHallFragment extends Fragment {
 
                 String currentSeat = currentRow + ":" + currentCol;
 
-                System.out.println("Reserved seat: " + reservedSeats.contains(getSeatId(currentRow, currentCol)));
-                if (reservedSeats.contains(getSeatId(currentRow, currentCol))) {
+                System.out.println("Reserved seat: " + reservedSeats.contains(currentSeat));
+                if (reservedSeats.contains(currentSeat)) {
                     imageView.setImageResource(R.drawable.seat_reserved);
                     imageView.setEnabled(false); // Disable the ability to click on the booked seat
                 } else {
