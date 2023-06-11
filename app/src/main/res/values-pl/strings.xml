@@ -24,6 +24,7 @@
     <string name="menuSettings">Ustawienia</string>
     <string name="menuUpdate">Sprawdź aktualizacje</string>
     <string name="menuVersionApp">wersja 0.1.6.9.69.0.2 Movie Go</string>
+    <string name="menuLogout">Wyloguj się</string>
 
     // For bottom menu
     <string name="bottomHome">Strona główna</string>

@@ -50,7 +50,7 @@ public class TicketFragment extends Fragment {
 
         recyclerViewTickets = root.findViewById(R.id.ticket_ticketRecyclerView);
 
-        if(USER_ID != 0) {
+        if(USER_ID > -1) {
             getTickets();
         } else {
             List<Ticket> tickets = new ArrayList<>();

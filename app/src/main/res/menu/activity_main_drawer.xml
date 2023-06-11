@@ -14,6 +14,10 @@
             android:icon="@drawable/ic_user"
             android:title="@string/menuLogin" />
         <item
+            android:id="@+id/navLogout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/menuLogout" />
+        <item
             android:id="@+id/navForm"
             android:icon="@drawable/ic_form_24dp"
             android:title="@string/menuForm" />

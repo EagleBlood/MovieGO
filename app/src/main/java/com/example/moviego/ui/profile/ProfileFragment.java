@@ -88,7 +88,7 @@ public class ProfileFragment extends Fragment {
         editLogoutButton.setOnClickListener(v -> {
             MyApp.getInstance().setUSER_LOGIN(null);
             MyApp.getInstance().setUSER_DATA(new ArrayList<>());
-            MyApp.getInstance().setUSER_ID(0);
+            MyApp.getInstance().setUSER_ID(-1);
             ((DrawerAndBottomNavActivity) requireActivity()).reloadApp();
         });
 

@@ -25,7 +25,7 @@ public class MyApp extends Application {
         MOVIES = new ArrayList<>();
         HALLS = new ArrayList<>();
         USER_LOGIN = null;
-        USER_ID = 0;
+        USER_ID = -1;
         USER_DATA = new ArrayList<>();
     }
 
