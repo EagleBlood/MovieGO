@@ -146,20 +146,40 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <EditText
-                        android:id="@+id/editPassInput"
-                        android:layout_width="wrap_content"
-                        android:layout_height="48dp"
-                        android:layout_weight="4"
-                        android:background="@drawable/bg"
-                        android:ems="10"
-                        android:hint="@string/editPassHint"
-                        android:inputType="textPassword"
-                        android:paddingStart="10dp"
-                        android:radius="5dp"
-                        android:textColor="@color/grey_text"
-                        android:textColorHint="@color/grey_text"
-                        android:textSize="@dimen/text14" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4">
+
+                        <EditText
+                            android:id="@+id/editPassInput"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="4"
+                            android:background="@drawable/bg"
+                            android:ems="10"
+                            android:hint="@string/editPassHint"
+                            android:inputType="textPassword"
+                            android:paddingStart="10dp"
+                            android:radius="5dp"
+                            android:textColor="@color/grey_text"
+                            android:textColorHint="@color/grey_text"
+                            android:textSize="@dimen/text14"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/edit_showPassIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:src="@drawable/gridicons_visible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/editPassInput" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </TableRow>
 
@@ -227,7 +247,6 @@
                         android:layout_height="48dp"
                         android:layout_weight="4"
                         android:background="@drawable/bg"
-                        android:ems="10"
                         android:hint="@string/editNameHint"
                         android:inputType="textPersonName"
                         android:paddingStart="10dp"
@@ -263,7 +282,6 @@
                         android:layout_height="48dp"
                         android:layout_weight="4"
                         android:background="@drawable/bg"
-                        android:ems="10"
                         android:hint="@string/editSurnameHint"
                         android:inputType="textPersonName"
                         android:paddingStart="10dp"
