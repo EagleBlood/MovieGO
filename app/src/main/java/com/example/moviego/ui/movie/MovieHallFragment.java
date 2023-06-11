@@ -54,7 +54,7 @@ public class MovieHallFragment extends Fragment {
     private List<BookTicket> bookTickets;
     private List<Hall> HALLS;
     private ImageView imageView;
-    private List<Integer> receivedSeats;
+    private List<Integer> reservedSeats;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -82,7 +82,7 @@ public class MovieHallFragment extends Fragment {
             String movieTitle = bundle.getString("book_title");
             login = bundle.getString("book_login");
             price = bundle.getDouble("book_price");
-            receivedSeats = bundle.getIntegerArrayList("reservedSeats");
+            reservedSeats = bundle.getIntegerArrayList("reservedSeats");
 
             title.setText(movieTitle);
         }
@@ -106,7 +106,7 @@ public class MovieHallFragment extends Fragment {
             tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
                     TableLayout.LayoutParams.WRAP_CONTENT));
             for (int j = 0; j < numColumns; j++) { // loop through columns
-                imageView = new ImageView(getContext());
+                ImageView imageView = new ImageView(getContext());
                 TableRow.LayoutParams layoutParams;
                 if (j == middleColIndex) { // set smaller width for middle column
                     layoutParams = new TableRow.LayoutParams(0,
@@ -119,7 +119,20 @@ public class MovieHallFragment extends Fragment {
                 }
                 imageView.setLayoutParams(layoutParams);
                 imageView.setPadding(10, 10, 10, 10);
-                imageView.setImageResource(R.drawable.seat_available);
+
+                int currentRow = i + 1; // 1-indexed row
+                int currentCol = j + 1; // 1-indexed column
+
+                String currentSeat = currentRow + ":" + currentCol;
+
+                System.out.println("Reserved seat: " + reservedSeats.contains(getSeatId(currentRow, currentCol)));
+                if (reservedSeats.contains(getSeatId(currentRow, currentCol))) {
+                    imageView.setImageResource(R.drawable.seat_reserved);
+                    imageView.setEnabled(false); // Disable the ability to click on the booked seat
+                } else {
+                    imageView.setImageResource(R.drawable.seat_available);
+                    imageView.setEnabled(true); // Enable the ability to click on the available seat
+                }
 
                 // set a tag to identify the element later
                 imageView.setTag(i + "," + j);
@@ -129,20 +142,20 @@ public class MovieHallFragment extends Fragment {
                     String[] rowCol = tag.split(",");
                     int row = Integer.parseInt(rowCol[0]) + 1; // convert to 1-indexed
                     int col = Integer.parseInt(rowCol[1]) + 1; // convert to 1-indexed
-                    String seat = row + ":" + col;
+                    String selectedSeat = row + ":" + col;
 
-                    if (chosenSeats.contains(seat)) {
-                        chosenSeats.remove(seat);
-                        seatAdapter.removeSeat(seat);
+                    if (chosenSeats.contains(selectedSeat)) {
+                        chosenSeats.remove(selectedSeat);
+                        seatAdapter.removeSeat(selectedSeat);
                         recyclerView.setAdapter(seatAdapter);
                     } else {
-                        chosenSeats.add(seat);
-                        seatAdapter.addSeat(seat);
+                        chosenSeats.add(selectedSeat);
+                        seatAdapter.addSeat(selectedSeat);
                         recyclerView.setAdapter(seatAdapter);
                     }
 
                     // change the image resource of the clicked element
-                    if (chosenSeats.contains(seat)) {
+                    if (chosenSeats.contains(selectedSeat)) {
                         imageView.setImageResource(R.drawable.seat_selected);
                     } else {
                         imageView.setImageResource(R.drawable.seat_available);
@@ -151,7 +164,7 @@ public class MovieHallFragment extends Fragment {
                     sum = chosenSeats.size() * price;
                     finalPrice.setText(String.format(Locale.getDefault(), "%.2f zł", sum));
 
-                    if(chosenSeats.size() > 0){
+                    if (chosenSeats.size() > 0) {
                         finalPrice.setVisibility(View.VISIBLE);
                         bookNow.setVisibility(View.VISIBLE);
                     } else {
@@ -162,7 +175,6 @@ public class MovieHallFragment extends Fragment {
 
                 // add the element to the row
                 tableRow.addView(imageView);
-
             }
 
             // hide the corner elements
@@ -202,7 +214,7 @@ public class MovieHallFragment extends Fragment {
         for (Hall hall: HALLS) {
 
             int currentRow = hall.getRow();
-            int currentCol = hall.getArmchair();
+            int currentCol = hall.getCol();
 
             String seat = currentRow + ":" + currentCol;
 
@@ -247,6 +259,10 @@ public class MovieHallFragment extends Fragment {
     }
 
 
+    private int getSeatId(int row, int col) {
+        // Calculate the unique seat ID based on row and column numbers
+        return (row * 10) + col;
+    }
 
     @Override
     public void onDestroyView() {

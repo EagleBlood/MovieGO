@@ -1,19 +1,17 @@
 package com.example.moviego.ui.movie;
 
-import com.google.gson.annotations.SerializedName;
-
 public class Hall {
 
     private int seatId;
 
     private int row;
 
-    private int armchair;
+    private int col;
 
-    public Hall(int seatId, int row, int armchair) {
+    public Hall(int seatId, int row, int col) {
         this.seatId = seatId;
         this.row = row;
-        this.armchair = armchair;
+        this.col = col;
     }
 
     public int getSeatId() {
@@ -32,11 +30,11 @@ public class Hall {
         this.row = row;
     }
 
-    public int getArmchair() {
-        return armchair;
+    public int getCol() {
+        return col;
     }
 
-    public void setArmchair(int armchair) {
-        this.armchair = armchair;
+    public void setCol(int col) {
+        this.col = col;
     }
 }
