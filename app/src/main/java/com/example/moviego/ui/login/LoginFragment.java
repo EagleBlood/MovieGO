@@ -1,10 +1,12 @@
 package com.example.moviego.ui.login;
 
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,6 +43,7 @@ public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
     private TextView inputUser;
     private TextView inputPass;
+    private ImageView showPassIcon;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -81,6 +84,17 @@ public class LoginFragment extends Fragment {
             String password = inputPass.getText().toString();
             performLogin(username, password);
             //((DrawerAndBottomNavActivity) getActivity()).reloadApp();
+        });
+
+        showPassIcon = root.findViewById(R.id.login_showPassIcon);
+        showPassIcon.setOnClickListener(v -> {
+            if (inputPass.getTransformationMethod() == null) {
+                inputPass.setTransformationMethod(new PasswordTransformationMethod());
+                showPassIcon.setImageResource(R.drawable.gridicons_visible);
+            } else {
+                inputPass.setTransformationMethod(null);
+                showPassIcon.setImageResource(R.drawable.gridicons_invisible);
+            }
         });
 
         return root;

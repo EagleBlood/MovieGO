@@ -1,10 +1,12 @@
 package com.example.moviego.ui.profile;
 
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +36,10 @@ public class ProfileFragment extends Fragment {
     private String address;
     private String birth;
     private Button editLogoutButton;
+    private Button editLoginButton;
+    private Button editPassButton;
+    private Button editProfileButton;
+    private ImageView showPassIcon;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -90,8 +96,19 @@ public class ProfileFragment extends Fragment {
             MyApp.getInstance().setUSER_DATA(new ArrayList<>());
             MyApp.getInstance().setUSER_ID(0);
             ((DrawerAndBottomNavActivity) requireActivity()).reloadApp();
+            System.out.println("LOGOUT");
         });
 
+        showPassIcon = root.findViewById(R.id.edit_showPassIcon);
+        showPassIcon.setOnClickListener(v -> {
+            if(editPassInput.getTransformationMethod() == null){
+                editPassInput.setTransformationMethod(new PasswordTransformationMethod());
+                showPassIcon.setImageResource(R.drawable.gridicons_visible);
+            } else {
+                editPassInput.setTransformationMethod(null);
+                showPassIcon.setImageResource(R.drawable.gridicons_invisible);
+            }
+        });
 
         return root;
     }
