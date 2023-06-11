@@ -16,6 +16,8 @@
     <string name="close">Close</string>
     <string name="welcome_login">Hello, </string>
     <string name="welcome">Hello</string>
+    <string name="toastLoginFailed">Login failed</string>
+    <string name="toastLoginSuccess">Login successful</string>
 
     // For left menu
     <string name="menuLogin">Login</string>
