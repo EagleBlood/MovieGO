@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment implements SelectedListener {
     private RecyclerView recyclerViewMovie2;
     private RecyclerView recyclerViewMovie3;
     private DataAPI dataAPI;
-    private ArrayList<MovieItem> movieItems;
+    private ArrayList<MovieItem> MOVIE_ITEMS;
 
     ArrayList<Movie> movieList1;
     ArrayList<Movie> movieList2;
@@ -110,7 +110,7 @@ public class HomeFragment extends Fragment implements SelectedListener {
         }
         calendarAdapter.notifyDataSetChanged();
 
-        movieItems = MyApp.getInstance().getMovieItems();
+        MOVIE_ITEMS = MyApp.getInstance().getMOVIES();
 
         String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
         setAdapters(date);
@@ -135,7 +135,7 @@ public class HomeFragment extends Fragment implements SelectedListener {
 
         ArrayList<FilteredMovie> filteredMovies = new ArrayList<>();
 
-        for (MovieItem movieItem : movieItems) {
+        for (MovieItem movieItem : MOVIE_ITEMS) {
             String data = movieItem.getData();
             if (data.equals(currentDate)) {
                 String tytul = movieItem.getTytul();
@@ -197,7 +197,7 @@ public class HomeFragment extends Fragment implements SelectedListener {
 
         String tytul = movie.getTitle();
         MovieItem matchingMovieItem = null;
-        for (MovieItem movieItem : movieItems) {
+        for (MovieItem movieItem : MOVIE_ITEMS) {
             if (movieItem.getTytul().equals(tytul)) {
                 matchingMovieItem = movieItem;
                 break;

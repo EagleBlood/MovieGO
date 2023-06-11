@@ -1,99 +1,82 @@
 package com.example.moviego.retrofit;
 
+import com.google.gson.annotations.SerializedName;
+
 public class UserService {
 
-    private int id_uzyt;
-    private String login;
-    private String haslo;
-    private String email;
-    private String imie;
-    private String nazwisko;
-    private String numer_tel;
-    private String adress;
-    private String data_ur;
+    @SerializedName("id_uzyt")
+    final int id;
 
-    public UserService(int id_uzyt, String login, String haslo, String email, String imie, String nazwisko, String numer_tel, String adress, String data_ur) {
-        this.id_uzyt = id_uzyt;
+    @SerializedName("login")
+    final String login;
+
+    @SerializedName("haslo")
+    final String password;
+
+    @SerializedName("email")
+    final String email;
+
+    @SerializedName("imie")
+    final String name;
+
+    @SerializedName("nazwisko")
+    final String surname;
+
+    @SerializedName("numer_tel")
+    final String number;
+
+    @SerializedName("adres")
+    final String address;
+
+    @SerializedName("data_ur")
+    final String birthdate;
+
+    public UserService(int id, String login, String password, String email, String name, String surname, String number, String address, String birthdate) {
+        this.id = id;
         this.login = login;
-        this.haslo = haslo;
+        this.password = password;
         this.email = email;
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.numer_tel = numer_tel;
-        this.adress = adress;
-        this.data_ur = data_ur;
+        this.name = name;
+        this.surname = surname;
+        this.number = number;
+        this.address = address;
+        this.birthdate = birthdate;
     }
 
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
-    public int getId_uzyt() {
-        return id_uzyt;
-    }
-
-    public void setId_uzyt(int id_uzyt) {
-        this.id_uzyt = id_uzyt;
-    }
-
-    public String getImie() {
-        return imie;
-    }
-
-    public void setImie(String imie) {
-        this.imie = imie;
-    }
-
-    public String getNazwisko() {
-        return nazwisko;
-    }
-
-    public void setNazwisko(String nazwisko) {
-        this.nazwisko = nazwisko;
-    }
-
-    public String getNumer_tel() {
-        return numer_tel;
-    }
-
-    public void setNumer_tel(String numer_tel) {
-        this.numer_tel = numer_tel;
-    }
-
-    public String getData_ur() {
-        return data_ur;
-    }
-
-    public void setData_ur(String data_ur) {
-        this.data_ur = data_ur;
+    public int getId() {
+        return id;
     }
 
     public String getLogin() {
         return login;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getHaslo() {
-        return haslo;
-    }
-
-    public void setHaslo(String haslo) {
-        this.haslo = haslo;
+    public String getPassword() {
+        return password;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
     }
 }
 

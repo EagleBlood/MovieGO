@@ -26,6 +26,7 @@ import com.example.moviego.retrofit.BookResponse;
 import com.example.moviego.retrofit.BookTicket;
 import com.example.moviego.retrofit.DataAPI;
 import com.example.moviego.retrofit.ReservedSeatsService;
+import com.example.moviego.retrofit.RetrofitFunction;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
@@ -51,9 +52,9 @@ public class MovieHallFragment extends Fragment {
     private double price;
     private double sum = 0;
     private List<BookTicket> bookTickets;
-    private List<Hall> halls;
-    private DataAPI dataAPI;
+    private List<Hall> HALLS;
     private ImageView imageView;
+    private List<Integer> receivedSeats;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -81,12 +82,13 @@ public class MovieHallFragment extends Fragment {
             String movieTitle = bundle.getString("book_title");
             login = bundle.getString("book_login");
             price = bundle.getDouble("book_price");
+            receivedSeats = bundle.getIntegerArrayList("reservedSeats");
 
             title.setText(movieTitle);
         }
 
         bookTickets = new ArrayList<>();
-        halls = MyApp.getInstance().getHalls();
+        HALLS = MyApp.getInstance().getHALLS();
 
         //List
         chosenSeats = new ArrayList<>();
@@ -176,7 +178,6 @@ public class MovieHallFragment extends Fragment {
             tableLayout.addView(tableRow);
         }
 
-        reservedSeats();
 
         //Bottom menu
         View bottomSheet = root.findViewById(R.id.bottom_sheet);
@@ -197,8 +198,8 @@ public class MovieHallFragment extends Fragment {
 
     private void book() {
 
-        int userId = 1;
-        for (Hall hall: halls) {
+        int userId = MyApp.getInstance().getUSER_ID();
+        for (Hall hall: HALLS) {
 
             int currentRow = hall.getRow();
             int currentCol = hall.getArmchair();
@@ -217,18 +218,10 @@ public class MovieHallFragment extends Fragment {
 
     }
 
-    private void retrofitCon(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        dataAPI = retrofit.create(DataAPI.class);
-    }
-
     private void bookTicket(BookResponse bookResponse){
 
-        retrofitCon();
+        RetrofitFunction retrofitFunction = new RetrofitFunction();
+        DataAPI dataAPI = retrofitFunction.dataAPI();
 
         Call<BookResponse> bookTickets = dataAPI.bookTickets(bookResponse);
 
@@ -253,52 +246,7 @@ public class MovieHallFragment extends Fragment {
         });
     }
 
-    private void reservedSeats(){
-        retrofitCon();
 
-        Call<List<ReservedSeatsService>> reservedSeatsServiceCall = dataAPI.getReservedSeats(id_seansu);
-
-        reservedSeatsServiceCall.enqueue(new Callback<List<ReservedSeatsService>>() {
-            @Override
-            public void onResponse(Call<List<ReservedSeatsService>> call, Response<List<ReservedSeatsService>> response) {
-                if (!response.isSuccessful()) {
-                    System.out.println("Błąd: " + response.code());
-                    return;
-                }
-
-                List<ReservedSeatsService> reservedSeatsServices = response.body();
-                List<Integer> rs = new ArrayList<>();
-
-                for (ReservedSeatsService reservedSeatsService : reservedSeatsServices){
-                    int seatId = reservedSeatsService.getSeatId();
-
-                    rs.add(seatId);
-
-                }
-
-//                String tag = getView().getTag().toString();
-//                String[] rowCol = tag.split(",");
-//                int row = Integer.parseInt(rowCol[0]) + 1; // convert to 1-indexed
-//                int col = Integer.parseInt(rowCol[1]) + 1; // convert to 1-indexed
-//                String seat = row + ":" + col;
-
-//                for (Hall hall: halls) {
-//                    if(hall.getSeatId() == )
-//                }
-//
-//                if (rs.contains(id_miejsca)) {
-//                    imageView.setEnabled(false);
-//                    imageView.setImageResource(R.drawable.seat_reserved);
-//                }
-
-            }
-
-            @Override
-            public void onFailure(Call<List<ReservedSeatsService>> call, Throwable t) {
-                System.out.println("Błąd: " + t.getMessage());
-            }
-        });
-    }
 
     @Override
     public void onDestroyView() {

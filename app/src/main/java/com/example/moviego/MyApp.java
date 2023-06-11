@@ -3,6 +3,7 @@ package com.example.moviego;
 import android.app.Application;
 
 import com.example.moviego.ui.home.MovieItem;
+import com.example.moviego.ui.login.UserData;
 import com.example.moviego.ui.movie.Hall;
 
 import java.util.ArrayList;
@@ -11,54 +12,64 @@ import java.util.List;
 public class MyApp extends Application {
 
     private static MyApp instance;
-    private ArrayList<MovieItem> movieItems;
-    private List<Hall> halls;
-    private String login;
-    private int userId;
+    private ArrayList<MovieItem> MOVIES;
+    private List<Hall> HALLS;
+    private String USER_LOGIN;
+    private int USER_ID;
+    private List<UserData> USER_DATA;
 
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
-        movieItems = new ArrayList<>();
-        halls = new ArrayList<>();
-        login = null;
-        userId = 0;
+        MOVIES = new ArrayList<>();
+        HALLS = new ArrayList<>();
+        USER_LOGIN = null;
+        USER_ID = 0;
+        USER_DATA = new ArrayList<>();
     }
 
     public static MyApp getInstance() {
         return instance;
     }
 
-    public ArrayList<MovieItem> getMovieItems() {
-        return movieItems;
+    public ArrayList<MovieItem> getMOVIES() {
+        return MOVIES;
     }
 
-    public void setMovieItems(ArrayList<MovieItem> movies) {
-        movieItems = movies;
+    public void setMOVIES(ArrayList<MovieItem> MOVIES) {
+        this.MOVIES = MOVIES;
     }
 
-    public String getLogin() {
-        return login;
+    public List<Hall> getHALLS() {
+        return HALLS;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setHALLS(List<Hall> HALLS) {
+        this.HALLS = HALLS;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUSER_LOGIN() {
+        return USER_LOGIN;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUSER_LOGIN(String USER_LOGIN) {
+        this.USER_LOGIN = USER_LOGIN;
     }
 
-    public List<Hall> getHalls() {
-        return halls;
+    public int getUSER_ID() {
+        return USER_ID;
     }
 
-    public void setHalls(List<Hall> halls) {
-        this.halls = halls;
+    public void setUSER_ID(int USER_ID) {
+        this.USER_ID = USER_ID;
+    }
+
+    public List<UserData> getUSER_DATA() {
+        return USER_DATA;
+    }
+
+    public void setUSER_DATA(List<UserData> USER_DATA) {
+        this.USER_DATA = USER_DATA;
     }
 }

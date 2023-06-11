@@ -11,14 +11,18 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.moviego.MyApp;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentProfileBinding;
 import com.example.moviego.retrofit.UserService;
+import com.example.moviego.ui.login.UserData;
+
+import java.util.List;
 
 public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
-    private String username;
+    private String USER_LOGIN;
     private String password;
     private String name;
     private String surname;
@@ -27,64 +31,52 @@ public class ProfileFragment extends Fragment {
     private String address;
     private String birth;
 
-    private TextView editProfileInput;
-    private TextView editPassInput;
-    private TextView editNameInput;
-    private TextView editSurnameInput;
-    private TextView editEmailInput;
-    private TextView editPhoneInput;
-    private TextView editAddrInput;
-    private TextView editBirthInput;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        editProfileInput = root.findViewById(R.id.editProfileInput);
-        editPassInput = root.findViewById(R.id.editPassInput);
-        editNameInput = root.findViewById(R.id.editNameInput);
-        editSurnameInput = root.findViewById(R.id.editSurnameInput);
-        editEmailInput = root.findViewById(R.id.editEmailInput);
-        editPhoneInput = root.findViewById(R.id.editPhoneInput);
-        editAddrInput = root.findViewById(R.id.editAddrInput);
-        editBirthInput = root.findViewById(R.id.editBirthInput);
 
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            username = bundle.getString("username");
-            password = bundle.getString("password");
-            name = bundle.getString("name");
-            surname = bundle.getString("surname");
-            email = bundle.getString("email");
-            phone = bundle.getString("phone");
-            address = bundle.getString("address");
-            birth = bundle.getString("birth");
-
-            System.out.println("Username: " + username);
-            System.out.println("Password: " + password);
-            System.out.println("Name: " + name);
-            System.out.println("Surname: " + surname);
-            System.out.println("Email: " + email);
-            System.out.println("Phone: " + phone);
-
-            binding.editProfileInput.setText(username);
-            binding.editPassInput.setText(password);
-            binding.editNameInput.setText(name);
-            binding.editSurnameInput.setText(surname);
-            binding.editEmailInput.setText(email);
-            binding.editPhoneInput.setText(phone);
-            binding.editAddrInput.setText(address);
-            binding.editBirthInput.setText(birth);
-        }
-
-
+        USER_LOGIN = MyApp.getInstance().getUSER_LOGIN();
+        List<UserData> USER_DATA = MyApp.getInstance().getUSER_DATA();
 
         ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle("Hello, " + username);
+            actionBar.setTitle("Hello, " + USER_LOGIN);
         }
+
+        TextView editProfileInput = root.findViewById(R.id.editProfileInput);
+        TextView editPassInput = root.findViewById(R.id.editPassInput);
+        TextView editNameInput = root.findViewById(R.id.editNameInput);
+        TextView editSurnameInput = root.findViewById(R.id.editSurnameInput);
+        TextView editEmailInput = root.findViewById(R.id.editEmailInput);
+        TextView editPhoneInput = root.findViewById(R.id.editPhoneInput);
+        TextView editAddrInput = root.findViewById(R.id.editAddrInput);
+        TextView editBirthInput = root.findViewById(R.id.editBirthInput);
+
+
+        if(USER_DATA.size() == 1 && USER_LOGIN != null){
+            for(UserData userData : USER_DATA){
+                password = userData.getPassword();
+                name = userData.getName();
+                surname = userData.getSurname();
+                email = userData.getEmail();
+                phone = userData.getNumber();
+                address = userData.getAddress();
+                birth = userData.getBirthdate();
+            }
+
+            editProfileInput.setText(USER_LOGIN);
+            editPassInput.setText(password);
+            editNameInput.setText(name);
+            editSurnameInput.setText(surname);
+            editEmailInput.setText(email);
+            editPhoneInput.setText(phone);
+            editAddrInput.setText(address);
+            editBirthInput.setText(birth);
+        }
+
 
 
         return root;

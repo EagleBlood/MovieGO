@@ -16,6 +16,7 @@ import com.example.moviego.MyApp;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentTicketBinding;
 import com.example.moviego.retrofit.DataAPI;
+import com.example.moviego.retrofit.RetrofitFunction;
 import com.example.moviego.retrofit.TicketService;
 
 import java.util.ArrayList;
@@ -31,9 +32,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class TicketFragment extends Fragment {
 
     private FragmentTicketBinding binding;
-    private DataAPI dataAPI;
     private RecyclerView recyclerViewTickets;
-    private int userId;
+    private int USER_ID;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,11 +46,11 @@ public class TicketFragment extends Fragment {
             actionBar.setTitle("Your tickets");
         }
 
-        userId = MyApp.getInstance().getUserId();
+        USER_ID = MyApp.getInstance().getUSER_ID();
 
         recyclerViewTickets = root.findViewById(R.id.ticket_ticketRecyclerView);
 
-        if(userId != 0) {
+        if(USER_ID != 0) {
             getTickets();
         } else {
             List<Ticket> tickets = new ArrayList<>();
@@ -65,20 +65,12 @@ public class TicketFragment extends Fragment {
         return root;
     }
 
-    private void retrofitCon(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        dataAPI = retrofit.create(DataAPI.class);
-    }
-
     private void getTickets(){
 
-        retrofitCon();
+        RetrofitFunction retrofitFunction = new RetrofitFunction();
+        DataAPI dataAPI = retrofitFunction.dataAPI();
 
-        Call<List<TicketService>> ticketServiceCall = dataAPI.getTickets(userId);
+        Call<List<TicketService>> ticketServiceCall = dataAPI.getTickets(USER_ID);
 
         ticketServiceCall.enqueue(new Callback<List<TicketService>>() {
             @Override

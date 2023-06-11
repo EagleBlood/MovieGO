@@ -23,8 +23,17 @@ import com.example.moviego.BottomNavigation;
 import com.example.moviego.MyApp;
 import com.example.moviego.R;
 import com.example.moviego.databinding.FragmentMovieDetailsBinding;
+import com.example.moviego.retrofit.DataAPI;
+import com.example.moviego.retrofit.ReservedSeatsService;
+import com.example.moviego.retrofit.RetrofitFunction;
 
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MovieDetailsFragment extends Fragment {
 
@@ -94,20 +103,7 @@ public class MovieDetailsFragment extends Fragment {
         if(login!=null){
             bookSeats.setOnClickListener(v -> {
 
-                Bundle book = new Bundle();
-                book.putInt("book_id_seansu", id_seansu);
-                book.putString("book_title", tytul);
-                book.putString("book_login", login);
-                book.putDouble("book_price", cena);
-
-                MovieHallFragment nextFragment = new MovieHallFragment();
-                nextFragment.setArguments(book);
-
-                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.frameLayout, nextFragment);
-                fragmentTransaction.addToBackStack("hall");
-                fragmentTransaction.commit();
+                reservedSeats();
             });
         }
 
@@ -137,6 +133,55 @@ public class MovieDetailsFragment extends Fragment {
             throw new RuntimeException(context
                     + " must implement OnFragmentInteractionListener");
         }
+    }
+
+    private void reservedSeats(){
+        RetrofitFunction retrofitFunction = new RetrofitFunction();
+        DataAPI dataAPI = retrofitFunction.dataAPI();
+
+        Call<List<ReservedSeatsService>> reservedSeatsServiceCall = dataAPI.getReservedSeats(id_seansu);
+
+        reservedSeatsServiceCall.enqueue(new Callback<List<ReservedSeatsService>>() {
+            @Override
+            public void onResponse(Call<List<ReservedSeatsService>> call, Response<List<ReservedSeatsService>> response) {
+                if (!response.isSuccessful()) {
+                    System.out.println("Błąd: " + response.code());
+                    return;
+                }
+
+                List<ReservedSeatsService> reservedSeatsServices = response.body();
+                List<Integer> rs = new ArrayList<>();
+
+                for (ReservedSeatsService reservedSeatsService : reservedSeatsServices){
+                    int seatId = reservedSeatsService.getSeatId();
+
+                    rs.add(seatId);
+
+                }
+
+                Bundle book = new Bundle();
+                book.putInt("book_id_seansu", id_seansu);
+                book.putString("book_title", tytul);
+                book.putString("book_login", login);
+                book.putDouble("book_price", cena);
+                book.putIntegerArrayList("reservedSeats", new ArrayList<>(rs));
+
+                MovieHallFragment nextFragment = new MovieHallFragment();
+                nextFragment.setArguments(book);
+
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout, nextFragment);
+                fragmentTransaction.addToBackStack("hall");
+                fragmentTransaction.commit();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<ReservedSeatsService>> call, Throwable t) {
+                System.out.println("Błąd: " + t.getMessage());
+            }
+        });
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.moviego.retrofit.DataAPI;
@@ -24,7 +25,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private DataAPI dataAPI;
     private Intent intent;
 
     @Override
@@ -33,30 +33,33 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        retrofitFun();
-        setHall();
-        setMovie();
+        RetrofitFunction retrofitFunction = new RetrofitFunction();
+        DataAPI dataAPI = retrofitFunction.dataAPI();
+
+        List<Hall> HALLS = MyApp.getInstance().getHALLS();
+        List<MovieItem> MOVIE_ITEM = MyApp.getInstance().getMOVIES();
+
+
+        if(MOVIE_ITEM.size() == 0 || HALLS.size() == 0) {
+            setHall(dataAPI);
+            setMovie(dataAPI);
+        } else {
+            nextActivity();
+        }
 
         intent = new Intent(this, DrawerAndBottomNavActivity.class);
 
     }
 
+    private void setHall(DataAPI dataAPI) {
 
-    private void retrofitFun(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        dataAPI = retrofit.create(DataAPI.class);
-    }
 
-    private void setHall() {
         Call<List<HallService>> hallServiceCall = dataAPI.getSeats();
 
         hallServiceCall.enqueue(new Callback<List<HallService>>() {
             @Override
-            public void onResponse(Call<List<HallService>> call, Response<List<HallService>> response) {
+            public void onResponse(@NonNull Call<List<HallService>> call, @NonNull Response<List<HallService>> response) {
                 if (!response.isSuccessful()) {
                     System.out.println("Błąd: " + response.code());
                     return;
@@ -77,23 +80,25 @@ public class SplashScreen extends AppCompatActivity {
                     }
                 }
 
-                MyApp.getInstance().setHalls(halls);
+                MyApp.getInstance().setHALLS(halls);
             }
 
             @Override
-            public void onFailure(Call<List<HallService>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<HallService>> call, @NonNull Throwable t) {
                 System.out.println("Błąd: " + t.getMessage());
             }
         });
     }
 
-    private void setMovie() {
+    private void setMovie(DataAPI dataAPI) {
+
+
         Call<List<HomeService>> homeServiceCall = dataAPI.getMovies();
 
 
         homeServiceCall.enqueue(new Callback<List<HomeService>>() {
             @Override
-            public void onResponse(Call<List<HomeService>> call, Response<List<HomeService>> response) {
+            public void onResponse(@NonNull Call<List<HomeService>> call, @NonNull Response<List<HomeService>> response) {
                 if (!response.isSuccessful()) {
                     System.out.println("Błąd: " + response.code());
                     return;
@@ -120,20 +125,24 @@ public class SplashScreen extends AppCompatActivity {
                     }
                 }
 
-                MyApp.getInstance().setMovieItems(movieItems);
+                MyApp.getInstance().setMOVIES(movieItems);
 
-                new Handler().postDelayed(() -> {
-
-                    startActivity(intent);
-                    finish();
-                }, 1000);
+                nextActivity();
             }
 
             @Override
-            public void onFailure(Call<List<HomeService>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<HomeService>> call, @NonNull Throwable t) {
                 System.out.println("Błąd: " + t.getMessage());
             }
         });
+    }
+
+    private void nextActivity(){
+        new Handler().postDelayed(() -> {
+
+            startActivity(intent);
+            finish();
+        }, 1000);
     }
 
 }

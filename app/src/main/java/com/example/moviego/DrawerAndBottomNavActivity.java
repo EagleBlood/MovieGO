@@ -31,16 +31,16 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity implements Bot
 
     private ActivityDrawerAndBottomNavBinding binding;
     public ActionBarDrawerToggle toggle;
-    private int userId;
-    private String login;
+    private int USER_ID;
+    private String USER_LOGIN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_drawer_and_bottom_nav);
-        userId = MyApp.getInstance().getUserId();
-        login = MyApp.getInstance().getLogin();
+        USER_ID = MyApp.getInstance().getUSER_ID();
+        USER_LOGIN = MyApp.getInstance().getUSER_LOGIN();
 
         initView();
 

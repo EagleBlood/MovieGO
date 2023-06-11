@@ -94,65 +94,58 @@ public class LoginFragment extends Fragment {
         Call<Boolean> call = dataAPI.checkLogin(username, password); // Assuming the API returns a boolean value
         call.enqueue(new Callback<Boolean>() {
             @Override
-            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+            public void onResponse(@NonNull Call<Boolean> call, @NonNull Response<Boolean> response) {
                 System.out.println("OnResponse");
-                if (response.isSuccessful()) {
-                    boolean loginSuccessful = response.body();
-                    if (loginSuccessful) {
-                        // Login successful, fetch user details
-                        Call<UserService> userDetailsCall = dataAPI.getUserDetails(username); // Assuming an API method to fetch user details
-                        userDetailsCall.enqueue(new Callback<UserService>() {
-                            @Override
-                            public void onResponse(Call<UserService> call, Response<UserService> response) {
-                                if (response.isSuccessful()) {
-                                    UserService userService = response.body();
-                                    if (userService != null) {
-                                        // Store the user details or perform necessary actions
-                                        int userId = userService.getId_uzyt();
-                                        String userLogin = userService.getLogin();
-                                        String userPassword = userService.getHaslo();
-                                        String userEmail = userService.getEmail();
-                                        String userFirstName = userService.getImie();
-                                        String userLastName = userService.getNazwisko();
-                                        String userPhone = userService.getNumer_tel();
-                                        String userAddress = userService.getAdress();
-                                        String userBirth = userService.getData_ur();
+                if (!response.isSuccessful()) {
+                    System.out.println("Login failed");
+                }
 
-                                        MyApp.getInstance().setUserId(userId);
-                                        MyApp.getInstance().setLogin(userLogin);
+                boolean loginSuccessful = Boolean.TRUE.equals(response.body());
 
-                                        Bundle bundle = new Bundle();
-                                        bundle.putString("username", userLogin);
-                                        bundle.putString("password", userPassword);
-                                        bundle.putString("name", userFirstName);
-                                        bundle.putString("surname", userLastName);
-                                        bundle.putString("email", userEmail);
-                                        bundle.putString("phone", userPhone);
-                                        bundle.putString("address", userAddress);
-                                        bundle.putString("birth", userBirth);
+                if (loginSuccessful) {
+                    // Login successful, fetch user details
+                    Call<UserService> userDetailsCall = dataAPI.getUserDetails(username); // Assuming an API method to fetch user details
+                    userDetailsCall.enqueue(new Callback<UserService>() {
+                        @Override
+                        public void onResponse(@NonNull Call<UserService> call, @NonNull Response<UserService> response) {
+                            if (response.isSuccessful()) {
+                                UserService userService = response.body();
+                                if (userService != null) {
+                                    // Store the user details or perform necessary actions
+                                    int userId = userService.getId();
+                                    String userLogin = userService.getLogin();
+                                    String userPassword = userService.getPassword();
+                                    String userEmail = userService.getEmail();
+                                    String userFirstName = userService.getName();
+                                    String userLastName = userService.getSurname();
+                                    String userPhone = userService.getNumber();
+                                    String userAddress = userService.getAddress();
+                                    String userBirth = userService.getBirthdate();
 
-                                        ProfileFragment profileFragment = new ProfileFragment();
-                                        profileFragment.setArguments(bundle);
+                                    MyApp.getInstance().setUSER_ID(userId);
+                                    MyApp.getInstance().setUSER_LOGIN(userLogin);
 
-                                        ((DrawerAndBottomNavActivity) requireActivity()).reloadApp();
-                                        System.out.println("Login successful");
-                                    }
-                                } else {
-                                    // Handle unsuccessful user details retrieval
-                                    System.out.println("Failed to retrieve user details");
+                                    List<UserData> userData = new ArrayList<>();
+
+                                    userData.add(new UserData(userPassword, userEmail, userFirstName, userLastName, userPhone, userAddress, userBirth));
+
+                                    MyApp.getInstance().setUSER_DATA(userData);
+
+                                    ((DrawerAndBottomNavActivity) requireActivity()).reloadApp();
+                                    System.out.println("Login successful");
                                 }
+                            } else {
+                                // Handle unsuccessful user details retrieval
+                                System.out.println("Failed to retrieve user details");
                             }
+                        }
 
-                            @Override
-                            public void onFailure(Call<UserService> call, Throwable t) {
-                                // Handle user details retrieval failure
-                                System.out.println("Failed to retrieve user details: " + t.getMessage());
-                            }
-                        });
-                    } else {
-                        // Login failed, show an error message
-                        System.out.println("Login failed");
-                    }
+                        @Override
+                        public void onFailure(@NonNull Call<UserService> call, @NonNull Throwable t) {
+                            // Handle user details retrieval failure
+                            System.out.println("Failed to retrieve user details: " + t.getMessage());
+                        }
+                    });
                 } else {
                     System.out.println("Request failed");
                     // Request failed, show an error message
@@ -160,7 +153,7 @@ public class LoginFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<Boolean> call, Throwable t) {
+            public void onFailure(@NonNull Call<Boolean> call, @NonNull Throwable t) {
                 // Request failed, show an error message
                 System.out.println(t.getMessage());
             }
