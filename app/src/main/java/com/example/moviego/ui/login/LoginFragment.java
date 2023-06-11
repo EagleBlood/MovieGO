@@ -51,6 +51,7 @@ public class LoginFragment extends Fragment {
         ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
         if (actionBar != null) {
             actionBar.show();
+            actionBar.setTitle(R.string.login_welcome);
         }
 
         TextView createAccount = root.findViewById(R.id.login_createAccountText);

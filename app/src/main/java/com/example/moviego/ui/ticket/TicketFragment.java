@@ -43,7 +43,7 @@ public class TicketFragment extends Fragment {
 
         ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle("Your tickets");
+            actionBar.setTitle(R.string.ticket_welcome);
         }
 
         USER_ID = MyApp.getInstance().getUSER_ID();

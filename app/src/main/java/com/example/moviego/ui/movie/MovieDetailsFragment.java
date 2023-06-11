@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -42,7 +43,7 @@ public class MovieDetailsFragment extends Fragment {
 
     private int id_seansu;
     private String tytul;
-    private String login;
+    private String USER_LOGIN;
     private double cena;
 
 
@@ -66,9 +67,8 @@ public class MovieDetailsFragment extends Fragment {
         TextView movieDuration = root.findViewById(R.id.movieDuration);
         ImageView moviePoster = root.findViewById(R.id.moviePoster);
 
-//        login = MyApp.getInstance().getLogin();
+        USER_LOGIN = MyApp.getInstance().getUSER_LOGIN();
 
-        login = "test";
 
         Bundle bundle = getArguments();
         if(bundle != null){
@@ -100,12 +100,16 @@ public class MovieDetailsFragment extends Fragment {
 
         Button bookSeats = root.findViewById(R.id.bookSeat);
 
-        if(login!=null){
-            bookSeats.setOnClickListener(v -> {
+        bookSeats.setOnClickListener(v -> {
 
+            if(USER_LOGIN!=null){
                 reservedSeats();
-            });
-        }
+            } else {
+                Toast toast = Toast.makeText(getActivity(), R.string.movie_failedBookInformaction, Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+
 
 
 
@@ -162,7 +166,7 @@ public class MovieDetailsFragment extends Fragment {
                 Bundle book = new Bundle();
                 book.putInt("book_id_seansu", id_seansu);
                 book.putString("book_title", tytul);
-                book.putString("book_login", login);
+                book.putString("book_login", USER_LOGIN);
                 book.putDouble("book_price", cena);
                 book.putIntegerArrayList("reservedSeats", new ArrayList<>(rs));
 

@@ -15,6 +15,8 @@
     <string name="welcomeSign">Witaj, </string>
     <string name="open">Otwórz</string>
     <string name="close">Zamknij</string>
+    <string name="welcome_login">Witaj, </string>
+    <string name="welcome">Witaj</string>
 
     // For left menu
     <string name="menuLogin">Logowanie</string>
@@ -55,6 +57,7 @@
     // For fragment_login.xml
     <string name="login_UserTryHint">Nazwa użytkownika</string>
     <string name="login_PassTryHint">Hasło</string>
+    <string name="login_welcome">Logowanie</string>
 
     // For fragment_home.xml
     <string name="welcomeSign2">Witaj</string>
@@ -118,6 +121,7 @@
     <string name="movie_description">Akcja filmu rozgrywa się w 1943 roku. Tytułowy bohater jest kosmopolitą i uwodzicielem niezdolnym do głębszych uczuć. W Polsce stracił całą rodzinę. Samotny - będąc w sercu nazistowskich Niemiec - ukrywa swoje żydowskie pochodzenie i często unika śmierci.</string>
     <string name="movie_star">gwiazda</string>
     <string name="movie_like">lubię to</string>
+    <string name="movie_failedBookInformaction">Zaloguj się, aby dokonać rezerwacji</string>
 
     //For fragment_ticket
     <string name="ticket_title">Tytuł</string>
@@ -136,6 +140,7 @@
     <string name="ticket_currency">zł</string>
     <string name="ticket_priceValue">28.99</string>
     <string name="item_no_tickets">Brak biletów</string>
+    <string name="ticket_welcome">Twoje bilety</string>
 
     // For fragment_movie_hall.xml
     <string name="movieHall_SelectedText">Wybrane</string>

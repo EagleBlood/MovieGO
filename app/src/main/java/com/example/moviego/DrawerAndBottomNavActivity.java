@@ -97,11 +97,27 @@ public class DrawerAndBottomNavActivity extends AppCompatActivity implements Bot
                 getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 return true;
             } else if (itemId == R.id.nav_profile){
-                callFragment(new ProfileFragment());
-                return true;
+                if(USER_ID == 0){
+                    Fragment fragment = new LoginFragment();
+                    binding.drawer.closeDrawer(GravityCompat.START);
+                    binding.bottomNavigationView.setVisibility(View.GONE);
+                    callFragment(fragment);
+                } else {
+                    callFragment(new ProfileFragment());
+                    return true;
+                }
+
             } else if (itemId == R.id.nav_tickets){
-                callFragment(new TicketFragment());
-                return true;
+                if(USER_ID == 0){
+                    Fragment fragment = new LoginFragment();
+                    binding.drawer.closeDrawer(GravityCompat.START);
+                    binding.bottomNavigationView.setVisibility(View.GONE);
+                    callFragment(fragment);
+                } else {
+                    callFragment(new TicketFragment());
+                    return true;
+                }
+
             }
             return false;
         });

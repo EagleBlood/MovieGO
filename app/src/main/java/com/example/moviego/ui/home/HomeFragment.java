@@ -61,10 +61,18 @@ public class HomeFragment extends Fragment implements SelectedListener {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        String USER_LOGIN = MyApp.getInstance().getUSER_LOGIN();
+
         ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
         if (actionBar != null) {
             actionBar.show();
-            actionBar.setTitle("Hello");
+            if(USER_LOGIN == null){
+                actionBar.setTitle(R.string.welcome);
+            } else {
+                String welcomeString = getString(R.string.welcome_login);
+                String combinedString = welcomeString + " " + USER_LOGIN;
+                actionBar.setTitle(combinedString);
+            }
         }
 
         RecyclerView recyclerView = root.findViewById(R.id.home_calendarRecyclerView);

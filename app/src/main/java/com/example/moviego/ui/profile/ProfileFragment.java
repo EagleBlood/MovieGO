@@ -43,7 +43,9 @@ public class ProfileFragment extends Fragment {
 
         ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle("Hello, " + USER_LOGIN);
+            String welcomeString = getString(R.string.welcome_login);
+            String combinedString = welcomeString + " " + USER_LOGIN;
+            actionBar.setTitle(combinedString);
         }
 
         TextView editProfileInput = root.findViewById(R.id.editProfileInput);

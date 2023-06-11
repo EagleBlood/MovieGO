@@ -14,6 +14,8 @@
     <string name="welcomeSign">Hello, </string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="welcome_login">Hello, </string>
+    <string name="welcome">Hello</string>
 
     // For left menu
     <string name="menuLogin">Login</string>
@@ -51,9 +53,12 @@
     <string name="editProfileButtonText">Edit profile</string>
     <string name="showButtonText">Show</string>
 
+
+
     // For fragment_login.xml
     <string name="login_UserTryHint">Username</string>
     <string name="login_PassTryHint">Password</string>
+    <string name="login_welcome">Login</string>
 
     // For fragment_home.xml
     <string name="welcomeSign2">Welcome</string>
@@ -117,6 +122,7 @@
     <string name="movie_description">The action of the film takes place in 1943. The title character is a cosmopolitan and incapable of deeper feelings seducer. In Poland, he lost his entire family. Alone - being in the heart of Nazi Germany - he hides his Jewish origins and often eludes death.</string>
     <string name="movie_star">star</string>
     <string name="movie_like">like</string>
+    <string name="movie_failedBookInformaction">Log in to make a reservation</string>
 
     //For fragment_ticket
     <string name="ticket_title">Title</string>
@@ -135,6 +141,7 @@
     <string name="ticket_currency">zł</string>
     <string name="ticket_priceValue">28.99</string>
     <string name="item_no_tickets">No tickets</string>
+    <string name="ticket_welcome">Your tickets</string>
 
     // For fragment_movie_hall.xml
     <string name="movieHall_SelectedText">Selected</string>
