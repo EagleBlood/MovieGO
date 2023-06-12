@@ -32,7 +32,7 @@ W widoku <i>Profil</i> wyświetlane są dane o użytkowniku. Są to: nazwa profi
 W poniższym widoku wyświetlane są ostatnie transakcje użytkownika. W elemencie wyświetlane są: nazwa filmu, numer zamówienia, data i godzina seansu oraz ilość miejsc. Po naciśnięciu na element następuje rozwinięcie go i użytkownik może zobaczyć więcej informacji o dokonanej transakcji - zarezerwowane miejsca oraz koszt zakupu.
 
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822621749366864/8.1.png" alt="Profil urzytkownika" width="270" height="585"/>
+  <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822609707520030/7.png" alt="Ekran transakcji" width="270" height="585"/>
 </p>
 <br>
 
