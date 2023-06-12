@@ -1,6 +1,8 @@
 # MovieGO
 W ramach projektu studenckiego została stworzona aplikacja mobilna do rezerwowania miejsc w kinie. Aplikacja przeznaczona dla użytkowników systemu Android.
 Głównym celem projektu jest stworzenie systemu przeznaczonego dla klientów kina. Dzięki temu użytkownicy mogą przeglądać zaplanowane seanse oraz dokonywać rezerwacji.
+
+![demo](./imgs/output_faster.gif)
 <br>
 <br>
 
