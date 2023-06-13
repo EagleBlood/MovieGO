@@ -1,12 +1,15 @@
 # MovieGO
-W ramach projektu studenckiego została stworzona aplikacja mobilna do rezerwowania miejsc w kinie. Aplikacja przeznaczona dla użytkowników systemu Android.
-Głównym celem projektu jest stworzenie systemu przeznaczonego dla klientów kina. Dzięki temu użytkownicy mogą przeglądać zaplanowane seanse oraz dokonywać rezerwacji.
+W ramach projektu studenckiego została stworzona aplikacja mobilna do rezerwowania miejsc w kinie. Aplikacja przeznaczona dla użytkowników systemu Android. Głównym celem projektu jest stworzenie systemu przeznaczonego dla klientów kina. Dzięki temu użytkownicy mogą przeglądać zaplanowane seanse oraz dokonywać rezerwacji.
 
 ![demo](./imgs/output_faster.gif)
+
+Aplikacja do zarządzania kinem: https://github.com/EagleBlood/MovieGOAdmin
 <br>
 <br>
 
 ## Funkcjonalność
+Aplikacja przy inicjacji pobiera poprzez Spring Boot API informacje na temat zaplanowanych seansów z bazy danych.<br>
+
 Główny widok aplikacji pełni rolę kalendarza. W górnym sliderze dostępne są daty, aktualny dzień jest wyróżniony kolorem czerwonym.
 Poniżej znajdują się slidery z dodanymi pozycjami. Wybranie pozycji ze slidera prowadzi do szczegółowego opisu filmu (punkt 6. Movie details). 
 
@@ -101,11 +104,14 @@ Menu aplikacji umożliwia przejście do następujących widoków: home (pkt 1), 
 ## Instalacja
 - Sklonuj repozytorium projektu z GitHuba do lokalnego katalogu na swoim komputerze.
 - Uruchom program w środowkisku Android Studio IDE
+- Żeby załatować zdjęcia potrzebna jest baza danych oraz połączenie z internetem*
 <br>
 <br>
 
 ## Narzędzia oraz biblioteki:
 * Android Studio Dolphin (v. 2021.3.1 Patch 1)
+* Spring Boot (v. 3.0.6)
+* Gson (v. 2.8.9)
 * androidx.legacy:legacy-support-v4:1.0.0
 * com.google.android.material:material:1.9.0
 * androidx.core:core-ktx:1.6.0
