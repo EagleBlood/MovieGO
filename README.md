@@ -1,24 +1,23 @@
 # MovieGO
-W ramach projektu studenckiego została stworzona aplikacja mobilna do rezerwowania miejsc w kinie. Aplikacja przeznaczona dla użytkowników systemu Android. Głównym celem projektu jest stworzenie systemu przeznaczonego dla klientów kina. Dzięki temu użytkownicy mogą przeglądać zaplanowane seanse oraz dokonywać rezerwacji.
+As part of the student project, a mobile application has been created for reserving seats in the cinema. The application is designed for Android system users. The main goal of the project is to create a system intended for cinema customers. This allows users to browse scheduled screenings and make reservations.
 
 ![demo](./imgs/output_faster.gif)
 
-Aplikacja do zarządzania kinem: https://github.com/EagleBlood/MovieGOAdmin
+Cinema Management Application:: https://github.com/EagleBlood/MovieGOAdmin
 <br>
 <br>
 
-## Funkcjonalność
-Aplikacja przy inicjacji pobiera poprzez Spring Boot API informacje na temat zaplanowanych seansów z bazy danych.<br>
+## Functionality
+The application, upon initiation, retrieves information about scheduled screenings from the database through the Spring Boot API.<br>
 
-Główny widok aplikacji pełni rolę kalendarza. W górnym sliderze dostępne są daty, aktualny dzień jest wyróżniony kolorem czerwonym.
-Poniżej znajdują się slidery z dodanymi pozycjami. Wybranie pozycji ze slidera prowadzi do szczegółowego opisu filmu (punkt 6. Movie details). 
+The main view of the application serves as a calendar. In the top slider, dates are displayed, with the current day highlighted in red. Below, there are sliders with added items. Selecting an item from the slider leads to detailed movie information (point 6. Movie details).
 
 <p align="center">
   <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822539989782578/1.PNG" alt="Ekran główny" width="270" height="585"/>
 </p>
 <br>
 
-W widoku <i>Profil</i> wyświetlane są dane o użytkowniku. Są to: nazwa profilu, hasło, imię, nazwisko, email, numer telefonu, adres zamieszkania oraz datę urodzenia. 
+In the <i>Profile</i> view, user information is displayed, including: profile name, password, first name, last name, email, phone number, residential address, and date of birth.
 
 <div align="center">
   <table>
@@ -34,41 +33,39 @@ W widoku <i>Profil</i> wyświetlane są dane o użytkowniku. Są to: nazwa profi
 </div>
 <br>
 
-W poniższym widoku wyświetlane są ostatnie transakcje użytkownika. W elemencie wyświetlane są: nazwa filmu, numer zamówienia, data i godzina seansu oraz ilość miejsc. Po naciśnięciu na element następuje rozwinięcie go i użytkownik może zobaczyć więcej informacji o dokonanej transakcji - zarezerwowane miejsca oraz koszt zakupu.
+In the following view, the user's recent transactions are displayed. Each item shows: movie title, order number, date, time of the screening and the number of seats reserved. By clicking on an item, it expands, and the user can view more details about the transaction, including the reserved seats and the purchase cost.
 
 <p align="center">
   <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822609707520030/7.png" alt="Ekran transakcji" width="270" height="585"/>
 </p>
 <br>
 
-Jeśli niezalogowany użytkownik, który przechodzi do widoku profilu, widoku biletów lub wybiera pozycję logowanie w nawigacji jest kierowany do strony logowania. Zarejestrowany użytkownik będzie mógł zalogować się na swoje konto. W tym celu będzie musiał podać adres mailowy na który został podany przy rejestracji oraz hasło. 
+If an unauthenticated user navigates to the <i>Profile</i> view, <i>Tickets</i> view, or selects the <i>Login</i> option in the navigation, they will be directed to the login page. A registered user will be able to log in to their account. To do so, they will need to provide the email address they used during registration and their password.
 
-Po wybraniu <i>Zaloguj się</i> następuje przeniesie do widoku <i>Rejestracji</i>
+After selecting <i>Login</i>, the user will be redirected to the <i>Registration</i> view.
 
 <p align="center">
   <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822562236387468/3.png" alt="Ekran rejestracji" width="270" height="585"/>
 </p>
 <br>
 
-Poniżej przedstawiamy model widoku "Formularza", za pomocą którego użytkownik będzie mógł wysłać wiadomość do administratora systemu. Funkcjonalność,nie została zaimplementowana.
+Below, we present the model of the <i>Form</i> View that allows users to send a message to the system administrator. Please note that the functionality has not been implemented yet.
 
 <p align="center">
   <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822640728588379/9.png" alt="Ekran formularz" width="270" height="585"/>
 </p>
 <br>
 
-W widoku szczegółów filmu wyświetlamy podstawowe informacje o filmie: tytuł, typ filmy, czas trwania oraz opis.
+In the movie details view, we display basic information about the film, including the title, genre, duration, and description.
 
 <p align="center">
   <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822575037386893/5.png" alt="Szczegóły filmu" width="270" height="585"/>
 </p>
 <br>
 
-Po wybraniu strzałki wstecz następuje przeniesienie do widoku strony głównej. Jeśli użytkownik jest zalogowany, po wybraniu <i>Zarezerwuj miejsce</i> następuje przejście do widoku Movie hall.
+After selecting the back arrow, the user will be redirected to the main page view. If the user is logged in, selecting <i>Reserve a Seat</i> will lead them to the <i>Movie Hall</i> view.<br>
 
-
-W ponizszym widoku zalogowany użytkownik może dokonać wyboru miejsc w sali kinowej. Po naciśnięciu kwadratu następuje wybranie miejsca. Ponowne naciśnięcie odznacza wybór. Jeśli miejsce będzie wypełnione kolorem szarym tzn. że jest już niedostępne.
-
+In the following view, the logged-in user can make seat selections in the cinema hall. Pressing on a square will select the seat, and pressing it again will deselect it. If a seat is filled with a gray color, it means that it is already unavailable.
 
 <div align="center">
   <table>
@@ -84,31 +81,28 @@ W ponizszym widoku zalogowany użytkownik może dokonać wyboru miejsc w sali ki
 </div>
 <br>
 
+For the selected seats, their positions will be displayed in the list. On the left side, information about the seat will be shown (e.g., 1:3 - row 1, seat 3), and on the right, the ticket price. At the bottom, the final price will be displayed, along with a button to complete the transaction. Pressing the button will save the transaction and return to the previous view.<br>
 
-Dla wybranych miejsc wyświetlą się pozycje na liscie. Po lewej jest wyświetlana informacja o miejscu (1:3 - rząd 1 miejsce 3), a po prawej o cenie biletu. Na samym dole wyświetlana jest cena końcowa oraz przycisk zakończenia transakcji. Po jego naciśnięciu następuje zapisanie transakcji oraz przejście do poprzedniego widoku.
-
-
-
-W tym widoku użytkownik może się rejestrować. W tym celu system przyjmuje następujące informacje: login, adres mailowy oraz hasło (pobierane dwa razy w celu potwierdzenia). Po wybraniu sign up nastąpuje zapisanie danych oraz przeniesie do widoku logowania.
+In this view, the user can register by providing the following information: username, email address, and password (entered twice for confirmation). After selecting "Sign Up," the system will save the data and redirect the user to the login view.<br>
 
 <p align="center">
   <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822562236387468/3.png" alt="Ekran rejestracji" width="270" height="585"/>
 </p>
 <br>
 
-Menu aplikacji umożliwia przejście do następujących widoków: home (pkt 1), login (pkt 4), form (pkt 5). Funkcjonalność dla Check for updates nie została zaimplementowana. Dla zalogowanego użytkownika w pozycji login pojawia się opcja Wyloguj się. 
+The application menu allows users to navigate to the following views: home (point 1), login (point 4), and form (point 5). The functionality for "Check for updates" has not been implemented. For logged-in users, the "Login" option in the menu is replaced with "Log Out."
 <br>
 <br>
 
 
-## Instalacja
-- Sklonuj repozytorium projektu z GitHuba do lokalnego katalogu na swoim komputerze.
-- Uruchom program w środowkisku Android Studio IDE
-- Żeby załatować zdjęcia potrzebna jest baza danych oraz połączenie z internetem*
+## Installation
+- Clone the project repository from GitHub to a local directory on your computer.
+- Open the project in the Android Studio IDE.
+- To load images, a database and an internet connection are required.
 <br>
 <br>
 
-## Narzędzia oraz biblioteki:
+## Tools and libraries
 * Android Studio Dolphin (v. 2021.3.1 Patch 1)
 * Spring Boot (v. 3.0.6)
 * Gson (v. 2.8.9)
