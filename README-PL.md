@@ -14,7 +14,7 @@ Główny widok aplikacji pełni rolę kalendarza. W górnym sliderze dostępne s
 Poniżej znajdują się slidery z dodanymi pozycjami. Wybranie pozycji ze slidera prowadzi do szczegółowego opisu filmu (punkt 6. Movie details). 
 
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822539989782578/1.PNG" alt="Ekran główny" width="270" height="585"/>
+  <img src="https://github.com/EagleBlood/MovieGO/blob/main/imgs/1.png" alt="Ekran główny" width="270" height="585"/>
 </p>
 <br>
 
@@ -24,10 +24,10 @@ W widoku <i>Profil</i> wyświetlane są dane o użytkowniku. Są to: nazwa profi
   <table>
     <tr>
       <td style="text-align: center;">
-        <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822621749366864/8.1.png" alt="Profil urzytkownika1" width="270" height="585"/>
+        <img src="https://github.com/EagleBlood/MovieGO/blob/main/imgs/2.1.png" alt="Profil urzytkownika1" width="270" height="585"/>
       </td>
       <td style="text-align: center;">
-        <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822631287205948/8.2.png" alt="Profil urzytkownika2" width="270" height="585"/>
+        <img src="https://github.com/EagleBlood/MovieGO/blob/main/imgs/2.2.png" alt="Profil urzytkownika2" width="270" height="585"/>
       </td>
     </tr>
   </table>
@@ -37,7 +37,7 @@ W widoku <i>Profil</i> wyświetlane są dane o użytkowniku. Są to: nazwa profi
 W poniższym widoku wyświetlane są ostatnie transakcje użytkownika. W elemencie wyświetlane są: nazwa filmu, numer zamówienia, data i godzina seansu oraz ilość miejsc. Po naciśnięciu na element następuje rozwinięcie go i użytkownik może zobaczyć więcej informacji o dokonanej transakcji - zarezerwowane miejsca oraz koszt zakupu.
 
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822609707520030/7.png" alt="Ekran transakcji" width="270" height="585"/>
+  <img src="https://github.com/EagleBlood/MovieGO/blob/main/imgs/3.png" alt="Ekran transakcji" width="270" height="585"/>
 </p>
 <br>
 
@@ -46,21 +46,21 @@ Jeśli niezalogowany użytkownik, który przechodzi do widoku profilu, widoku bi
 Po wybraniu <i>Zaloguj się</i> następuje przeniesie do widoku <i>Rejestracji</i>
 
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822562236387468/3.png" alt="Ekran rejestracji" width="270" height="585"/>
+  <img src="https://github.com/EagleBlood/MovieGO/blob/main/imgs/4.png" alt="Ekran rejestracji" width="270" height="585"/>
 </p>
 <br>
 
 Poniżej przedstawiamy model widoku <i>Formularza</i>, za pomocą którego użytkownik będzie mógł wysłać wiadomość do administratora systemu. Funkcjonalność,nie została zaimplementowana.
 
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822640728588379/9.png" alt="Ekran formularz" width="270" height="585"/>
+  <img src="https://github.com/EagleBlood/MovieGO/blob/main/imgs/5.png" alt="Ekran formularz" width="270" height="585"/>
 </p>
 <br>
 
 W widoku szczegółów filmu wyświetlamy podstawowe informacje o filmie: tytuł, typ filmy, czas trwania oraz opis.
 
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822575037386893/5.png" alt="Szczegóły filmu" width="270" height="585"/>
+  <img src="https://github.com/EagleBlood/MovieGO/blob/main/imgs/6.png" alt="Szczegóły filmu" width="270" height="585"/>
 </p>
 <br>
 
@@ -72,10 +72,10 @@ W poniższym widoku zalogowany użytkownik może dokonać wyboru miejsc w sali k
   <table>
     <tr>
       <td style="text-align: center;">
-        <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822587003744306/6.1.png" alt="Hala kina1" width="270" height="585"/>
+        <img src="https://github.com/EagleBlood/MovieGO/blob/main/imgs/7.1.png" alt="Hala kina1" width="270" height="585"/>
       </td>
       <td style="text-align: center;">
-        <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822599452426270/6.2.png" alt="Hala kina2" width="270" height="585"/>
+        <img src="https://github.com/EagleBlood/MovieGO/blob/main/imgs/7.2.png" alt="Hala kina2" width="270" height="585"/>
       </td>
     </tr>
   </table>
@@ -88,7 +88,7 @@ Dla wybranych miejsc wyświetlą się pozycje na liscie. Po lewej jest wyświetl
 W tym widoku użytkownik może się rejestrować. W tym celu system przyjmuje następujące informacje: login, adres mailowy oraz hasło (pobierane dwa razy w celu potwierdzenia). Po wybraniu sign up nastąpuje zapisanie danych oraz przeniesie do widoku logowania.<br>
 
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1078655641259888680/1117822562236387468/3.png" alt="Ekran rejestracji" width="270" height="585"/>
+  <img src="https://github.com/EagleBlood/MovieGO/blob/main/imgs/8.png" alt="Ekran rejestracji" width="270" height="585"/>
 </p>
 <br>
 
